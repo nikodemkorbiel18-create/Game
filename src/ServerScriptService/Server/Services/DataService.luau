@@ -55,6 +55,7 @@ local TEMPLATE: ProfileData = {
 	SeenReveals = {},
 	Stats = { HighestIncome = 0, EggsStolen = 0, Hatched = 0, EggsGrabbed = 0 },
 	FirstEggPlaced = false,
+	Credits = {},
 }
 
 -- Data migrations: MIGRATIONS[n] upgrades a profile from version n - 1 to n.

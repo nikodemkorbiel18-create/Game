@@ -72,6 +72,7 @@ export type ProfileData = {
 	SeenReveals: { [string]: boolean },
 	Stats: { HighestIncome: number, EggsStolen: number, Hatched: number, EggsGrabbed: number },
 	FirstEggPlaced: boolean,
+	Credits: { [string]: number }, -- e.g. Instant Hatch bought with no matching egg
 }
 
 return {}
