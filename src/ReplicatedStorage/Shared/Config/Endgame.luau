@@ -9,7 +9,7 @@ local Endgame = {
 		ResetOnRebirth = true,
 		Shockwave = { Interval = 3.0, Speed = 32, MaxRadius = 70, Thickness = 3, JumpClearance = 2.2 },
 		Petals = { Interval = 1.2, Warning = 1.2, Radius = 7, Count = 3 },
-		Staff = { DegreesPerSecond = 80, Length = 60, Height = 2.4, Thickness = 2.5 },
+		Staff = { DegreesPerSecond = 80, Length = 100, Height = 2.4, Thickness = 2.5 },
 	},
 	Incubator = {
 		Duration = 60,
