@@ -440,6 +440,80 @@ function UI.Scroller(props: Props): ScrollingFrame
 	return UI.new("ScrollingFrame", defaults)
 end
 
+-- Tab bar + one content page per tab. Returns pages by key and a select function.
+function UI.Tabs(parent: Instance, tabs: { { Key: string, Text: string, Color: Color3? } }, onSelect: ((string) -> ())?): ({ [string]: Frame }, (string) -> ())
+	local bar = UI.new("Frame", {
+		Name = "TabBar",
+		Size = UDim2.new(1, 0, 0, 44),
+		BackgroundTransparency = 1,
+		List = { Direction = Enum.FillDirection.Horizontal, Gap = 8, HAlign = Enum.HorizontalAlignment.Left },
+		Parent = parent,
+	})
+	local pages: { [string]: Frame } = {}
+	local buttons: { [string]: TextButton } = {}
+	local function select(key: string)
+		for tabKey, page in pages do
+			page.Visible = tabKey == key
+			local button = buttons[tabKey]
+			if button then
+				button.BackgroundTransparency = if tabKey == key then 0 else 0.45
+			end
+		end
+		if onSelect then
+			onSelect(key)
+		end
+	end
+	for index, tab in tabs do
+		buttons[tab.Key] = UI.Button({
+			Name = tab.Key,
+			Text = tab.Text,
+			Size = UDim2.fromOffset(math.max(110, #tab.Text * 16 + 30), 40),
+			BackgroundColor3 = tab.Color or Theme.Colors.Sky,
+			LayoutOrder = index,
+			TextMax = 22,
+			OnActivated = function()
+				select(tab.Key)
+			end,
+			Parent = bar,
+		})
+		pages[tab.Key] = UI.new("Frame", {
+			Name = tab.Key .. "Page",
+			Size = UDim2.new(1, 0, 1, -52),
+			Position = UDim2.fromOffset(0, 52),
+			BackgroundTransparency = 1,
+			Visible = index == 1,
+			Parent = parent,
+		})
+	end
+	return pages, select
+end
+
+-- Card with a title, body text and an action button (used across shops)
+function UI.Card(props: Props): (Frame, TextButton)
+	local card = UI.new("Frame", {
+		Name = props.Name or "Card",
+		Size = props.Size or UDim2.fromOffset(220, 230),
+		BackgroundColor3 = props.Color or Theme.Colors.PanelLight,
+		Corner = true,
+		Stroke = { Thickness = 3, Border = true },
+		LayoutOrder = props.LayoutOrder or 0,
+		Parent = props.Parent,
+	})
+	UI.Text({ Name = "Title", Text = props.Title or "", Font = Theme.Fonts.Heading, Size = UDim2.new(1, -16, 0, 34), Position = UDim2.fromOffset(8, 6), TextMax = 26, TextColor3 = props.TitleColor or Theme.Colors.White, Parent = card })
+	UI.Text({ Name = "Body", Text = props.Body or "", Size = UDim2.new(1, -16, 1, -100), Position = UDim2.fromOffset(8, 42), TextMax = 18, TextWrapped = true, TextYAlignment = Enum.TextYAlignment.Top, Parent = card })
+	local button = UI.Button({
+		Name = "Action",
+		Text = props.ButtonText or "BUY",
+		Size = UDim2.new(1, -16, 0, 44),
+		Position = UDim2.new(0, 8, 1, -52),
+		BackgroundColor3 = props.ButtonColor or Theme.Colors.Green,
+		TextMax = 24,
+		OnActivated = props.OnActivated,
+		Parent = card,
+	})
+	return card, button
+end
+
 -- Simple confirm dialog; calls back with true/false
 function UI.Confirm(title: string, body: string, confirmText: string?, callback: (boolean) -> ())
 	local window = windows["Confirm"] or UI.Window("Confirm", title, UDim2.fromOffset(520, 300), Theme.Colors.Purple)

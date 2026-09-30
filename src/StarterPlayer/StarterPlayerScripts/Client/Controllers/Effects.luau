@@ -230,6 +230,48 @@ local function knockback(direction: Vector3, force: number, duration: number)
 	end)
 end
 
+-- Short particle burst at a world position (splash, smoke, bats, trap sparks...)
+local BURSTS: { [string]: { Color: string, Count: number, Size: number, Speed: number, Lifetime: number, Texture: string } } = {
+	Splash = { Color = "#FFE8B6", Count = 30, Size = 1.2, Speed = 12, Lifetime = 0.8, Texture = "rbxasset://textures/particles/sparkles_main.dds" },
+	Smoke = { Color = "#CED4DA", Count = 60, Size = 6, Speed = 6, Lifetime = 2.2, Texture = "rbxasset://textures/particles/smoke_main.dds" },
+	Bats = { Color = "#1B1B1E", Count = 40, Size = 1.4, Speed = 14, Lifetime = 1.2, Texture = "rbxasset://textures/particles/sparkles_main.dds" },
+	TrapSprung = { Color = "#FF4D4D", Count = 40, Size = 1.2, Speed = 10, Lifetime = 0.9, Texture = "rbxasset://textures/particles/sparkles_main.dds" },
+	Blink = { Color = "#9D4EDD", Count = 30, Size = 1.5, Speed = 8, Lifetime = 0.6, Texture = "rbxasset://textures/particles/sparkles_main.dds" },
+	Burst = { Color = "#FFFFFF", Count = 20, Size = 1, Speed = 10, Lifetime = 0.5, Texture = "rbxasset://textures/particles/sparkles_main.dds" },
+	Drop = { Color = "#FFD34D", Count = 20, Size = 0.8, Speed = 8, Lifetime = 0.6, Texture = "rbxasset://textures/particles/sparkles_main.dds" },
+	Hit = { Color = "#FFD86B", Count = 30, Size = 1.4, Speed = 14, Lifetime = 0.6, Texture = "rbxasset://textures/particles/sparkles_main.dds" },
+}
+
+function Effects.Burst(kind: string, position: Vector3)
+	local spec = BURSTS[kind]
+	if not spec or lowGraphics then
+		return
+	end
+	local anchor = Instance.new("Part")
+	anchor.Anchored = true
+	anchor.CanCollide = false
+	anchor.CanQuery = false
+	anchor.CanTouch = false
+	anchor.Transparency = 1
+	anchor.Size = Vector3.one
+	anchor.CFrame = CFrame.new(position)
+	local particles = Instance.new("ParticleEmitter")
+	particles.Texture = spec.Texture
+	particles.Color = ColorSequence.new(Color3.fromHex(spec.Color))
+	particles.Size = NumberSequence.new(spec.Size, spec.Size * 0.3)
+	particles.Transparency = NumberSequence.new(0.1, 1)
+	particles.Speed = NumberRange.new(spec.Speed * 0.5, spec.Speed)
+	particles.Lifetime = NumberRange.new(spec.Lifetime * 0.6, spec.Lifetime)
+	particles.SpreadAngle = Vector2.new(180, 180)
+	particles.Rate = 0
+	particles.Parent = anchor
+	anchor.Parent = workspace
+	particles:Emit(spec.Count)
+	task.delay(spec.Lifetime + 0.5, function()
+		anchor:Destroy()
+	end)
+end
+
 function Effects.Init() end
 
 function Effects.Start()
@@ -300,6 +342,13 @@ function Effects.Start()
 			end
 		elseif effect.Type == "Alert" then
 			Sound.Play("Alert")
+		elseif effect.Type == "Whistle" then
+			Sound.Play("Whistle")
+		elseif typeof(effect.Position) == "Vector3" and BURSTS[effect.Type] then
+			Effects.Burst(effect.Type, effect.Position)
+			if effect.Type == "TrapSprung" or effect.Type == "Hit" then
+				Sound.Play("Slap", 0.7)
+			end
 		end
 	end)
 end
