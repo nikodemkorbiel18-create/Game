@@ -42,6 +42,7 @@ export type CarryInfo = {
 	OwnerUserId: number?, -- original owner for Own / Stolen items
 	FromSlot: number?,
 	Recovered: boolean?, -- the owner took back their own stolen item
+	AutoDeliver: boolean?, -- an Own item that should drop into the pen on reaching home (Sacred Tree results)
 }
 
 type Carry = {
@@ -432,15 +433,17 @@ local function deliver(player: Player, carry: Carry)
 		return
 	end
 	local info = carry.Info
-	if info.Origin == "Own" and not info.Recovered then
+	-- Own items picked up from your own pen stay in your hands so you can rearrange them
+	if info.Origin == "Own" and not info.Recovered and not info.AutoDeliver then
 		return
 	end
 	local item = carry.Item
 	if info.Origin == "Own" then
-		-- the owner carried their stolen chibi back home
+		-- the owner carried their stolen chibi (or a Sacred Tree result) back home
 		CarryService.EndCarry(player)
 		CarryService.GiveToPlayer(player, item, info.FromSlot, true)
-		AnnouncementService.Notify(player, "Recovered " .. Characters.Get(item.CharacterId).DisplayName .. "!", "Success")
+		local name = Characters.Get(item.CharacterId).DisplayName
+		AnnouncementService.Notify(player, if info.Recovered then "Recovered " .. name .. "!" else name .. " is home!", "Success")
 		return
 	end
 	local slotBefore = PlotService.FirstFreeSlot(player)

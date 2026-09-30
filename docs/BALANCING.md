@@ -62,6 +62,12 @@ the Demon General's bats, could never escape. They were cut to:
 | 9 | Bat swarm | 70% for 3 s | 80% for 1.2 s | ~10 studs (was 42) |
 | 11 | Petal field | 80% within 25 studs | 90% within 15 studs | only bites at close range |
 
+New players get a little mercy: until their first egg is home (tutorial steps 1-2),
+Guardians chase them at 75% speed, use no abilities, and let them off with a warning instead
+of catching them (`GameSettings.Guardian.TutorialMercy`). Zone 1's Hall Monitor patrols the
+only hallway out, and at Speed 0 a Normal carrier is barely faster than it, so without this
+a first-time player was often caught on their very first egg.
+
 Other Guardian fixes from the same testing: a caught player is ignored for 4 s
 (`GameSettings.Guardian.CatchGrace`) instead of being re-caught every tick; "blocked" now
 means the Guardian isn't moving rather than the player outrunning it; and a chasing Guardian
@@ -92,14 +98,14 @@ slower; the rule to keep is the shape of this table.
 
 ## The Gatekeeper gauntlet
 
-`lune run tools/gauntlet-bot` sends two bots through it eight times each at random start
-times. The careful bot reads the same hazard math the client draws (shockwave rings,
+`lune run tools/gauntlet-bot` sends two bots through it several times each at random start
+times (`GAUNTLET_ATTEMPTS=16` for the numbers below). The careful bot reads the same hazard math the client draws (shockwave rings,
 telegraphed petals, the staff) and jumps them; the careless bot just runs.
 
 | Version | Careful | Careless |
 |---|---|---|
 | Original tuning | 8/8 cleared | 8/8 cleared (players at zone 11 Speed crossed it in under 3 s) |
-| Now | 8/8 cleared, 0.9 hits on average | 2/8 cleared |
+| Now | 16/16 cleared, 1.1 hits on average | 2/16 cleared |
 
 Changes: WalkSpeed is capped at 26 during a run (`Endgame.Boss.WalkSpeedCap`) so Speed
 doesn't trivialize it; shockwaves every 1.6 s (was 3); 5 petals every 0.9 s with one aimed

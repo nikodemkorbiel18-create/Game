@@ -39,6 +39,7 @@ local GameSettings = world:ServerRequire("ReplicatedStorage.Shared.Config.GameSe
 world:Server(function()
 	local d = DataService.Get(player.player)
 	d.BossCleared = true
+	d.Tutorial.Done = true -- no new-player mercy for the test runner
 	player.player:SetAttribute("BossCleared", true)
 end)
 

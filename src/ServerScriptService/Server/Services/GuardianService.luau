@@ -17,6 +17,8 @@ local Tags = require(Shared.Config.Tags)
 local Zones = require(Shared.Config.Zones)
 local Formulas = require(Shared.Util.Formulas)
 
+local DataService = require(script.Parent.DataService)
+local AnnouncementService = require(script.Parent.AnnouncementService)
 local SpeedService = require(script.Parent.SpeedService)
 local PlotService = require(script.Parent.PlotService)
 local CarryService = require(script.Parent.CarryService)
@@ -175,6 +177,17 @@ end
 -- can recover instead of being caught again every tick.
 local graceUntil: { [Player]: number } = {}
 
+-- Until a new player has brought their first egg home, Guardians chase them more slowly
+-- and let them off with a warning instead of catching them.
+local warned: { [Player]: boolean } = {}
+local function inTutorial(player: Player): boolean
+	if not GameSettings.Guardian.TutorialMercy then
+		return false
+	end
+	local data = DataService.Get(player)
+	return data ~= nil and not data.Tutorial.Done and data.Tutorial.Step <= 2
+end
+
 local function isTarget(guardian: Guardian, player: Player): boolean
 	local root = World.Root(player)
 	if not root or not World.Humanoid(player) then
@@ -325,12 +338,24 @@ local function chase(guardian: Guardian, now: number)
 		return
 	end
 	local distance = (root.Position - guardian.Root.Position).Magnitude
+	local mercy = inTutorial(target)
 	if distance <= GameSettings.Guardian.CatchRadius then
-		catch(guardian, target)
+		if mercy then
+			graceUntil[target] = os.clock() + GameSettings.Guardian.CatchGrace
+			if not warned[target] then
+				warned[target] = true
+				AnnouncementService.Notify(target, guardian.Zone.Guardian.DisplayName .. " lets you off with a warning. Next time, RUN!", "Warning", 4)
+			end
+			setState(guardian, "Return")
+		else
+			catch(guardian, target)
+		end
 		return
 	end
-	useAbility(guardian, target, now)
-	applySpeed(guardian, 1)
+	if not mercy then
+		useAbility(guardian, target, now)
+	end
+	applySpeed(guardian, if mercy then GameSettings.Guardian.TutorialChaseFactor else 1)
 	-- blocked detection -> pathfinding fallback. "Blocked" means the Guardian itself barely
 	-- moved since the last tick; a target simply outrunning it is not an obstacle.
 	local position = guardian.Root.Position
@@ -559,6 +584,7 @@ function GuardianService.Init() end
 function GuardianService.Start()
 	Players.PlayerRemoving:Connect(function(player)
 		graceUntil[player] = nil
+		warned[player] = nil
 	end)
 	spawnGuardians()
 	-- Stone Komainu wakes up when an egg is taken from its nest

@@ -30,8 +30,9 @@ fire remotes. It covers:
 | UI | every sidebar window opens and closes; the HUD fits an 844x390 phone screen |
 
 `lune run tools/soak` runs five bots for 15 simulated minutes (grabbing, delivering,
-raiding, slapping, buying, leaving and rejoining) and fails on any script error. Last run:
-0 errors over ~120 grabs, 100 deliveries, 36 raids, 39 slaps and 26 rejoins.
+raiding, slapping, buying, leaving and rejoining) and fails on any script error. Last runs:
+0 errors over 15 minutes (~120 grabs, 100 deliveries, 36 raids, 39 slaps, 26 rejoins) and
+0 errors over 10 minutes with another seed.
 
 `lune run tools/guardian-lab` and `lune run tools/gauntlet-bot` check balance rather than
 bugs; their current results are in [BALANCING.md](BALANCING.md).

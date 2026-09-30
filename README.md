@@ -86,8 +86,8 @@ Everything designers tune lives in `src/ReplicatedStorage/Shared/Config/`.
 | [STUDIO_SETUP.md](docs/STUDIO_SETUP.md) | Publishing checklist, what the build changed, every CollectionService tag, swapping art, adding content |
 | [ARCHITECTURE.md](docs/ARCHITECTURE.md) | File tree, services, remotes, security model, saved data |
 | [ART_SPEC.md](docs/ART_SPEC.md) | Every character, egg, mutation and Guardian, plus originality changes |
-| [BALANCING.md](docs/BALANCING.md) | Simulator results against the pacing targets |
-| [TEST_PLAN.md](docs/TEST_PLAN.md) | The acceptance checklist, step by step |
+| [BALANCING.md](docs/BALANCING.md) | Pacing simulator results, the Guardian escape table, gauntlet difficulty |
+| [TEST_PLAN.md](docs/TEST_PLAN.md) | What the headless playtest covers, and the acceptance checklist for Studio |
 | [GAME_DESCRIPTION.md](docs/GAME_DESCRIPTION.md) | Store description, 5 thumbnail concepts, icon concept |
 | [MODELS.md](MODELS.md) | Where each model from your original map ended up |
 
@@ -102,4 +102,11 @@ Everything designers tune lives in `src/ReplicatedStorage/Shared/Config/`.
   are shown in the Index but not required, so completion never needs Robux.
 - Gamepasses and products are hidden until their IDs are set; admins can test them with free
   grants.
+- Guardian abilities follow the brief's "light" rule (see [BALANCING.md](docs/BALANCING.md)).
+  That means the Komainu's wake-up sprint is 1.3x for 1.6 s rather than "very fast for 5 s":
+  at 5 s nobody at the recommended Speed could escape it.
+- Guardians go easy on a brand-new player until their first egg is home (slower chase,
+  a warning instead of a catch), so the tutorial can't stall on the Hall Monitor.
+- WalkSpeed is capped at 26 while running the Gatekeeper gauntlet; otherwise zone 11 Speed
+  crosses it in under 3 seconds and the hazards never matter.
 - ProfileStore by loleris (Apache 2.0) handles session-locked saves.

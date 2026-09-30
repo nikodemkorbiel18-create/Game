@@ -115,7 +115,7 @@ local function claim(player: Player, index: number): (boolean, string?)
 	item.Mutation = if roll < Mutations.ById.KamiBloom.Chance then "KamiBloom" else "PetalBloom"
 	table.remove(data.Incubator, index)
 	DataService.Changed(player, "Incubator")
-	if not CarryService.StartCarry(player, item, { Origin = "Own", OwnerUserId = player.UserId }) then
+	if not CarryService.StartCarry(player, item, { Origin = "Own", OwnerUserId = player.UserId, AutoDeliver = true }) then
 		CarryService.GiveToPlayer(player, item, nil, true)
 	end
 	local mutation = Mutations.Get(item.Mutation)

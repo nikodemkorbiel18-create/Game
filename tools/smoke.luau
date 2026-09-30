@@ -13,13 +13,12 @@ local Emu = require("./emu")
 local Vector3, CFrame = roblox.Vector3, require("./lib/cframe")
 
 local verbose = table.find(process.args, "--verbose") ~= nil
-local only = nil
+local only, stopAfter = nil, nil
 for _, arg in process.args do
-	local name = string.match(arg, "^%-%-only=(.+)$")
-	if name then
-		only = name
-	end
+	only = string.match(arg, "^%-%-only=(.+)$") or only
+	stopAfter = string.match(arg, "^%-%-until=(.+)$") or stopAfter
 end
+local stopped = false
 
 local world = Emu.new({ place = "StealAChibi.rbxl", quiet = not verbose })
 local R = Emu.Runtime
@@ -27,8 +26,11 @@ local game = Emu.I.wrap(world.game) -- for code run inside client/server context
 
 local results = {}
 local function step(name, fn)
-	if only and not string.find(string.lower(name), string.lower(only), 1, true) then
+	if stopped or (only and not string.find(string.lower(name), string.lower(only), 1, true)) then
 		return
+	end
+	if stopAfter and string.find(string.lower(name), string.lower(stopAfter), 1, true) then
+		stopped = true
 	end
 	local errorsBefore = #R.errors
 	local ok, err = pcall(fn)
@@ -66,6 +68,7 @@ local Services = "ServerScriptService.Server.Services."
 local DataService = world:ServerRequire(Services .. "DataService")
 local PlotService = world:ServerRequire(Services .. "PlotService")
 local CarryService = world:ServerRequire(Services .. "CarryService")
+local SpeedService = world:ServerRequire(Services .. "SpeedService")
 
 local function data(client)
 	return world:Server(function()
@@ -113,36 +116,87 @@ local function eggPedestal(zoneId, from)
 	return best
 end
 
+local GuardianService = world:ServerRequire(Services .. "GuardianService")
+
+local function nearestGuardian(zoneId, position)
+	return world:Server(function()
+		local best = math.huge
+		for _, guardian in GuardianService.All() do
+			if guardian.Zone.Id == zoneId then
+				best = math.min(best, (guardian.Root.Position - position).Magnitude)
+			end
+		end
+		return best
+	end)
+end
+
 local function grabEgg(client, zoneId)
-	-- like a player: if the Guardian gets you first, back off and try again
+	-- like a player: wait for the Guardian to wander off, and if it gets you anyway, back
+	-- off and try again
 	for _ = 1, 4 do
 		local pedestal = eggPedestal(zoneId, client:Position())
 		check(pedestal, "no egg available in zone %d", zoneId)
+		world:RunUntil(function()
+			return nearestGuardian(zoneId, pedestal.CFrame.Position) > 25
+		end, 60)
 		local target = pedestal.CFrame.Position + Vector3.new(0, 0, 3)
 		check(client:WalkTo(target, 120), "%s could not walk to zone %d egg", client.name, zoneId)
-		local ok = client:HoldPrompt(pedestal:FindFirstChild("GrabPrompt"), 0.6)
+		local ok, why = client:HoldPrompt(pedestal:FindFirstChild("GrabPrompt"), 0.6)
 		world:Run(0.3)
 		if ok and carrying(client) then
 			return pedestal
 		end
+		local status = world:Server(function()
+			return {
+				carrying = CarryService.IsCarrying(client.player),
+				stunned = SpeedService.IsStunned(client.player),
+				guardian = nearestGuardian(zoneId, pedestal.CFrame.Position),
+			}
+		end)
+		print(string.format("      (grab attempt failed: prompt=%s %s, already carrying=%s, stunned=%s, guardian %.0f studs away)", tostring(ok), tostring(why or ""), tostring(status.carrying), tostring(status.stunned), status.guardian))
 		client:WalkTo(PLAZA, 60)
 		world:Run(5)
 	end
 	error(client.name .. " could not grab an egg in zone " .. zoneId)
 end
 
--- Grab a zone 1 egg and carry it out to the plaza (retrying if a Guardian gets you)
+-- Pick something up from the client's own pen and carry it out to the plaza (keeps the
+-- PvP checks independent of where zone 1's Guardian happens to be patrolling)
 local function grabToPlaza(client)
-	for _ = 1, 4 do
-		grabEgg(client, 1)
-		client:WalkTo(PLAZA, 60)
-		world:Run(0.3)
-		if carrying(client) then
-			return
-		end
-		world:Run(5)
+	local plot = plotOf(client)
+	local slotIndex
+	for key in data(client).Pen do
+		slotIndex = tonumber(key)
+		break
 	end
-	error(client.name .. " could not carry an egg to the plaza")
+	if not slotIndex then
+		client:Invoke("Admin", "GiveCharacter", "KohanaNineTail", 3, nil, false)
+		world:Run(0.5)
+		for key in data(client).Pen do
+			slotIndex = tonumber(key)
+			break
+		end
+	end
+	check(slotIndex, "%s has nothing in the pen to carry", client.name)
+	local slot = Emu.I.realOf(plot.Slots[slotIndex])
+	client:Teleport(slot.CFrame.Position + Vector3.new(0, 3, 3))
+	world:Run(0.3)
+	local ok, why = client:HoldPrompt(slot:FindFirstChild("SlotPrompt"), 0.7)
+	check(ok, "pen pickup prompt: %s", tostring(why))
+	world:Run(0.3)
+	check(carrying(client), "%s did not pick the chibi up", client.name)
+	check(client:WalkTo(PLAZA, 60), "%s could not reach the plaza", client.name)
+	world:Run(0.3)
+	check(carrying(client), "%s lost the chibi on the way to the plaza", client.name)
+end
+
+-- Make sure the client has at least one chibi in their pen (for raid checks)
+local function ensurePen(client)
+	if penCount(client) == 0 then
+		client:Invoke("Admin", "GiveCharacter", "KohanaNineTail", 3, nil, false)
+		world:Run(0.5)
+	end
+	check(penCount(client) > 0, "%s has nothing in the pen", client.name)
 end
 
 local function goHome(client)
@@ -238,7 +292,6 @@ step("tutorial completes", function()
 end)
 
 local EggSpawnService = world:ServerRequire(Services .. "EggSpawnService")
-local SpeedService = world:ServerRequire(Services .. "SpeedService")
 local Zones = world:ServerRequire("ReplicatedStorage.Shared.Config.Zones")
 
 local function admin(client, command, ...)
@@ -270,8 +323,6 @@ local function stageEgg(zoneId, rank)
 		return nil
 	end)
 end
-
-local GuardianService = world:ServerRequire(Services .. "GuardianService")
 
 -- Distance to the nearest Guardian of a zone that is NOT behind the position (home is +Z)
 local function guardianDistance(zoneId, position)
@@ -394,6 +445,7 @@ step("raid: steal from a pen, theft alert, ownership on delivery", function()
 	admin(alice, "EndShield")
 	goHome(alice)
 	world:Run(1)
+	ensurePen(alice)
 	local d = data(alice)
 	local slotIndex, item
 	for key, it in d.Pen do
@@ -569,6 +621,10 @@ step("dying while carrying drops the egg; respawn keeps the HUD", function()
 	local floor = Emu.I.realOf(plot.Floor)
 	local position = alice:Position()
 	check(flat(position, floor.CFrame.Position) < 60, "respawned away from the base (%.0f studs)", flat(position, floor.CFrame.Position))
+	-- the chibi she dropped goes back to her pen once nobody picks it up
+	check(world:RunUntil(function()
+		return penCount(alice) > 0
+	end, 20), "the dropped chibi never came home")
 end)
 
 step("rejoin restores saved data", function()
@@ -592,6 +648,7 @@ end)
 step("thief leaving mid-raid returns the chibi to its owner", function()
 	admin(alice, "EndShield")
 	goHome(alice)
+	ensurePen(alice)
 	local d = data(alice)
 	local slotIndex
 	for key in d.Pen do
@@ -617,6 +674,7 @@ end)
 step("owner leaving mid-raid keeps the chibi in their saved pen", function()
 	admin(alice, "EndShield")
 	goHome(alice)
+	ensurePen(alice)
 	local slotIndex
 	for key in data(alice).Pen do
 		slotIndex = tonumber(key)

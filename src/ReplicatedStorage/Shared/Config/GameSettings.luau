@@ -43,6 +43,8 @@ local GameSettings = {
 		PatrolPause = 1.5,
 		RagdollTime = 1.5,
 		CatchGrace = 4, -- seconds a caught player is ignored by every Guardian
+		TutorialMercy = true, -- no catches until a new player has brought their first egg home
+		TutorialChaseFactor = 0.75, -- Guardian speed while chasing a player in the tutorial
 		KnockbackForce = 60,
 		MinWalkSpeed = 12.8,
 	},
