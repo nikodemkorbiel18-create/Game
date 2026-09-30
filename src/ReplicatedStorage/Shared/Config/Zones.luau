@@ -2,6 +2,10 @@
 -- Zones (biomes), their Guardians and egg spawn tables.
 -- Map geometry lives in Studio (see docs/STUDIO_SETUP.md); this module only holds data.
 
+-- Abilities are flavour and must stay light: one use should gain a Guardian no more than
+-- ~10 studs on a player at the zone's recommended Speed carrying a Normal egg, so that
+-- player still escapes whenever the Guardian starts ~20 studs behind them.
+-- tools/guardian-lab.luau measures this for every zone.
 export type GuardianAbility = {
 	Type: string,
 	Enabled: boolean,
@@ -10,6 +14,7 @@ export type GuardianAbility = {
 	Multiplier: number?,
 	Radius: number?,
 	Distance: number?,
+	BurstDuration: number?, -- Statue: how long the wake-up sprint lasts (Duration = time awake)
 }
 
 export type Guardian = {
@@ -94,7 +99,7 @@ local zones: { Zone } = {
 			Template = "RamenMaster",
 			Count = 1,
 			DetectRadiusMult = 1,
-			Ability = { Type = "NoodleSplash", Enabled = true, Interval = 8, Duration = 2, Multiplier = 0.6, Radius = 30 },
+			Ability = { Type = "NoodleSplash", Enabled = true, Interval = 8, Duration = 1.5, Multiplier = 0.7, Radius = 30 },
 			Color = "#FF4FA0",
 		},
 		EggTheme = {
@@ -120,7 +125,7 @@ local zones: { Zone } = {
 			Template = "Guardian_StoneKomainu",
 			Count = 1,
 			DetectRadiusMult = 1,
-			Ability = { Type = "Statue", Enabled = true, Duration = 5, Multiplier = 1.5 },
+			Ability = { Type = "Statue", Enabled = true, Duration = 5, BurstDuration = 1.6, Multiplier = 1.3 },
 			Color = "#9A9A9A",
 		},
 		EggTheme = {
@@ -146,7 +151,7 @@ local zones: { Zone } = {
 			Template = "Guardian_LifeguardCaptain",
 			Count = 1,
 			DetectRadiusMult = 1,
-			Ability = { Type = "SprintBurst", Enabled = true, Interval = 10, Duration = 1.5, Multiplier = 1.5 },
+			Ability = { Type = "SprintBurst", Enabled = true, Interval = 10, Duration = 1.2, Multiplier = 1.3 },
 			Color = "#E63946",
 		},
 		EggTheme = {
@@ -224,7 +229,7 @@ local zones: { Zone } = {
 			Template = "Guardian_PatrolMech",
 			Count = 2,
 			DetectRadiusMult = 1,
-			Ability = { Type = "Mech", Enabled = true, Multiplier = 1.25 },
+			Ability = { Type = "Mech", Enabled = true, Multiplier = 1.06 },
 			Color = "#495057",
 		},
 		EggTheme = {
@@ -250,7 +255,7 @@ local zones: { Zone } = {
 			Template = "Guardian_KnightCaptain",
 			Count = 2,
 			DetectRadiusMult = 1,
-			Ability = { Type = "Charge", Enabled = true, Interval = 9, Duration = 1, Multiplier = 2 },
+			Ability = { Type = "Charge", Enabled = true, Interval = 9, Duration = 0.7, Multiplier = 1.35 },
 			Color = "#CAD2C5",
 		},
 		EggTheme = {
@@ -276,7 +281,7 @@ local zones: { Zone } = {
 			Template = "Guardian_DemonGeneral",
 			Count = 2,
 			DetectRadiusMult = 1,
-			Ability = { Type = "BatSwarm", Enabled = true, Interval = 12, Duration = 3, Multiplier = 0.7, Radius = 35 },
+			Ability = { Type = "BatSwarm", Enabled = true, Interval = 12, Duration = 1.2, Multiplier = 0.8, Radius = 35 },
 			Color = "#6A040F",
 		},
 		EggTheme = {
@@ -328,7 +333,7 @@ local zones: { Zone } = {
 			Template = "Guardian_CelestialWarden",
 			Count = 2,
 			DetectRadiusMult = 1,
-			Ability = { Type = "PetalField", Enabled = true, Multiplier = 0.8, Radius = 25 },
+			Ability = { Type = "PetalField", Enabled = true, Multiplier = 0.9, Radius = 15 },
 			Color = "#FFF1C1",
 		},
 		EggTheme = {

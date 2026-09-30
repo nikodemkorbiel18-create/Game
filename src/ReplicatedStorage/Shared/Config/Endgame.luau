@@ -6,10 +6,15 @@ local Endgame = {
 		DisplayName = "Heavenly Gatekeeper",
 		MaxHits = 2, -- reaching the gate with fewer than 3 hits clears the gauntlet
 		HitInvulnerability = 1.0,
+		-- WalkSpeed cap while running the gauntlet, so it stays a timing challenge however
+		-- much Speed a player has (at zone 11's recommended Speed you'd otherwise cross it
+		-- in under 3 seconds and dodge nothing)
+		WalkSpeedCap = 26,
 		ResetOnRebirth = true,
-		Shockwave = { Interval = 3.0, Speed = 32, MaxRadius = 70, Thickness = 3, JumpClearance = 2.2 },
-		Petals = { Interval = 1.2, Warning = 1.2, Radius = 7, Count = 3 },
-		Staff = { DegreesPerSecond = 80, Length = 100, Height = 2.4, Thickness = 2.5 },
+		Shockwave = { Interval = 1.6, Speed = 32, MaxRadius = 70, Thickness = 3, JumpClearance = 2.2 },
+		-- one petal per runner is aimed where they are heading; the rest land at random
+		Petals = { Interval = 0.9, Warning = 1.0, Radius = 7, Count = 5 },
+		Staff = { DegreesPerSecond = 110, Length = 100, Height = 2.4, Thickness = 2.5 },
 	},
 	Incubator = {
 		Duration = 60,

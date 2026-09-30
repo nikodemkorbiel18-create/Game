@@ -8,7 +8,7 @@ local Runtime = require("./Runtime")
 local I = require("./Instances")
 local S = require("./Shared")
 
-local Vector3, Vector2, CFrame = roblox.Vector3, roblox.Vector2, roblox.CFrame
+local Vector3, Vector2, CFrame = roblox.Vector3, roblox.Vector2, require("../lib/cframe")
 
 local wrap, unwrap, selfReal, states = I.wrap, I.unwrap, I.selfReal, I.states
 local method, event, prop = I.method, I.event, I.prop

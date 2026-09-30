@@ -58,7 +58,7 @@ function M.load(opts)
 		Random = RandomShim,
 		Vector3 = roblox.Vector3,
 		Vector2 = roblox.Vector2,
-		CFrame = roblox.CFrame,
+		CFrame = require("./cframe"),
 		Color3 = roblox.Color3,
 		Enum = roblox.Enum,
 		Instance = roblox.Instance,

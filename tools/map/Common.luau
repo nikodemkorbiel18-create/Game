@@ -4,7 +4,7 @@
 local roblox = require("@lune/roblox")
 
 local Instance = roblox.Instance
-local CFrame = roblox.CFrame
+local CFrame = require("../lib/cframe")
 local Vector3 = roblox.Vector3
 local Color3 = roblox.Color3
 local Enum = roblox.Enum

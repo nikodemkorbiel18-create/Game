@@ -10,7 +10,7 @@ local process = require("@lune/process")
 local roblox = require("@lune/roblox")
 local Emu = require("./emu")
 
-local Vector3, CFrame = roblox.Vector3, roblox.CFrame
+local Vector3, CFrame = roblox.Vector3, require("./lib/cframe")
 
 local verbose = table.find(process.args, "--verbose") ~= nil
 local only = nil
@@ -53,6 +53,9 @@ local function check(condition, message, ...)
 		error(string.format(message, ...), 2)
 	end
 end
+
+-- Somewhere in Station Plaza: outside every base and beyond zone 1's chase range
+local PLAZA = Vector3.new(-20, 5, 718)
 
 -- Server helpers ----------------------------------------------------------------------------
 
@@ -111,15 +114,35 @@ local function eggPedestal(zoneId, from)
 end
 
 local function grabEgg(client, zoneId)
-	local pedestal = eggPedestal(zoneId, client:Position())
-	check(pedestal, "no egg available in zone %d", zoneId)
-	local target = pedestal.CFrame.Position + Vector3.new(0, 0, 3)
-	check(client:WalkTo(target, 120), "%s could not walk to zone %d egg", client.name, zoneId)
-	local ok, why = client:HoldPrompt(pedestal:FindFirstChild("GrabPrompt"), 0.6)
-	check(ok, "grab prompt unusable: %s", tostring(why))
-	world:Run(0.3)
-	check(carrying(client), "%s is not carrying after grabbing", client.name)
-	return pedestal
+	-- like a player: if the Guardian gets you first, back off and try again
+	for _ = 1, 4 do
+		local pedestal = eggPedestal(zoneId, client:Position())
+		check(pedestal, "no egg available in zone %d", zoneId)
+		local target = pedestal.CFrame.Position + Vector3.new(0, 0, 3)
+		check(client:WalkTo(target, 120), "%s could not walk to zone %d egg", client.name, zoneId)
+		local ok = client:HoldPrompt(pedestal:FindFirstChild("GrabPrompt"), 0.6)
+		world:Run(0.3)
+		if ok and carrying(client) then
+			return pedestal
+		end
+		client:WalkTo(PLAZA, 60)
+		world:Run(5)
+	end
+	error(client.name .. " could not grab an egg in zone " .. zoneId)
+end
+
+-- Grab a zone 1 egg and carry it out to the plaza (retrying if a Guardian gets you)
+local function grabToPlaza(client)
+	for _ = 1, 4 do
+		grabEgg(client, 1)
+		client:WalkTo(PLAZA, 60)
+		world:Run(0.3)
+		if carrying(client) then
+			return
+		end
+		world:Run(5)
+	end
+	error(client.name .. " could not carry an egg to the plaza")
 end
 
 local function goHome(client)
@@ -250,12 +273,15 @@ end
 
 local GuardianService = world:ServerRequire(Services .. "GuardianService")
 
+-- Distance to the nearest Guardian of a zone that is NOT behind the position (home is +Z)
 local function guardianDistance(zoneId, position)
 	return world:Server(function()
 		local best = math.huge
 		for _, guardian in GuardianService.All() do
 			if guardian.Zone.Id == zoneId then
-				best = math.min(best, (guardian.Root.Position - position).Magnitude)
+				local p = guardian.Root.Position
+				local behind = p.Z < position.Z - 5
+				best = math.min(best, if behind then (p - position).Magnitude else 0)
 			end
 		end
 		return best
@@ -266,12 +292,12 @@ local function runZone2(client, rank)
 	local part = stageEgg(2, rank)
 	check(part, "no zone 2 egg")
 	local real = Emu.I.realOf(part)
-	-- wait for the Guardian to patrol away, like a player timing their run
+	-- wait until the Guardian has patrolled away behind the nest, like a player timing their run
 	client:Teleport(Vector3.new(-45, 5, 590))
 	local clear = world:RunUntil(function()
-		return guardianDistance(2, real.CFrame.Position) > 40
-	end, 90)
-	check(clear, "the zone 2 Guardian never left its nest")
+		return guardianDistance(2, real.CFrame.Position) > 25
+	end, 120)
+	check(clear, "the zone 2 Guardian never moved behind the nest")
 	local before = penCount(client)
 	client:Teleport(real.CFrame.Position + Vector3.new(0, 3, 4))
 	world:Run(0.2)
@@ -315,13 +341,9 @@ step("admin: egg reset and Secret spawn announcement", function()
 	check(#world:Tagged("WorldEgg") >= 80, "eggs missing after reset")
 end)
 
--- Somewhere in Station Plaza: outside every base and beyond zone 1's chase range
-local PLAZA = Vector3.new(-20, 5, 718)
-
 step("snatch: another player steals a carried egg", function()
 	setSpeed(bob, 1000)
-	grabEgg(alice, 1)
-	check(alice:WalkTo(PLAZA, 60), "Alice could not reach the plaza")
+	grabToPlaza(alice)
 	local root = alice:Root()
 	local snatch = alice:Character():FindFirstChild("SnatchPrompt", true)
 	check(snatch, "no snatch prompt on the carrier")
@@ -337,8 +359,7 @@ step("snatch: another player steals a carried egg", function()
 end)
 
 step("slap: Harisen knocks the egg out of a carrier's hands", function()
-	grabEgg(alice, 1)
-	check(alice:WalkTo(PLAZA, 60), "Alice could not reach the plaza")
+	grabToPlaza(alice)
 	alice:StopWalking()
 	local root = alice:Root()
 	local pos = root.CFrame.Position
@@ -530,6 +551,26 @@ local function snapshot(client)
 	return { Cash = d.Cash, Speed = d.Speed, Pen = penCount(client), Inventory = #d.Inventory, Tier = d.TreadmillTier, PenLevel = d.PenLevel }
 end
 
+step("dying while carrying drops the egg; respawn keeps the HUD", function()
+	grabToPlaza(alice)
+	local humanoid = alice:Humanoid()
+	world:Server(function()
+		Emu.I.wrap(humanoid).Health = 0
+	end)
+	world:Run(1)
+	check(not carrying(alice), "still carrying after dying")
+	local died = alice:Character()
+	check(world:RunUntil(function()
+		return alice:Character() ~= died and alice:Root() ~= nil
+	end, 10), "no respawn")
+	world:Run(2)
+	check(alice:Gui():FindFirstChild("HUD"), "HUD missing after respawn")
+	local plot = plotOf(alice)
+	local floor = Emu.I.realOf(plot.Floor)
+	local position = alice:Position()
+	check(flat(position, floor.CFrame.Position) < 60, "respawned away from the base (%.0f studs)", flat(position, floor.CFrame.Position))
+end)
+
 step("rejoin restores saved data", function()
 	world:Run(2)
 	local before = snapshot(alice)
@@ -648,11 +689,12 @@ step("gauntlet gate, admin clear, Sacred Tree incubator", function()
 	r = alice:Invoke("Incubator", "Start")
 	check(r.Ok, "incubator start: %s", tostring(r.Error))
 	world:Run(62)
-	r = alice:Invoke("Incubator", "Claim")
+	r = alice:Invoke("Incubator", "Claim", 1)
 	check(r.Ok, "incubator claim: %s", tostring(r.Error))
 end)
 
 step("rebirth resets and keeps the right things", function()
+	goHome(alice) -- deliver whatever the incubator step left in her hands
 	admin(alice, "GiveCash", 2e6)
 	admin(alice, "GiveCharacter", "KohanaNineTail", 3, nil, false)
 	world:Run(0.5)

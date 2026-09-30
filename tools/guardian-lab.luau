@@ -8,10 +8,13 @@ local process = require("@lune/process")
 local roblox = require("@lune/roblox")
 local Emu = require("./emu")
 
-local Vector3, CFrame = roblox.Vector3, roblox.CFrame
+local Vector3, CFrame = roblox.Vector3, require("./lib/cframe")
 
 local firstZone, lastZone = 1, 11
+local trace = table.find(process.args, "--trace") ~= nil
+local onlyDistance = nil
 for _, arg in process.args do
+	onlyDistance = tonumber(string.match(arg, "^%-%-distance=(%d+)$")) or onlyDistance
 	local a, b = string.match(arg, "^%-%-zones=(%d+)%-(%d+)$")
 	if a then
 		firstZone, lastZone = tonumber(a), tonumber(b)
@@ -55,15 +58,16 @@ local function trial(zoneId, rank, distance)
 		SpeedService.Apply(player.player)
 	end)
 	-- stage an egg
+	-- always the same pedestal (index 1), refilled for every trial
 	local pedestalPart = world:Server(function()
-		for index = 1, 8 do
-			local pedestal = EggSpawnService.Pedestal(zoneId, index)
-			if pedestal and pedestal.Egg then
-				pedestal.Egg.SizeTier = rank
-				return pedestal.Part
-			end
+		local pedestal = EggSpawnService.Pedestal(zoneId, 1)
+		if pedestal and not pedestal.Egg then
+			EggSpawnService.ResetAll()
 		end
-		EggSpawnService.AdminSpawn(zoneId, nil, nil)
+		if pedestal and pedestal.Egg then
+			pedestal.Egg.SizeTier = rank
+			return pedestal.Part
+		end
 		return nil
 	end)
 	if not pedestalPart then
@@ -91,7 +95,12 @@ local function trial(zoneId, rank, distance)
 		return out
 	end)
 	local maxZ = if bounds then Emu.I.realOf(bounds).CFrame.Position.Z + Emu.I.realOf(bounds).Size.Z / 2 else pedestal.Z + 120
+	player:StopWalking()
 	player:Teleport(pedestal + Vector3.new(0, 3, 2.5))
+	local rootState = Emu.I.states[player:Root()]
+	if rootState and rootState.virtual then
+		rootState.virtual.AssemblyLinearVelocity = nil
+	end
 	world:Run(0.1)
 	local ok, why = player:HoldPrompt(Emu.I.wrap(Emu.I.realOf(pedestalPart):FindFirstChild("GrabPrompt")), GameSettings.GrabHoldTime + 0.05)
 	if not ok or not player.real:GetAttribute("Carrying") then
@@ -104,11 +113,20 @@ local function trial(zoneId, rank, distance)
 		return "no grab(" .. tostring(why or (if stunned then "stunned" else "?")) .. ")"
 	end
 	local ws = player:Humanoid().WalkSpeed
-	-- release the Guardians: they notice the thief and give chase (with the normal windup)
+	-- release the Guardians already chasing and facing the thief (in real play they notice
+	-- you as soon as you step into the nest, before the grab finishes)
 	world:Server(function()
 		for _, guardian in GuardianService.All() do
 			if guardian.Zone.Id == zoneId then
 				guardian.FrozenUntil = 0
+				guardian.Target = player.player
+				guardian.State = "Chase"
+				guardian.StateSince = os.clock()
+				guardian.ChaseStart = os.clock()
+				guardian.LastDistance = math.huge
+				guardian.LastPosition = nil
+				local from = guardian.Root.Position
+				guardian.Model:PivotTo(CFrame.lookAt(from, Vector3.new(pedestal.X, from.Y, pedestal.Z + 5)))
 			end
 		end
 	end)
@@ -120,6 +138,21 @@ local function trial(zoneId, rank, distance)
 			return "CAUGHT", ws
 		end
 		local p = player:Position()
+		if trace and math.floor(world:Now() * 5) ~= math.floor((world:Now() - world.dt) * 5) then
+			local line = string.format("  t=%.1f runner z=%.0f y=%.1f", world:Now(), p.Z, p.Y)
+			for _, g in world:Server(function()
+				local out = {}
+				for _, guardian in GuardianService.All() do
+					if guardian.Zone.Id == zoneId then
+						table.insert(out, { guardian.State, guardian.Root.Position, guardian.Humanoid.WalkSpeed })
+					end
+				end
+				return out
+			end) do
+				line ..= string.format(" | %s z=%.0f y=%.1f ws=%.1f d=%.1f", g[1], g[2].Z, g[2].Y, g[3], (g[2] - p).Magnitude)
+			end
+			print(line)
+		end
 		if p.Z >= goal.Z - 1 then
 			return "escaped", ws
 		end
@@ -146,11 +179,14 @@ for zoneId = firstZone, lastZone do
 	for _, rank in { 3, 5 } do
 		local ws
 		local cells = {}
-		for _, distance in DISTANCES do
+		for _, distance in (if onlyDistance then { onlyDistance } else DISTANCES) do
 			local result, speed = trial(zoneId, rank, distance)
 			ws = speed or ws
 			table.insert(cells, if result == "escaped" then "ok" elseif result == "CAUGHT" then "XX" else result)
-			world:Run(3)
+			-- cool down away from the nest so stuns and grace periods expire
+			player:StopWalking()
+			player:Teleport(Vector3.new(-20, 5, 718))
+			world:Run(5)
 		end
 		line ..= string.format(" %s(%4.1f) %s |", if rank == 3 then "N" else "H", ws or 0, table.concat(cells, " "))
 	end

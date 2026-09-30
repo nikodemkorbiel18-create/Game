@@ -192,8 +192,13 @@ local function isTarget(guardian: Guardian, player: Player): boolean
 	if guardian.Zone.Guardian.Ability.Type == "Statue" and guardian.Zone.Guardian.Ability.Enabled and not guardian.Awake then
 		return false
 	end
-	local radius = guardian.NestRadius * guardian.Zone.Guardian.DetectRadiusMult
-	return (root.Position - guardian.NestCenter).Magnitude <= radius
+	-- the Stage Manager's spotlights are its bigger detection radius; the toggle turns it off
+	local ability = guardian.Zone.Guardian.Ability
+	local mult = guardian.Zone.Guardian.DetectRadiusMult
+	if ability.Type == "Spotlight" then
+		mult = if ability.Enabled then ability.Multiplier or mult else 1
+	end
+	return (root.Position - guardian.NestCenter).Magnitude <= guardian.NestRadius * mult
 end
 
 local function findTarget(guardian: Guardian): Player?
@@ -353,7 +358,10 @@ local function chase(guardian: Guardian, now: number)
 		guardian.BlockedSince = nil
 		task.spawn(computePath, guardian, root.Position)
 	end
-	moveTo(guardian, root.Position)
+	-- Aim a few studs past the target: MoveTo stops at its goal, and chasing where the
+	-- target was a tick ago would leave a fast Guardian hovering just behind a slower one.
+	local offset = (root.Position - guardian.Root.Position) * Vector3.new(1, 0, 1)
+	moveTo(guardian, if offset.Magnitude > 0.1 then root.Position + offset.Unit * 6 else root.Position)
 end
 
 local function patrol(guardian: Guardian, now: number)
@@ -559,8 +567,8 @@ function GuardianService.Start()
 			if guardian.Zone.Id == zoneId and guardian.Zone.Guardian.Ability.Type == "Statue" and guardian.Zone.Guardian.Ability.Enabled then
 				guardian.Awake = true
 				guardian.Target = player
-				guardian.BurstUntil = os.clock() + (guardian.Zone.Guardian.Ability.Duration or 5)
-				guardian.BurstMultiplier = guardian.Zone.Guardian.Ability.Multiplier or 1.5
+				guardian.BurstUntil = os.clock() + (guardian.Zone.Guardian.Ability.BurstDuration or 2)
+				guardian.BurstMultiplier = guardian.Zone.Guardian.Ability.Multiplier or 1.3
 				setState(guardian, "Alert")
 			end
 		end

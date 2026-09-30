@@ -7,7 +7,7 @@ local process = require("@lune/process")
 local roblox = require("@lune/roblox")
 local Emu = require("./emu")
 
-local Vector3, CFrame = roblox.Vector3, roblox.CFrame
+local Vector3, CFrame = roblox.Vector3, require("./lib/cframe")
 local R = Emu.Runtime
 local I = Emu.I
 

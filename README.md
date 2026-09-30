@@ -65,8 +65,17 @@ rojo serve                    # then Connect from the Rojo Studio plugin
 lune run tools/test           # unit tests for configs and formulas
 lune run tools/simulate       # balancing: time to reach each zone
 lune run tools/build-place    # rebuild StealAChibi.rbxl from assets/base-map.rbxl + src/
+lune run tools/smoke          # headless playthrough: real scripts, fake players (see tools/emu)
+lune run tools/soak           # five bots playing at once for 15 simulated minutes
+lune run tools/guardian-lab   # escape/catch table for every zone's Guardian
+lune run tools/gauntlet-bot   # can careful players clear the Gatekeeper, and do careless ones fail?
 lune run tools/gen-art-spec   # regenerate docs/ART_SPEC.md from the configs
 ```
+
+`tools/emu` is a small headless stand-in for the Roblox engine: it runs the actual server
+and client scripts on a virtual clock with fake players, so most gameplay bugs show up
+without opening Studio. It has no collisions or rendering, so it doesn't replace a real
+playtest (see [tools/emu/README.md](tools/emu/README.md)).
 
 Everything designers tune lives in `src/ReplicatedStorage/Shared/Config/`.
 

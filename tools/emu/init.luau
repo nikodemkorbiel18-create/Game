@@ -22,7 +22,8 @@ local Physics = require("@self/Physics")
 local Services = require("@self/Services")
 local S = require("@self/Shared")
 
-local Vector3, CFrame, Enum = roblox.Vector3, roblox.CFrame, roblox.Enum
+local FixedCFrame = require("./lib/cframe")
+local Vector3, CFrame, Enum = roblox.Vector3, FixedCFrame, roblox.Enum
 local wrap, unwrap, states = I.wrap, I.unwrap, I.states
 
 local Emu = {}
@@ -224,12 +225,12 @@ function World:_baseEnv(ctx)
 		shared = ctx.shared,
 		_VERSION = "Luau",
 	}
+	env.CFrame = FixedCFrame
 	for _, name in {
 		"Vector3",
 		"Vector2",
 		"Vector3int16",
 		"Vector2int16",
-		"CFrame",
 		"Color3",
 		"UDim",
 		"UDim2",

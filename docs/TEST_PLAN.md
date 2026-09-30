@@ -11,8 +11,37 @@
 | Pacing | `lune run tools/simulate` | within about 20% of every zone target (see BALANCING.md) |
 | Built place contains every tagged part | `lune run tools/verify-place` | 5 plots x 40 slots, 11 nests x 8 pedestals, 18 Guardian spawns, gauntlet, incubator |
 
-Nothing below has been run in Roblox yet. Use **Test > Clients and Servers** with 2-3
-players, and the ADMIN panel to skip grinding.
+## Headless playtest (no Studio needed)
+
+`lune run tools/smoke` runs the real server and client scripts in `tools/emu` (a headless
+stand-in for the Roblox engine) with fake players who walk, hold prompts, click buttons and
+fire remotes. It covers:
+
+| Step | What it checks |
+|---|---|
+| Join | data loads, a plot is assigned, 88 eggs spawn, HUD and tutorial appear |
+| Core loop | grab a zone 1 egg, carry it home (slowed), it lands in the pen and hatches within the tutorial cap, income accrues, the COLLECT plate pays, treadmill unlock and training, tutorial completes |
+| Guardians | an at-speed Normal carrier escapes the Ramen Master; a Huge carrier is caught |
+| PvP | snatching a carried egg, the Harisen slap drops it (and it can be picked up), a base raid with the theft alert and ownership change on delivery, Barrier Lock pushing raiders out |
+| Anti-exploit | instant prompt triggers, slap spam and malformed arguments to every remote are rejected without errors |
+| Economy | pen upgrade, items, trails, index rewards, login reward, codes, Equip Best, fusion (2 min timer), selling |
+| Persistence | leave and rejoin keeps everything; a thief leaving mid-raid returns the chibi; the owner leaving mid-raid keeps it; dying while carrying drops the egg and the HUD survives respawn; shutdown saves every profile |
+| Endgame | events start and stop, the gauntlet gate blocks uncleared players, the Sacred Tree incubator, rebirth resets and keeps the right things |
+| UI | every sidebar window opens and closes; the HUD fits an 844x390 phone screen |
+
+`lune run tools/soak` runs five bots for 15 simulated minutes (grabbing, delivering,
+raiding, slapping, buying, leaving and rejoining) and fails on any script error. Last run:
+0 errors over ~120 grabs, 100 deliveries, 36 raids, 39 slaps and 26 rejoins.
+
+`lune run tools/guardian-lab` and `lune run tools/gauntlet-bot` check balance rather than
+bugs; their current results are in [BALANCING.md](BALANCING.md).
+
+What the emulator can't tell you: collisions, animation, visuals, performance, real
+network latency, streaming. Those still need Studio.
+
+## In Roblox Studio
+
+Use **Test > Clients and Servers** with 2-3 players, and the ADMIN panel to skip grinding.
 
 ## Acceptance checklist (brief section 27)
 

@@ -90,6 +90,36 @@ test("Guardian speeds: at-speed Normal escapes, Large does not", function()
 	end
 end)
 
+-- One ability use may gain a Guardian at most this many studs on a player at the zone's
+-- recommended Speed carrying a Normal egg (abilities are "light", brief section 6).
+local MAX_ABILITY_GAIN = 12
+
+test("Guardian abilities stay light", function()
+	for _, zone in Zones.List do
+		local ability = zone.Guardian.Ability
+		if ability.Enabled then
+			local vp = Formulas.WalkSpeed(zone.RecSpeed) * Sizes.Get(3).Carry
+			local vg = Formulas.GuardianWalkSpeed(zone.Id)
+			local kind = ability.Type
+			local gain = 0
+			if kind == "NoodleSplash" or kind == "BatSwarm" then
+				gain = (vg - (ability.Multiplier or 1) * vp) * (ability.Duration or 0)
+			elseif kind == "SprintBurst" or kind == "Charge" then
+				gain = ((ability.Multiplier or 1) * vg - vp) * (ability.Duration or 0)
+			elseif kind == "Statue" then
+				gain = ((ability.Multiplier or 1) * vg - vp) * (ability.BurstDuration or 2)
+			elseif kind == "Blink" then
+				gain = ability.Distance or 10
+			elseif kind == "Mech" then
+				assert((ability.Multiplier or 1) * vg <= vp, "zone " .. zone.Id .. " mech outruns an at-speed Normal carrier")
+			elseif kind == "PetalField" then
+				assert((ability.Radius or 25) <= 20, "zone " .. zone.Id .. " petal field radius too large")
+			end
+			assert(gain <= MAX_ABILITY_GAIN, string.format("zone %d %s gains %.1f studs (max %d)", zone.Id, kind, gain, MAX_ABILITY_GAIN))
+		end
+	end
+end)
+
 test("KgScale spans +/-20%", function()
 	near(Sizes.KgScale(3, 5), 0.8)
 	near(Sizes.KgScale(3, 9.9), 1.2)

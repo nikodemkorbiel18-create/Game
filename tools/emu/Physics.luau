@@ -9,7 +9,7 @@ local I = require("./Instances")
 local Classes = require("./Classes")
 local S = require("./Shared")
 
-local Vector3, CFrame = roblox.Vector3, roblox.CFrame
+local Vector3, CFrame = roblox.Vector3, require("../lib/cframe")
 local Enum = roblox.Enum
 local wrap, unwrap, selfReal, states = I.wrap, I.unwrap, I.selfReal, I.states
 local method, event, prop = I.method, I.event, I.prop
@@ -123,7 +123,8 @@ table.insert(I.onLeaveGame, function(real)
 	end
 end)
 
--- Ray vs oriented box; returns distance, normal
+-- Ray vs a part: oriented box, or a wedge (box cut by its slope: the high edge is at the
+-- back, +Z local, and the slope faces the front). Returns t in [0, 1] along `dir`, normal.
 local function rayBox(origin, dir, part)
 	local cf = part.CFrame
 	local half = part.Size / 2
@@ -158,16 +159,43 @@ local function rayBox(origin, dir, part)
 			end
 		end
 	end
-	if tmax < 0 or tmin < 0 then
-		return nil -- behind the origin, or the ray starts inside the part (Roblox ignores those)
-	end
-	local t = tmin
 	local localNormal = Vector3.new(
 		if normalAxis == "X" then normalSign else 0,
 		if normalAxis == "Y" then normalSign else 0,
 		if normalAxis == "Z" then normalSign else 0
 	)
-	return t, cf:VectorToWorldSpace(localNormal)
+	if part.ClassName == "WedgePart" and half.Z > 1e-6 then
+		-- solid part of the box: y <= k * z
+		local k = half.Y / half.Z
+		local f0 = o.Y - k * o.Z
+		local f1 = d.Y - k * d.Z
+		local a, b = tmin, tmax
+		if math.abs(f1) < 1e-12 then
+			if f0 > 0 then
+				return nil
+			end
+		else
+			local tPlane = -f0 / f1
+			if f1 > 0 then
+				-- inside the solid before the plane
+				b = math.min(b, tPlane)
+			else
+				-- inside the solid after the plane
+				if tPlane > a then
+					a = tPlane
+					localNormal = Vector3.new(0, 1, -k).Unit
+				end
+			end
+		end
+		if a > b then
+			return nil
+		end
+		tmin, tmax = a, b
+	end
+	if tmax < 0 or tmin < 0 then
+		return nil -- behind the origin, or the ray starts inside the part (Roblox ignores those)
+	end
+	return tmin, cf:VectorToWorldSpace(localNormal)
 end
 
 local function isAncestorIn(part, set)
@@ -399,7 +427,6 @@ local function hstate(real)
 			enabled = {},
 			moveTarget = nil,
 			moveStart = 0,
-			jumpUntil = 0,
 			moveDir = Vector3.zero,
 			dead = false,
 		}
@@ -486,14 +513,54 @@ end)
 prop("Humanoid", "SeatPart", function()
 	return nil
 end)
+-- Jumps follow a real arc: v0 = sqrt(2 g h) with the humanoid's jump height
+local GRAVITY = 196.2
+local function jumpHeight(real)
+	if I.get(real, "UseJumpPower") then
+		local power = I.get(real, "JumpPower")
+		return power * power / (2 * GRAVITY)
+	end
+	return I.get(real, "JumpHeight")
+end
+
+local function startJump(real)
+	local h = hstate(real)
+	if h.jumpStart or h.dead then
+		return false -- already airborne
+	end
+	local height = jumpHeight(real)
+	if height <= 0.05 then
+		return false -- carrying something too heavy to jump
+	end
+	h.jumpStart = Runtime.now
+	h.jumpV0 = math.sqrt(2 * GRAVITY * height)
+	setState(real, Enum.HumanoidStateType.Jumping)
+	I.fire(real, "Jumping", true)
+	return true
+end
+Physics.startJump = startJump
+
+-- Height above the ground from the current jump (0 when grounded); ends the jump on landing
+local function jumpOffset(real, h)
+	if not h.jumpStart then
+		return 0
+	end
+	local t = Runtime.now - h.jumpStart
+	local offset = h.jumpV0 * t - 0.5 * GRAVITY * t * t
+	if offset <= 0 and t > 0.05 then
+		h.jumpStart = nil
+		setState(real, Enum.HumanoidStateType.Landed)
+		setState(real, Enum.HumanoidStateType.Running)
+		return 0
+	end
+	return math.max(offset, 0)
+end
+
 prop("Humanoid", "Jump", function(real)
-	return hstate(real).jumpUntil > Runtime.now
+	return hstate(real).jumpStart ~= nil
 end, function(real, _st, value)
 	if value then
-		local h = hstate(real)
-		h.jumpUntil = Runtime.now + 0.7
-		setState(real, Enum.HumanoidStateType.Jumping)
-		I.fire(real, "Jumping", true)
+		startJump(real)
 	end
 end)
 
@@ -530,7 +597,8 @@ method("Humanoid", "ChangeState", function(self, newState)
 		return
 	end
 	if newState == Enum.HumanoidStateType.Jumping then
-		hstate(real).jumpUntil = Runtime.now + 0.7
+		startJump(real)
+		return
 	end
 	setState(real, newState)
 end)
@@ -711,6 +779,15 @@ function Physics.stepHumanoids(dt)
 				end
 			end
 			local h = st.humanoid
+			if h and h.jumpStart and not h.moveTarget and cached and not cached.Anchored then
+				-- jumping in place
+				local pos = cached.CFrame.Position
+				local ground = groundAt(pos, real.Parent)
+				local base = if ground then ground + hipOffset(real, cached) else pos.Y
+				local y = base + jumpOffset(real, h)
+				Classes.setPartCFrame(cached, CFrame.new(pos.X, y, pos.Z) * cached.CFrame.Rotation)
+				Classes.partMoved(cached)
+			end
 			if h and h.moveTarget and not h.dead then
 				local root = h.root
 				if root and not root.Anchored and not I.get(real, "PlatformStand") and not I.get(real, "Sit") then
@@ -743,9 +820,7 @@ function Physics.stepHumanoids(dt)
 							y = desired
 						end
 					end
-					if h.jumpUntil > Runtime.now then
-						y += 3
-					end
+					y += jumpOffset(real, h)
 					newPos = Vector3.new(newPos.X, y, newPos.Z)
 					local facing = if distance > 0.01 then CFrame.lookAt(newPos, newPos + flat.Unit) else CFrame.new(newPos) * root.CFrame.Rotation
 					Classes.setPartCFrame(root, facing)

@@ -7,6 +7,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local Shared = ReplicatedStorage.Shared
 local GameSettings = require(Shared.Config.GameSettings)
+local Endgame = require(Shared.Config.Endgame)
 local Treadmills = require(Shared.Config.Treadmills)
 local Formulas = require(Shared.Util.Formulas)
 local NumberFormat = require(Shared.Util.NumberFormat)
@@ -64,6 +65,9 @@ function SpeedService.Apply(player: Player)
 		else
 			walk *= slow.Multiplier
 		end
+	end
+	if player:GetAttribute("InGauntlet") == true then
+		walk = math.min(walk, Endgame.Boss.WalkSpeedCap)
 	end
 	local jump = DEFAULT_JUMP_HEIGHT * current.CarryJump
 	if current.StunnedUntil > now then

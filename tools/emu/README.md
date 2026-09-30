@@ -10,6 +10,7 @@ lune run tools/smoke                  # scripted playthrough of every major feat
 lune run tools/smoke --only=raid      # just the steps whose name contains "raid"
 lune run tools/soak --minutes=15      # five bots playing at once
 lune run tools/guardian-lab           # escape/catch table for every zone's Guardian
+lune run tools/gauntlet-bot           # careful vs careless runs of the Gatekeeper gauntlet
 ```
 
 ## What it emulates
@@ -28,8 +29,13 @@ lune run tools/guardian-lab           # escape/catch table for every zone's Guar
 - **Services**: Players (characters, respawn, `ResetOnSpawn`), RunService,
   DataStoreService (in memory, with JSON-style serialization checks), MessagingService,
   MarketplaceService, TweenService, PathfindingService (straight paths) and input stubs.
-- **Physics (lite)**: Humanoid `MoveTo` at `WalkSpeed`, ground following, knockback
-  sliding, `Touched` for character parts, raycasts against part boxes.
+- **Physics (lite)**: Humanoid `MoveTo` at `WalkSpeed`, ground following (boxes and wedge
+  ramps), jump arcs from `JumpHeight`/`JumpPower`, knockback sliding, `Touched` for
+  character parts, raycasts.
+
+Lune's own `CFrame.lookAt` (and two-point `CFrame.new`) flip the Z component of the look
+direction; `tools/lib/cframe.luau` provides the Roblox-correct versions and every tool and
+the emulator's script environment uses them.
 
 ## What it doesn't
 

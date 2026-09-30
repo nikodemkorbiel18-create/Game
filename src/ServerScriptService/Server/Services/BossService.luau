@@ -33,6 +33,8 @@ local finishPart: BasePart? = nil
 local zone11: BasePart? = nil
 local gate: BasePart? = nil
 local runs: { [Player]: Run } = {}
+local lastPositions: { [Player]: Vector3 } = {}
+local velocities: { [Player]: Vector3 } = {} -- horizontal, estimated from position changes
 local petals: { Petal } = {}
 local nextPetalAt = 0
 local rng = Random.new()
@@ -53,6 +55,28 @@ local function feetHeight(root: BasePart, floorY: number): number
 	return (root.Position.Y - 3) - floorY
 end
 
+local function setInGauntlet(player: Player, value: boolean)
+	player:SetAttribute("InGauntlet", value)
+	if not value then
+		player:SetAttribute("GauntletHits", 0)
+		lastPositions[player] = nil
+		velocities[player] = nil
+	end
+	SpeedService.Apply(player) -- the gauntlet caps WalkSpeed
+end
+
+-- The corridor from the start line to the golden gate (runs end if you leave it)
+local function inCorridor(position: Vector3): boolean
+	local start, finish, area = startPart, finishPart, areas[1]
+	if not start or not finish or not area then
+		return true
+	end
+	local maxZ = math.max(start.Position.Z, finish.Position.Z) + 30
+	local minZ = math.min(start.Position.Z, finish.Position.Z) - 10
+	local halfX = area.Part.Size.X / 2 + 10
+	return position.Z <= maxZ and position.Z >= minZ and math.abs(position.X - area.Part.Position.X) <= halfX
+end
+
 local function hit(player: Player, run: Run, root: BasePart)
 	local now = os.clock()
 	if now - run.LastHit < boss.HitInvulnerability then
@@ -64,8 +88,7 @@ local function hit(player: Player, run: Run, root: BasePart)
 	Remote.FireAll("Effect", { Type = "Hit", Position = root.Position })
 	if run.Hits > boss.MaxHits then
 		runs[player] = nil
-		player:SetAttribute("InGauntlet", false)
-		player:SetAttribute("GauntletHits", 0)
+		setInGauntlet(player, false)
 		AnnouncementService.Notify(player, "The Gatekeeper knocked you back! Try again.", "Error")
 		local start = startPart
 		if start then
@@ -77,6 +100,10 @@ local function hit(player: Player, run: Run, root: BasePart)
 	end
 end
 
+local function inArea(area: Area?, position: Vector3): boolean
+	return area ~= nil and World.InsideBox(position, area.Part, 2)
+end
+
 local function spawnPetals(now: number)
 	local area = areas[2]
 	if not area or now < nextPetalAt then
@@ -85,6 +112,18 @@ local function spawnPetals(now: number)
 	nextPetalAt = now + boss.Petals.Interval
 	local half = area.Part.Size / 2
 	local positions = {}
+	-- aim one petal at where each runner in this section will be when it lands
+	for player, velocity in velocities do
+		local root = World.Root(player)
+		if root and runs[player] and inArea(area, root.Position) then
+			local predicted = root.Position + velocity * boss.Petals.Warning
+			local x = math.clamp(predicted.X - area.Part.Position.X, -half.X + 6, half.X - 6)
+			local z = math.clamp(predicted.Z - area.Part.Position.Z, -half.Z + 6, half.Z - 6)
+			local position = Vector3.new(area.Part.Position.X + x, area.FloorY, area.Part.Position.Z + z)
+			table.insert(petals, { Position = position, ImpactAt = now + boss.Petals.Warning, Resolved = false })
+			table.insert(positions, position)
+		end
+	end
 	for _ = 1, boss.Petals.Count do
 		local x = rng:NextNumber(-half.X + 6, half.X - 6)
 		local z = rng:NextNumber(-half.Z + 6, half.Z - 6)
@@ -95,12 +134,24 @@ local function spawnPetals(now: number)
 	Remote.FireAll("Effect", { Type = "Petals", Positions = positions, ImpactAt = now + boss.Petals.Warning, Radius = boss.Petals.Radius })
 end
 
-local function inArea(area: Area?, position: Vector3): boolean
-	return area ~= nil and World.InsideBox(position, area.Part, 2)
-end
+
+local lastTickAt = 0
 
 local function tick()
 	local now = workspace:GetServerTimeNow()
+	local dt = now - lastTickAt
+	lastTickAt = now
+	for player in runs do
+		local root = World.Root(player)
+		if root then
+			local position = root.Position * Vector3.new(1, 0, 1)
+			local last = lastPositions[player]
+			if last and dt > 0 and dt < 1 then
+				velocities[player] = (position - last) / dt
+			end
+			lastPositions[player] = position
+		end
+	end
 	spawnPetals(now)
 	local radii = GauntletMath.ShockwaveRadii(now)
 	for _, player in Players:GetPlayers() do
@@ -123,11 +174,17 @@ local function tick()
 		if not run and not cleared and startPart and World.InsideBox(position, startPart :: BasePart, 2) then
 			run = { Hits = 0, LastHit = 0 }
 			runs[player] = run
-			player:SetAttribute("InGauntlet", true)
 			player:SetAttribute("GauntletHits", 0)
+			setInGauntlet(player, true)
 			AnnouncementService.Notify(player, "The Heavenly Gatekeeper is watching... reach the gate with fewer than 3 hits!", "Warning", 4)
 		end
 		if not run then
+			continue
+		end
+		if not inCorridor(position) then
+			-- walked back out, fell, or teleported away: the attempt ends
+			runs[player] = nil
+			setInGauntlet(player, false)
 			continue
 		end
 		local area1, area2, area3 = areas[1], areas[2], areas[3]
@@ -157,7 +214,7 @@ local function tick()
 		end
 		if runs[player] and finishPart and World.InsideBox(position, finishPart :: BasePart, 2) then
 			runs[player] = nil
-			player:SetAttribute("InGauntlet", false)
+			setInGauntlet(player, false)
 			local data = DataService.Get(player)
 			if data then
 				data.BossCleared = true
@@ -211,6 +268,8 @@ function BossService.Start()
 	end)
 	Players.PlayerRemoving:Connect(function(player)
 		runs[player] = nil
+		lastPositions[player] = nil
+		velocities[player] = nil
 	end)
 	if not startPart then
 		return
