@@ -21,10 +21,14 @@ local IncomeService = require(script.Parent.IncomeService)
 local IndexService = require(script.Parent.IndexService)
 local AnnouncementService = require(script.Parent.AnnouncementService)
 local Remote = require(script.Parent.Parent.Lib.Remote)
+local Signal = require(Shared.Util.Signal)
 
 type Item = Types.Item
 
 local HatchService = {}
+
+-- (player, item) after an egg hatches
+HatchService.Hatched = Signal.new() :: Signal.Signal<Player, Item>
 
 function HatchService.Luck(player: Player): number
 	local data = DataService.Get(player)
@@ -116,6 +120,7 @@ function HatchService.Hatch(player: Player, slotKey: string)
 	PlotService.RenderSlot(player, slotIndex)
 	IncomeService.Recalculate(player)
 	IndexService.Discover(player, item)
+	HatchService.Hatched:Fire(player, item)
 	Remote.Fire("HatchReveal", player, {
 		Item = item,
 		Slot = slotIndex,

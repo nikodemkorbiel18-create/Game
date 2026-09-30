@@ -1,47 +1,18 @@
-# Models in `stealachibi_prototype1.rbxl`
+# Models in the original map
 
-The place has **275 Model instances**. All of them are in `Workspace`; ReplicatedStorage and ServerStorage are empty, and there are no scripts yet.
+This lists what was in the map you uploaded (`assets/base-map.rbxl`) and where each piece
+lives in the built game (`StealAChibi.rbxl`). See `docs/STUDIO_SETUP.md` for everything the
+build added.
 
-## Player bases (renamed)
-
-Five fenced 90×90 plots form a U around the spawn at (-9, 0, 753). Each base's entrance faces the middle. They were all called `Model`, so they were renamed:
-
-| New name | Position (X, Z) | Entrance faces |
+| Original model | What it is | Where it is now |
 |---|---|---|
-| `Base1` | (-101, 733) | +X (toward spawn) |
-| `Base2` | (-101, 873) | -Z (toward spawn) |
-| `Base3` | (-1, 873) | -Z (toward spawn) |
-| `Base4` | (99, 873) | -Z (toward spawn) |
-| `Base5` | (98, 735) | -X (toward spawn) |
-
-Each base holds a 90×90 floor `Part`, 19 loose `Fence` models (the front with the entrance, and one side), and two fence groups that were also called `Model`:
-
-- `BackFence`: 7 fences along the wall opposite the entrance, plus `BackFence_Extra` (6 fences, the rest of that wall)
-- `SideFence`: 7 fences along one side wall, plus `SideFence_Extra` (6 fences, the rest of that wall)
-
-That is 45 `Fence` models per base, 225 in total.
-
-## Other models (already named, unchanged)
-
-**Zones**
-
-| Model | Position (X, Y, Z) | What it is |
-|---|---|---|
-| `KitsuneShrine_AllInOne` | (-2, 0, 404) | Shrine zone: floor, bamboo and shrine walls, torii gates, foxfire neon, spirits |
-| `RamenStreet_AllInOne` | (-1, 0, 517) | Ramen street zone: floor, walls, overhead signs, neon trims |
-| `LeftWall_Classrooms` | (-32, 14, 623) | School hallway left wall |
-| `RightWall_Windows` | (30, 14, 623) | School hallway right wall |
-| `RightWall_Glass_Optional` | (70, 14, 623) | Optional glass wall for the school hallway |
-| `RightWall_Glass_Optional` | (33, 14, 122) | A second copy, far from the hallway (looks like a stray duplicate) |
-| `Egg_Zone3_Blocky` → `Egg_Zone3` | (-20, 0, 609) | Zone 3 egg (shell, paper, rope, seal, ink, shine) |
-
-**Characters / NPCs**
-
-| Model | Position (X, Y, Z) | What it is |
-|---|---|---|
-| `HallMonitor` | (-36, 0, 622) | Rigged NPC with a Humanoid, Motor6D joints and HumanoidRootPart |
-| `RamenMaster` → `RamenMaster` | (-34, -123, -2) | Chibi with a ladle and bowl/grip markers. It sits **123 studs below the map**, so it is probably a template that belongs in ReplicatedStorage or ServerStorage |
-
-**Prop set** (`Workspace.Models` folder, lined up around Z ≈ 110)
-
-`Fence`, `YellowFlower`, `PinkFlower`, `RedMushroom`, `PurpleMushroom`, `Bench`, `Rock` ×3, `Grass`, `Crate`, `Lamp`, `Tree` ×2
+| `Base1`..`Base5` | Five fenced 90x90 player bases in a U around the spawn (renamed from `Model`) | Same place, tagged `Plot` with gameplay fixtures added |
+| `BackFence`, `SideFence` (+ `_Extra`) | Fence groups inside each base | Unchanged |
+| `KitsuneShrine_AllInOne` | Zone 3 art (shrine, bamboo, torii path, foxfire) | `Workspace.Map.Zones.Zone03_KitsuneShrineForest.Art` |
+| `RamenStreet_AllInOne` | Zone 2 art (ramen street, neon signs) | `Workspace.Map.Zones.Zone02_NeonRamenAlley.Art` |
+| `LeftWall_Classrooms`, `RightWall_Windows`, `RightWall_Glass_Optional` + school floor | Zone 1 art (school hallway) | `Workspace.Map.Zones.Zone01_SakuraAcademy.Art` |
+| `HallMonitor` | Rigged NPC | `ServerStorage.Assets.Guardians` - spawned as the zone 1 Guardian |
+| `RamenMaster` | Chibi with a ladle (was 123 studs below the map) | `ServerStorage.Assets.Guardians` - rigged at runtime as the zone 2 Guardian |
+| `Egg_Zone3_Blocky` / `Egg_Zone3` | Mesh egg with rope and paper charms | `ReplicatedStorage.Assets.Eggs.Egg_Zone3` - shell for zone 3 eggs |
+| `Models` folder (Fence, flowers, mushrooms, bench, rocks, grass, crate, lamp, trees) | Prop set | `ServerStorage.Assets.Props` |
+| Second `RightWall_Glass_Optional` far from the school | Stray duplicate | `ServerStorage.Unsorted` |

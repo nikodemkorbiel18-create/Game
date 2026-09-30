@@ -41,6 +41,7 @@ export type CarryInfo = {
 	Festival: boolean?,
 	OwnerUserId: number?, -- original owner for Own / Stolen items
 	FromSlot: number?,
+	Recovered: boolean?, -- the owner took back their own stolen item
 }
 
 type Carry = {
@@ -143,6 +144,7 @@ local function transferInfo(info: CarryInfo, newCarrier: Player): CarryInfo
 	local copy = table.clone(info)
 	if info.OwnerUserId == newCarrier.UserId then
 		copy.Origin = "Own"
+		copy.Recovered = info.Origin == "Stolen" or info.Recovered == true
 	else
 		copy.Origin = "Stolen"
 	end
@@ -175,7 +177,12 @@ local function onSnatch(carry: Carry, thief: Player)
 		return
 	end
 	local newInfo = transferInfo(info, thief)
-	CarryService.StartCarry(thief, item, newInfo)
+	if not CarryService.StartCarry(thief, item, newInfo) then
+		if not CarryService.StartCarry(victim, item, info) then
+			CarryService.ReturnHome(item, info)
+		end
+		return
+	end
 	AnnouncementService.Notify(victim, thief.DisplayName .. " snatched your " .. Characters.Get(item.CharacterId).DisplayName .. "!", "Theft")
 	AnnouncementService.Notify(thief, "Snatched!", "Success")
 	local owner = playerByUserId(info.OwnerUserId)
@@ -326,6 +333,8 @@ local function sendHome(item: Item, info: CarryInfo)
 	end
 end
 
+CarryService.ReturnHome = sendHome
+
 local function removeDropped(entry: Dropped)
 	local index = table.find(dropped, entry)
 	if index then
@@ -393,7 +402,9 @@ function CarryService.Drop(player: Player, reason: string?): boolean
 			return
 		end
 		removeDropped(entry)
-		CarryService.StartCarry(grabber, entry.Item, transferInfo(entry.Info, grabber))
+		if not CarryService.StartCarry(grabber, entry.Item, transferInfo(entry.Info, grabber)) then
+			sendHome(entry.Item, entry.Info)
+		end
 	end)
 	Remote.FireAll("Effect", { Type = "Drop", Position = position, Reason = reason })
 	return true
@@ -421,10 +432,17 @@ local function deliver(player: Player, carry: Carry)
 		return
 	end
 	local info = carry.Info
-	if info.Origin == "Own" then
+	if info.Origin == "Own" and not info.Recovered then
 		return
 	end
 	local item = carry.Item
+	if info.Origin == "Own" then
+		-- the owner carried their stolen chibi back home
+		CarryService.EndCarry(player)
+		CarryService.GiveToPlayer(player, item, info.FromSlot, true)
+		AnnouncementService.Notify(player, "Recovered " .. Characters.Get(item.CharacterId).DisplayName .. "!", "Success")
+		return
+	end
 	local slotBefore = PlotService.FirstFreeSlot(player)
 	local canPlace = slotBefore ~= nil or #data.Inventory < GameSettings.InventoryCapacity
 	if not canPlace then
@@ -437,7 +455,9 @@ local function deliver(player: Player, carry: Carry)
 	CarryService.EndCarry(player)
 	local ok, slot = CarryService.GiveToPlayer(player, item, nil, false)
 	if not ok then
-		CarryService.StartCarry(player, item, info)
+		if not CarryService.StartCarry(player, item, info) then
+			CarryService.GiveToPlayer(player, item, nil, true)
+		end
 		return
 	end
 	if info.Origin == "Wild" or info.Origin == "Festival" then

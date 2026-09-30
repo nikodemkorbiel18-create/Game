@@ -18,10 +18,14 @@ local PassService = require(script.Parent.PassService)
 local PlotService = require(script.Parent.PlotService)
 local SpeedService = require(script.Parent.SpeedService)
 local Remote = require(script.Parent.Parent.Lib.Remote)
+local Signal = require(Shared.Util.Signal)
 
 type Item = Types.Item
 
 local IncomeService = {}
+
+-- (player, amount) when the Collect Plate banks the register
+IncomeService.Collected = Signal.new() :: Signal.Signal<Player, number>
 
 local incomeCache: { [Player]: number } = {}
 
@@ -102,6 +106,7 @@ function IncomeService.Collect(player: Player)
 	DataService.Changed(player, "Cash", "Register")
 	PlotService.SetRegister(player, 0)
 	Remote.Fire("Effect", player, { Type = "Collect", Amount = amount })
+	IncomeService.Collected:Fire(player, amount)
 end
 
 local function tick()

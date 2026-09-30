@@ -173,6 +173,9 @@ local function build()
 	button(boss, "Reset Gatekeeper", 2, function()
 		command("ResetBoss")
 	end, Theme.Colors.Red)
+	button(boss, "End my new-player shield", 3, function()
+		command("EndShield")
+	end, Theme.Colors.PanelLight)
 	local announceBox = UI.new("TextBox", {
 		Size = UDim2.fromOffset(360, 38),
 		BackgroundColor3 = Theme.Colors.Paper,
@@ -183,10 +186,10 @@ local function build()
 		TextScaled = true,
 		ClearTextOnFocus = false,
 		Corner = true,
-		LayoutOrder = 3,
+		LayoutOrder = 4,
 		Parent = boss,
 	}) :: TextBox
-	button(boss, "ANNOUNCE (all servers)", 4, function()
+	button(boss, "ANNOUNCE (all servers)", 5, function()
 		command("Announce", announceBox.Text)
 	end, Theme.Colors.Pink)
 	refreshLabels()

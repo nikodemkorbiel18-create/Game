@@ -197,8 +197,8 @@ local function rig(model: Model)
 	h.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None
 	h.HealthDisplayType = Enum.HumanoidHealthDisplayType.AlwaysOff
 	h.BreakJointsOnDeath = false
-	h.MaxHealth = math.huge
-	h.Health = math.huge
+	h.MaxHealth = 1e9
+	h.Health = 1e9
 	h.AutoJumpEnabled = true
 	h:SetStateEnabled(Enum.HumanoidStateType.Dead, false)
 	h:SetStateEnabled(Enum.HumanoidStateType.FallingDown, false)

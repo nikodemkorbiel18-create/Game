@@ -83,6 +83,18 @@ local function firstPart(model: Instance, tag: string): BasePart?
 	return nil
 end
 
+local function setSlotVisible(slot: BasePart, visible: boolean)
+	slot.Transparency = if visible then 0 else 1
+	slot.CanCollide = visible
+	for _, child in slot:GetChildren() do
+		if child:IsA("BasePart") then
+			child.Transparency = if visible then 0 else 1
+		elseif child:IsA("SurfaceGui") or child:IsA("Decal") then
+			(child :: any).Enabled = visible
+		end
+	end
+end
+
 local function makeSign(plot: Plot)
 	local sign = plot.Sign
 	if not sign then
@@ -387,18 +399,12 @@ function PlotService.RefreshSlots(player: Player)
 	for index, slot in plot.Slots do
 		local occupied = data.Pen[tostring(index)] ~= nil
 		local visible = index <= active or occupied
-		slot.Transparency = if visible then 0 else 1
-		slot.CanCollide = visible
+		setSlotVisible(slot, visible)
 		slot:SetAttribute("Active", visible)
 		local prompt = plot.SlotPrompts[index]
 		if prompt then
 			prompt.Enabled = visible
 			prompt.ObjectText = if occupied then "" else "Empty Slot"
-		end
-		for _, child in slot:GetChildren() do
-			if child:IsA("SurfaceGui") or child:IsA("Decal") then
-				(child :: any).Enabled = visible
-			end
 		end
 	end
 end
@@ -582,7 +588,8 @@ local function release(player: Player)
 		if prompt then
 			prompt.Enabled = false
 		end
-		slot.Transparency = if index <= Shop.PenSlots(1) then 0 else 1
+		setSlotVisible(slot, index <= Shop.PenSlots(1))
+		slot:SetAttribute("Active", false)
 	end
 	plot.Owner = nil
 	plot.BarrierUntil = 0
@@ -650,6 +657,11 @@ function PlotService.Start()
 	end)
 	for _, plot in plots do
 		renderSign(plot)
+		if not plot.Owner then
+			for index, slot in plot.Slots do
+				setSlotVisible(slot, index <= Shop.PenSlots(1))
+			end
+		end
 	end
 	task.spawn(function()
 		local signTimer = 0

@@ -163,6 +163,14 @@ local COMMANDS: { [string]: (Player, { any }) -> string } = {
 		end
 		return "Gatekeeper cleared"
 	end,
+	EndShield = function(player)
+		local data = DataService.Get(player)
+		if data then
+			data.Playtime = math.max(data.Playtime, GameSettings.NewPlayerProtection)
+			DataService.Changed(player, "Playtime")
+		end
+		return "New-player shield removed (so your base can be raided)"
+	end,
 	ResetBoss = function(player)
 		BossService.ResetClear(player)
 		return "Gatekeeper reset"
