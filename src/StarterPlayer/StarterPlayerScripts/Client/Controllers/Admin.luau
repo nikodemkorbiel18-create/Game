@@ -27,10 +27,10 @@ local mutationIndex = 0
 local globalEvents = false
 
 local function command(name: string, ...: any)
-	local args = { ... }
+	local args = table.pack(...)
 	task.spawn(function()
 		pcall(function()
-			Net.Function("Admin"):InvokeServer(name, args)
+			Net.Function("Admin"):InvokeServer(name, table.unpack(args, 1, args.n))
 		end)
 	end)
 end

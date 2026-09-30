@@ -26,6 +26,7 @@ local SPECIAL = {
 	Grid = true,
 	Aspect = true,
 	Gradient = true,
+	GradientRotation = true,
 	TextMax = true,
 	Scale = true,
 }

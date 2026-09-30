@@ -44,6 +44,7 @@ type Guardian = {
 	ChaseStart: number,
 	PauseUntil: number,
 	LastDistance: number,
+	LastPosition: Vector3?,
 	BlockedSince: number?,
 	Path: { Vector3 }?,
 	PathIndex: number,
@@ -170,9 +171,16 @@ local function inBounds(guardian: Guardian, position: Vector3, extra: number): b
 end
 
 -- Is this player a valid target for this guardian?
+-- After a catch, Guardians leave that player alone for a moment so a knocked-back player
+-- can recover instead of being caught again every tick.
+local graceUntil: { [Player]: number } = {}
+
 local function isTarget(guardian: Guardian, player: Player): boolean
 	local root = World.Root(player)
 	if not root or not World.Humanoid(player) then
+		return false
+	end
+	if (graceUntil[player] or 0) > os.clock() then
 		return false
 	end
 	if PlotService.PlotAt(root.Position) then
@@ -216,6 +224,7 @@ local function catch(guardian: Guardian, player: Player)
 		direction = guardian.Root.CFrame.LookVector
 	end
 	SpeedService.Stun(player, GameSettings.Guardian.RagdollTime)
+	graceUntil[player] = os.clock() + GameSettings.Guardian.CatchGrace
 	Remote.Fire("Knockback", player, { Direction = direction.Unit, Force = GameSettings.Guardian.KnockbackForce, Duration = GameSettings.Guardian.RagdollTime })
 	Remote.FireAll("Effect", { Type = "Caught", UserId = player.UserId, Guardian = guardian.Zone.Guardian.DisplayName })
 	setState(guardian, "Return")
@@ -317,12 +326,17 @@ local function chase(guardian: Guardian, now: number)
 	end
 	useAbility(guardian, target, now)
 	applySpeed(guardian, 1)
-	-- blocked detection -> pathfinding fallback
-	if distance >= guardian.LastDistance - 0.05 and guardian.Humanoid.WalkSpeed > 0 then
+	-- blocked detection -> pathfinding fallback. "Blocked" means the Guardian itself barely
+	-- moved since the last tick; a target simply outrunning it is not an obstacle.
+	local position = guardian.Root.Position
+	local lastPosition = guardian.LastPosition
+	local expected = guardian.Humanoid.WalkSpeed * GameSettings.Guardian.ChaseTick
+	if lastPosition and expected > 0 and World.FlatDistance(position, lastPosition) < expected * 0.25 then
 		guardian.BlockedSince = guardian.BlockedSince or now
 	else
 		guardian.BlockedSince = nil
 	end
+	guardian.LastPosition = position
 	guardian.LastDistance = distance
 	local path = guardian.Path
 	if path and now < guardian.PathUntil and guardian.PathIndex <= #path then
@@ -414,6 +428,7 @@ local function tick(guardian: Guardian, now: number)
 		if now - guardian.StateSince >= GameSettings.Guardian.AlertWindup then
 			guardian.ChaseStart = now
 			guardian.LastDistance = math.huge
+			guardian.LastPosition = nil
 			setState(guardian, "Chase")
 		end
 	elseif state == "Chase" then
@@ -534,6 +549,9 @@ end
 function GuardianService.Init() end
 
 function GuardianService.Start()
+	Players.PlayerRemoving:Connect(function(player)
+		graceUntil[player] = nil
+	end)
 	spawnGuardians()
 	-- Stone Komainu wakes up when an egg is taken from its nest
 	EggSpawnService.EggGrabbed:Connect(function(player, _item, zoneId)

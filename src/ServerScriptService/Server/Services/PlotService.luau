@@ -532,14 +532,18 @@ local function pushIntruders()
 				if other ~= plot.Owner then
 					local root = World.Root(other)
 					if root and World.InsideFootprint(root.Position, plot.Floor, 40, 1) then
-						local center = plot.Floor.Position
-						local offset = Vector3.new(root.Position.X - center.X, 0, root.Position.Z - center.Z)
-						if offset.Magnitude < 1 then
-							offset = Vector3.new(1, 0, 0)
+						-- push straight out past the nearest edge of the (rotated, rectangular) floor
+						local floorCFrame = plot.Floor.CFrame
+						local localOffset = floorCFrame:VectorToObjectSpace(root.Position - floorCFrame.Position) * Vector3.new(1, 0, 1)
+						if localOffset.Magnitude < 1 then
+							localOffset = Vector3.new(1, 0, 0)
 						end
-						local half = math.max(plot.Floor.Size.X, plot.Floor.Size.Z) / 2
-						local target = center + offset.Unit * (half + 6) + Vector3.new(0, 4, 0)
-						World.Teleport(other, CFrame.new(target, target + offset.Unit))
+						local halfX, halfZ = plot.Floor.Size.X / 2, plot.Floor.Size.Z / 2
+						local ratio = math.max(math.abs(localOffset.X) / halfX, math.abs(localOffset.Z) / halfZ)
+						local edge = localOffset / ratio + localOffset.Unit * 6
+						local direction = floorCFrame:VectorToWorldSpace(localOffset.Unit)
+						local target = floorCFrame.Position + floorCFrame:VectorToWorldSpace(edge) + Vector3.new(0, 4, 0)
+						World.Teleport(other, CFrame.new(target, target + direction))
 					end
 				end
 			end

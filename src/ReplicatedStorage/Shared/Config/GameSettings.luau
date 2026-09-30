@@ -42,6 +42,7 @@ local GameSettings = {
 		ChaseTick = 0.1,
 		PatrolPause = 1.5,
 		RagdollTime = 1.5,
+		CatchGrace = 4, -- seconds a caught player is ignored by every Guardian
 		KnockbackForce = 60,
 		MinWalkSpeed = 12.8,
 	},

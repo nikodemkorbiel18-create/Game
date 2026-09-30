@@ -195,7 +195,9 @@ local COMMANDS: { [string]: (Player, { any }) -> string } = {
 }
 
 function AdminService.Init()
-	Remote.OnInvoke("Admin", function(player, command, args)
+	-- Arguments arrive as separate values: an array with nil gaps would lose everything
+	-- after the first gap when sent over a remote.
+	Remote.OnInvoke("Admin", function(player, command, ...)
 		if not admins[player] then
 			return { Ok = false, Message = "Not an admin" }
 		end
@@ -204,7 +206,7 @@ function AdminService.Init()
 		if not handler then
 			return { Ok = false, Message = "Unknown command" }
 		end
-		local list = if type(args) == "table" then args else {}
+		local list = { ... }
 		local message = handler(player, list)
 		AnnouncementService.Notify(player, "[Admin] " .. message, "Info")
 		return { Ok = true, Message = message }
