@@ -100,6 +100,30 @@ function State.Start()
 	end
 end
 
+-- Income multipliers as the server computes them (for showing effective $/s)
+function State.IncomeContext(): { Rebirths: number, IndexBonus: number, PassMultiplier: number }
+	local passes = State.Derived.Passes or {}
+	local Monetization = require(ReplicatedStorage.Shared.Config.Monetization)
+	local mult = 1
+	if passes.VIP then
+		mult *= Monetization.VIPCash
+	end
+	if passes.DoubleCash then
+		mult *= Monetization.DoubleCash
+	end
+	return {
+		Rebirths = State.Data.Rebirths or 0,
+		IndexBonus = State.Derived.IndexBonus or 0,
+		PassMultiplier = mult,
+	}
+end
+
+function State.IsDiscovered(characterId: string): boolean
+	local index = State.Data.Index
+	local entry = if type(index) == "table" then index[characterId] else nil
+	return entry ~= nil and entry.Discovered == true
+end
+
 -- Server unix time (for countdowns)
 function State.Now(): number
 	return workspace:GetServerTimeNow()
