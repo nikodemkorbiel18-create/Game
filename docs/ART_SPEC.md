@@ -120,14 +120,14 @@ Every egg shares the zone's Armor-Core shell (riveted armor bands and a framed g
 | [`Char_Haruto`](art/zone7/models/Char_Haruto.png) | 99 | 3.19 x 4.88 x 2.62 | - | Rookie pilot: orange flight suit with white collar and zip, navy belt and boots, round squadron patch, pilot headset with a boom mic. |
 | [`Char_Hive`](art/zone7/models/Char_Hive.png) | 95 | 3.19 x 6.00 x 2.44 | - | Drone operator: mint bob, teal hoodie, drone remote held out in both hands and four tiny drones orbiting overhead (they spin in game). |
 | [`Char_Hikari`](art/zone7/models/Char_Hikari.png) | 89 | 2.81 x 5.25 x 3.56 | - | Ace pilot: white flight suit with blue panels, silver high ponytail, tinted visor over the eyes and a gold wing badge. |
-| `Char_AdmiralGotetsu` | 115 | 3.19 x 4.88 x 3.00 | - | Iron admiral: navy greatcoat with gold epaulettes and buttons, white peaked cap, grey hair and moustache, stern brows, and a mechanical right arm with a glowing joint. |
-| `Char_Daichi` | 138 | 4.31 x 6.56 x 3.19 | - | Colossus pilot in a tiny mech suit: spiky-haired chibi head poking out of a boxy red suit with white plates, a glass cockpit, big yellow fists and a back thruster. |
+| [`Char_AdmiralGotetsu`](art/zone7/models/Char_AdmiralGotetsu.png) | 115 | 3.19 x 4.88 x 3.00 | - | Iron admiral: navy greatcoat with gold epaulettes and buttons, white peaked cap, grey hair and moustache, stern brows, and a mechanical right arm with a glowing joint. |
+| [`Char_Daichi`](art/zone7/models/Char_Daichi.png) | 138 | 4.31 x 6.56 x 3.19 | - | Colossus pilot in a tiny mech suit: spiky-haired chibi head poking out of a boxy red suit with white plates, a glass cockpit, big yellow fists and a back thruster. |
 | [`Egg_Bolt`](art/zone7/models/Egg_Bolt.png) | 101 | 2.25 x 3.38 x 2.25 | Crown | Goggles strapped round the top, a wrench on the side, an oil smudge, amber core, crown. |
 | [`Egg_Haruto`](art/zone7/models/Egg_Haruto.png) | 88 | 2.81 x 3.38 x 2.44 | Crown | Pilot headset with ear cups and a boom mic, squadron patch, orange core, crown. |
 | [`Egg_Hive`](art/zone7/models/Egg_Hive.png) | 77 | 3.56 x 3.75 x 2.25 | Horns | Two tiny drones circling it, a little remote badge, mint core, horns. |
-| `Egg_Hikari` | 82 | 2.06 x 3.75 x 2.62 | Horns | Tinted visor band, gold wing badge, silver ponytail plume, blue core, horns. |
-| `Egg_AdmiralGotetsu` | 85 | 3.19 x 3.19 x 3.00 | Stars | Admiral's peaked cap, gold epaulettes and buttons, cyan core, orbiting stars. |
-| `Egg_Daichi` | 88 | 3.38 x 3.75 x 3.00 | Stars | Glass cockpit, mini yellow fists, back thruster, spiky hair tuft, yellow core, orbiting stars. |
+| [`Egg_Hikari`](art/zone7/models/Egg_Hikari.png) | 82 | 2.06 x 3.75 x 2.62 | Horns | Tinted visor band, gold wing badge, silver ponytail plume, blue core, horns. |
+| [`Egg_AdmiralGotetsu`](art/zone7/models/Egg_AdmiralGotetsu.png) | 85 | 3.19 x 3.19 x 3.00 | Stars | Admiral's peaked cap, gold epaulettes and buttons, cyan core, orbiting stars. |
+| [`Egg_Daichi`](art/zone7/models/Egg_Daichi.png) | 88 | 3.38 x 3.75 x 3.00 | Stars | Glass cockpit, mini yellow fists, back thruster, spiky hair tuft, yellow core, orbiting stars. |
 
 ## Characters
 
@@ -502,7 +502,7 @@ Every egg shares the zone's Armor-Core shell (riveted armor bands and a framed g
 #### Hikari (Mythic, $110K/s base)
 
 - **Asset slot:** `Char_Hikari`
-- **Model:** voxel, done ([render](art/zone7/models/Char_Hikari.png))
+- **Model:** voxel, done ([render](art/zone7/models/Char_Hikari.png)), hatches from [`Egg_Hikari`](art/zone7/models/Egg_Hikari.png)
 - **Concept:** Ace pilot with a sleek visor and a wing badge
 - **Silhouette:** Standard chibi (head ~2.3 studs, body ~2.7 studs; 2.5 heads tall). high ponytail; tinted ace-pilot visor; gold wing badge
 - **Palette:** skin #FFE0CC, hair #E9ECEF, outfit #FFFFFF / #4361EE, accent #FFBA08, eyes #4361EE
@@ -512,6 +512,7 @@ Every egg shares the zone's Armor-Core shell (riveted armor bands and a framed g
 #### Admiral Gōtetsu (Cosmic, $550K/s base)
 
 - **Asset slot:** `Char_AdmiralGotetsu`
+- **Model:** voxel, done ([render](art/zone7/models/Char_AdmiralGotetsu.png)), hatches from [`Egg_AdmiralGotetsu`](art/zone7/models/Egg_AdmiralGotetsu.png)
 - **Concept:** Iron admiral with a greatcoat and a mechanical arm
 - **Silhouette:** Standard chibi (head ~2.3 studs, body ~2.7 studs; 2.5 heads tall). short neat hair; heavy admiral greatcoat with epaulettes; mechanical right arm with glowing joint; white admiral cap
 - **Palette:** skin #E0AC69, hair #ADB5BD, outfit #14213D / #FCA311, accent #ADB5BD, eyes #14213D
@@ -521,6 +522,7 @@ Every egg shares the zone's Armor-Core shell (riveted armor bands and a framed g
 #### Daichi (Cosmic, $700K/s base)
 
 - **Asset slot:** `Char_Daichi`
+- **Model:** voxel, done ([render](art/zone7/models/Char_Daichi.png)), hatches from [`Egg_Daichi`](art/zone7/models/Egg_Daichi.png)
 - **Concept:** Colossus pilot squeezed into a tiny chibi mech suit
 - **Silhouette:** Chibi head poking out of a boxy chibi mech suit with big fists and a thruster. spiky hair; chibi-sized mech suit with a glass cockpit
 - **Palette:** skin #F1C27D, hair #2B2B2B, outfit #E5383B / #F8F9FA, accent #FFBA08, eyes #2B2B2B
