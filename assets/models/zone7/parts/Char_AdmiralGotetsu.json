@@ -1,0 +1,1830 @@
+{
+ "name": "Char_AdmiralGotetsu",
+ "kind": "Character",
+ "voxel": 0.1875,
+ "attributes": {},
+ "partCount": 115,
+ "voxelCount": 3152,
+ "size": [
+  3.1875,
+  4.875,
+  3.0
+ ],
+ "bounds": [
+  [
+   -1.5938,
+   0.0,
+   -1.5938
+  ],
+  [
+   1.5938,
+   4.875,
+   1.4062
+  ]
+ ],
+ "previewTint": "#ADB5BD",
+ "groups": [
+  {
+   "name": "Torso",
+   "pivot": [
+    0.0,
+    0.9375,
+    0.0
+   ],
+   "parts": [
+    {
+     "name": "Greatcoat",
+     "size": [
+      2.0625,
+      0.1875,
+      0.9375
+     ],
+     "position": [
+      0.0,
+      0.4688,
+      0.0
+     ],
+     "color": "#0B1324",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Greatcoat",
+     "size": [
+      2.0625,
+      0.375,
+      0.1875
+     ],
+     "position": [
+      0.0,
+      0.75,
+      -0.375
+     ],
+     "color": "#14213D",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Greatcoat",
+     "size": [
+      0.1875,
+      0.375,
+      0.9375
+     ],
+     "position": [
+      -0.9375,
+      0.75,
+      0.0
+     ],
+     "color": "#14213D",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Greatcoat",
+     "size": [
+      0.1875,
+      0.5625,
+      0.1875
+     ],
+     "position": [
+      -0.9375,
+      0.8438,
+      -0.375
+     ],
+     "color": "#14213D",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Greatcoat",
+     "size": [
+      0.1875,
+      0.5625,
+      0.1875
+     ],
+     "position": [
+      -0.9375,
+      0.8438,
+      0.375
+     ],
+     "color": "#14213D",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Greatcoat",
+     "size": [
+      1.6875,
+      0.1875,
+      1.3125
+     ],
+     "position": [
+      0.0,
+      0.4688,
+      0.0
+     ],
+     "color": "#0B1324",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Greatcoat",
+     "size": [
+      0.75,
+      0.5625,
+      0.1875
+     ],
+     "position": [
+      -0.4688,
+      0.8438,
+      -0.5625
+     ],
+     "color": "#14213D",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Greatcoat",
+     "size": [
+      1.6875,
+      0.375,
+      0.375
+     ],
+     "position": [
+      0.0,
+      0.75,
+      0.4688
+     ],
+     "color": "#14213D",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Greatcoat",
+     "size": [
+      1.6875,
+      0.1875,
+      0.9375
+     ],
+     "position": [
+      0.0,
+      1.0312,
+      0.0
+     ],
+     "color": "#0B1324",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Greatcoat",
+     "size": [
+      1.6875,
+      0.5625,
+      0.1875
+     ],
+     "position": [
+      0.0,
+      0.8438,
+      0.5625
+     ],
+     "color": "#14213D",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Greatcoat",
+     "size": [
+      1.6875,
+      1.125,
+      0.5625
+     ],
+     "position": [
+      0.0,
+      1.6875,
+      0.0
+     ],
+     "color": "#14213D",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Greatcoat",
+     "size": [
+      0.1875,
+      1.125,
+      0.9375
+     ],
+     "position": [
+      -0.5625,
+      1.6875,
+      0.0
+     ],
+     "color": "#14213D",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      0.1875,
+      0.375,
+      0.1875
+     ],
+     "position": [
+      -0.375,
+      1.125,
+      -0.375
+     ],
+     "color": "#FCA311",
+     "material": "SmoothPlastic",
+     "reflectance": 0.15
+    },
+    {
+     "name": "Greatcoat",
+     "size": [
+      1.3125,
+      1.6875,
+      0.1875
+     ],
+     "position": [
+      0.0,
+      1.4062,
+      0.375
+     ],
+     "color": "#14213D",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Greatcoat",
+     "size": [
+      1.3125,
+      0.1875,
+      0.9375
+     ],
+     "position": [
+      0.0,
+      1.4062,
+      0.0
+     ],
+     "color": "#14213D",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      0.1875,
+      0.1875,
+      0.75
+     ],
+     "position": [
+      -0.375,
+      1.5938,
+      -0.0938
+     ],
+     "color": "#FCA311",
+     "material": "SmoothPlastic",
+     "reflectance": 0.15
+    },
+    {
+     "name": "Greatcoat",
+     "size": [
+      1.3125,
+      0.1875,
+      0.9375
+     ],
+     "position": [
+      0.0,
+      1.7812,
+      0.0
+     ],
+     "color": "#14213D",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      0.1875,
+      0.1875,
+      0.75
+     ],
+     "position": [
+      -0.375,
+      1.9688,
+      -0.0938
+     ],
+     "color": "#FCA311",
+     "material": "SmoothPlastic",
+     "reflectance": 0.15
+    },
+    {
+     "name": "Greatcoat",
+     "size": [
+      1.3125,
+      0.1875,
+      0.9375
+     ],
+     "position": [
+      0.0,
+      2.1562,
+      0.0
+     ],
+     "color": "#14213D",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Greatcoat",
+     "size": [
+      0.5625,
+      1.6875,
+      0.1875
+     ],
+     "position": [
+      0.0,
+      1.4062,
+      -0.375
+     ],
+     "color": "#14213D",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Greatcoat",
+     "size": [
+      0.1875,
+      0.75,
+      0.375
+     ],
+     "position": [
+      0.0,
+      0.75,
+      -0.4688
+     ],
+     "color": "#0B1324",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Greatcoat",
+     "size": [
+      0.1875,
+      0.5625,
+      1.125
+     ],
+     "position": [
+      0.0,
+      0.8438,
+      0.0938
+     ],
+     "color": "#14213D",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Greatcoat",
+     "size": [
+      0.75,
+      0.5625,
+      0.1875
+     ],
+     "position": [
+      0.4688,
+      0.8438,
+      -0.5625
+     ],
+     "color": "#14213D",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      0.1875,
+      0.375,
+      0.1875
+     ],
+     "position": [
+      0.375,
+      1.125,
+      -0.375
+     ],
+     "color": "#FCA311",
+     "material": "SmoothPlastic",
+     "reflectance": 0.15
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      0.1875,
+      0.1875,
+      0.75
+     ],
+     "position": [
+      0.375,
+      1.5938,
+      -0.0938
+     ],
+     "color": "#FCA311",
+     "material": "SmoothPlastic",
+     "reflectance": 0.15
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      0.1875,
+      0.1875,
+      0.75
+     ],
+     "position": [
+      0.375,
+      1.9688,
+      -0.0938
+     ],
+     "color": "#FCA311",
+     "material": "SmoothPlastic",
+     "reflectance": 0.15
+    },
+    {
+     "name": "Greatcoat",
+     "size": [
+      0.1875,
+      1.6875,
+      0.1875
+     ],
+     "position": [
+      0.5625,
+      1.4062,
+      -0.375
+     ],
+     "color": "#14213D",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Greatcoat",
+     "size": [
+      0.1875,
+      0.1875,
+      0.9375
+     ],
+     "position": [
+      0.9375,
+      0.6562,
+      0.0
+     ],
+     "color": "#14213D",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Greatcoat",
+     "size": [
+      0.1875,
+      0.375,
+      0.5625
+     ],
+     "position": [
+      0.9375,
+      0.75,
+      0.1875
+     ],
+     "color": "#14213D",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Greatcoat",
+     "size": [
+      0.1875,
+      0.5625,
+      0.1875
+     ],
+     "position": [
+      0.9375,
+      0.8438,
+      -0.375
+     ],
+     "color": "#14213D",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Greatcoat",
+     "size": [
+      0.1875,
+      0.5625,
+      0.1875
+     ],
+     "position": [
+      0.9375,
+      0.8438,
+      0.375
+     ],
+     "color": "#14213D",
+     "material": "SmoothPlastic"
+    }
+   ]
+  },
+  {
+   "name": "LegR",
+   "pivot": [
+    0.46875,
+    0.9375,
+    0.0
+   ],
+   "parts": [
+    {
+     "name": "Boots",
+     "size": [
+      0.75,
+      0.375,
+      0.75
+     ],
+     "position": [
+      0.4688,
+      0.1875,
+      -0.0938
+     ],
+     "color": "#1B1B1E",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Greatcoat",
+     "size": [
+      0.75,
+      0.375,
+      0.5625
+     ],
+     "position": [
+      0.4688,
+      0.75,
+      0.0
+     ],
+     "color": "#14213D",
+     "material": "SmoothPlastic"
+    }
+   ]
+  },
+  {
+   "name": "LegL",
+   "pivot": [
+    -0.46875,
+    0.9375,
+    0.0
+   ],
+   "parts": [
+    {
+     "name": "Boots",
+     "size": [
+      0.75,
+      0.375,
+      0.75
+     ],
+     "position": [
+      -0.4688,
+      0.1875,
+      -0.0938
+     ],
+     "color": "#1B1B1E",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Greatcoat",
+     "size": [
+      0.75,
+      0.375,
+      0.5625
+     ],
+     "position": [
+      -0.4688,
+      0.75,
+      0.0
+     ],
+     "color": "#14213D",
+     "material": "SmoothPlastic"
+    }
+   ]
+  },
+  {
+   "name": "ArmL",
+   "pivot": [
+    -1.125,
+    2.15625,
+    0.0
+   ],
+   "parts": [
+    {
+     "name": "Skin",
+     "size": [
+      0.5625,
+      0.375,
+      0.5625
+     ],
+     "position": [
+      -1.125,
+      1.125,
+      0.0
+     ],
+     "color": "#E0AC69",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      0.5625,
+      0.1875,
+      0.5625
+     ],
+     "position": [
+      -1.125,
+      1.4062,
+      0.0
+     ],
+     "color": "#FCA311",
+     "material": "SmoothPlastic",
+     "reflectance": 0.15
+    },
+    {
+     "name": "Greatcoat",
+     "size": [
+      0.5625,
+      0.75,
+      0.5625
+     ],
+     "position": [
+      -1.125,
+      1.875,
+      0.0
+     ],
+     "color": "#14213D",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      0.1875,
+      0.375,
+      0.1875
+     ],
+     "position": [
+      -1.5,
+      2.0625,
+      -0.1875
+     ],
+     "color": "#D4880F",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      0.5625,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      -1.3125,
+      1.9688,
+      0.0
+     ],
+     "color": "#FCA311",
+     "material": "SmoothPlastic",
+     "reflectance": 0.15
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      0.1875,
+      0.375,
+      0.1875
+     ],
+     "position": [
+      -1.5,
+      2.0625,
+      0.1875
+     ],
+     "color": "#D4880F",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      0.5625,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      -1.3125,
+      2.1562,
+      0.0
+     ],
+     "color": "#D4880F",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      0.75,
+      0.1875,
+      0.5625
+     ],
+     "position": [
+      -1.2188,
+      2.3438,
+      0.0
+     ],
+     "color": "#FCA311",
+     "material": "SmoothPlastic",
+     "reflectance": 0.15
+    }
+   ]
+  },
+  {
+   "name": "ArmR",
+   "pivot": [
+    1.125,
+    2.15625,
+    0.0
+   ],
+   "parts": [
+    {
+     "name": "MechArm",
+     "size": [
+      0.1875,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      0.9375,
+      0.8438,
+      -0.1875
+     ],
+     "color": "#5C636A",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "MechArm",
+     "size": [
+      0.1875,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      1.3125,
+      0.8438,
+      -0.1875
+     ],
+     "color": "#5C636A",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "MechArm",
+     "size": [
+      0.1875,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      1.125,
+      0.8438,
+      0.1875
+     ],
+     "color": "#5C636A",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "MechArm",
+     "size": [
+      0.5625,
+      0.1875,
+      0.5625
+     ],
+     "position": [
+      1.125,
+      1.0312,
+      0.0
+     ],
+     "color": "#ADB5BD",
+     "material": "SmoothPlastic",
+     "reflectance": 0.25
+    },
+    {
+     "name": "MechArm",
+     "size": [
+      0.5625,
+      0.1875,
+      0.5625
+     ],
+     "position": [
+      1.125,
+      1.2188,
+      0.0
+     ],
+     "color": "#5C636A",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "MechArm",
+     "size": [
+      0.5625,
+      0.1875,
+      0.5625
+     ],
+     "position": [
+      1.125,
+      1.4062,
+      0.0
+     ],
+     "color": "#ADB5BD",
+     "material": "SmoothPlastic",
+     "reflectance": 0.25
+    },
+    {
+     "name": "MechJoint",
+     "size": [
+      0.5625,
+      0.1875,
+      0.5625
+     ],
+     "position": [
+      1.125,
+      1.5938,
+      0.0
+     ],
+     "color": "#4CC9F0",
+     "material": "Neon"
+    },
+    {
+     "name": "MechArm",
+     "size": [
+      0.5625,
+      0.1875,
+      0.5625
+     ],
+     "position": [
+      1.125,
+      1.7812,
+      0.0
+     ],
+     "color": "#ADB5BD",
+     "material": "SmoothPlastic",
+     "reflectance": 0.25
+    },
+    {
+     "name": "Greatcoat",
+     "size": [
+      0.375,
+      0.375,
+      0.5625
+     ],
+     "position": [
+      1.0312,
+      2.0625,
+      0.0
+     ],
+     "color": "#14213D",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "MechJoint",
+     "size": [
+      0.1875,
+      0.1875,
+      0.375
+     ],
+     "position": [
+      1.3125,
+      1.9688,
+      -0.0938
+     ],
+     "color": "#4CC9F0",
+     "material": "Neon"
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      0.1875,
+      0.375,
+      0.1875
+     ],
+     "position": [
+      1.5,
+      2.0625,
+      -0.1875
+     ],
+     "color": "#D4880F",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      0.5625,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      1.3125,
+      1.9688,
+      0.0
+     ],
+     "color": "#FCA311",
+     "material": "SmoothPlastic",
+     "reflectance": 0.15
+    },
+    {
+     "name": "Greatcoat",
+     "size": [
+      0.5625,
+      0.375,
+      0.375
+     ],
+     "position": [
+      1.125,
+      2.0625,
+      0.0938
+     ],
+     "color": "#14213D",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      0.1875,
+      0.375,
+      0.1875
+     ],
+     "position": [
+      1.5,
+      2.0625,
+      0.1875
+     ],
+     "color": "#D4880F",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Greatcoat",
+     "size": [
+      0.5625,
+      0.1875,
+      0.5625
+     ],
+     "position": [
+      1.125,
+      2.1562,
+      0.0
+     ],
+     "color": "#14213D",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      0.5625,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      1.3125,
+      2.1562,
+      0.0
+     ],
+     "color": "#D4880F",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      0.75,
+      0.1875,
+      0.5625
+     ],
+     "position": [
+      1.2188,
+      2.3438,
+      0.0
+     ],
+     "color": "#FCA311",
+     "material": "SmoothPlastic",
+     "reflectance": 0.15
+    }
+   ]
+  },
+  {
+   "name": "Head",
+   "pivot": [
+    0.0,
+    2.25,
+    0.0
+   ],
+   "parts": [
+    {
+     "name": "Skin",
+     "size": [
+      1.6875,
+      2.4375,
+      1.3125
+     ],
+     "position": [
+      0.0,
+      3.4688,
+      0.0
+     ],
+     "color": "#E0AC69",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Skin",
+     "size": [
+      2.0625,
+      2.25,
+      1.6875
+     ],
+     "position": [
+      0.0,
+      3.5625,
+      0.0
+     ],
+     "color": "#E0AC69",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      0.375,
+      1.875,
+      0.375
+     ],
+     "position": [
+      -1.2188,
+      3.375,
+      0.0938
+     ],
+     "color": "#ADB5BD",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      0.375,
+      1.875,
+      0.375
+     ],
+     "position": [
+      1.2188,
+      3.375,
+      0.0938
+     ],
+     "color": "#ADB5BD",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      0.375,
+      0.1875,
+      0.5625
+     ],
+     "position": [
+      -1.2188,
+      2.5312,
+      0.5625
+     ],
+     "color": "#8E949B",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      0.375,
+      0.1875,
+      0.5625
+     ],
+     "position": [
+      1.2188,
+      2.5312,
+      0.5625
+     ],
+     "color": "#8E949B",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      2.4375,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      0.0,
+      2.5312,
+      0.9375
+     ],
+     "color": "#8E949B",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      2.0625,
+      0.1875,
+      0.375
+     ],
+     "position": [
+      0.0,
+      2.5312,
+      1.0312
+     ],
+     "color": "#8E949B",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      0.1875,
+      0.375,
+      0.1875
+     ],
+     "position": [
+      -0.5625,
+      2.8125,
+      -1.125
+     ],
+     "color": "#ADB5BD",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      0.1875,
+      0.375,
+      0.1875
+     ],
+     "position": [
+      0.5625,
+      2.8125,
+      -1.125
+     ],
+     "color": "#ADB5BD",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Skin",
+     "size": [
+      0.1875,
+      0.9375,
+      2.0625
+     ],
+     "position": [
+      -0.75,
+      3.0938,
+      0.0
+     ],
+     "color": "#E0AC69",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Skin",
+     "size": [
+      0.5625,
+      0.375,
+      2.0625
+     ],
+     "position": [
+      -0.5625,
+      2.8125,
+      0.0
+     ],
+     "color": "#E0AC69",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Mouth",
+     "size": [
+      0.5625,
+      0.1875,
+      2.0625
+     ],
+     "position": [
+      0.0,
+      2.7188,
+      0.0
+     ],
+     "color": "#5A2A27",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Skin",
+     "size": [
+      0.5625,
+      0.375,
+      2.0625
+     ],
+     "position": [
+      0.5625,
+      2.8125,
+      0.0
+     ],
+     "color": "#E0AC69",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Skin",
+     "size": [
+      2.4375,
+      2.0625,
+      1.5
+     ],
+     "position": [
+      0.0,
+      3.6562,
+      0.0938
+     ],
+     "color": "#E0AC69",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      2.8125,
+      1.6875,
+      0.9375
+     ],
+     "position": [
+      0.0,
+      3.4688,
+      0.375
+     ],
+     "color": "#ADB5BD",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      2.4375,
+      2.0625,
+      1.125
+     ],
+     "position": [
+      0.0,
+      3.6562,
+      0.4688
+     ],
+     "color": "#ADB5BD",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      2.0625,
+      1.6875,
+      1.875
+     ],
+     "position": [
+      0.0,
+      3.4688,
+      0.2812
+     ],
+     "color": "#ADB5BD",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      0.5625,
+      0.1875,
+      2.4375
+     ],
+     "position": [
+      -0.375,
+      2.9062,
+      0.0
+     ],
+     "color": "#ADB5BD",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      0.5625,
+      0.1875,
+      2.4375
+     ],
+     "position": [
+      0.375,
+      2.9062,
+      0.0
+     ],
+     "color": "#ADB5BD",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Skin",
+     "size": [
+      0.1875,
+      1.875,
+      2.0625
+     ],
+     "position": [
+      0.0,
+      3.75,
+      0.0
+     ],
+     "color": "#E0AC69",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      0.375,
+      0.1875,
+      0.75
+     ],
+     "position": [
+      -1.2188,
+      2.9062,
+      -0.4688
+     ],
+     "color": "#8E949B",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      0.375,
+      0.1875,
+      0.75
+     ],
+     "position": [
+      1.2188,
+      2.9062,
+      -0.4688
+     ],
+     "color": "#8E949B",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "EyeShine",
+     "size": [
+      0.375,
+      0.375,
+      2.0625
+     ],
+     "position": [
+      -0.4688,
+      3.0,
+      0.0
+     ],
+     "color": "#777E8E",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Skin",
+     "size": [
+      0.5625,
+      0.75,
+      2.0625
+     ],
+     "position": [
+      0.0,
+      3.1875,
+      0.0
+     ],
+     "color": "#E0AC69",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "EyeShine",
+     "size": [
+      0.375,
+      0.375,
+      2.0625
+     ],
+     "position": [
+      0.4688,
+      3.0,
+      0.0
+     ],
+     "color": "#777E8E",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Skin",
+     "size": [
+      0.1875,
+      0.9375,
+      2.0625
+     ],
+     "position": [
+      0.75,
+      3.0938,
+      0.0
+     ],
+     "color": "#E0AC69",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      0.375,
+      1.3125,
+      1.6875
+     ],
+     "position": [
+      -1.2188,
+      3.6562,
+      0.0
+     ],
+     "color": "#ADB5BD",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      0.375,
+      1.3125,
+      1.6875
+     ],
+     "position": [
+      1.2188,
+      3.6562,
+      0.0
+     ],
+     "color": "#ADB5BD",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Eye",
+     "size": [
+      0.375,
+      0.1875,
+      2.0625
+     ],
+     "position": [
+      -0.4688,
+      3.2812,
+      0.0
+     ],
+     "color": "#14213D",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Eye",
+     "size": [
+      0.375,
+      0.1875,
+      2.0625
+     ],
+     "position": [
+      0.4688,
+      3.2812,
+      0.0
+     ],
+     "color": "#14213D",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Eye",
+     "size": [
+      0.1875,
+      0.375,
+      2.0625
+     ],
+     "position": [
+      -0.5625,
+      3.375,
+      0.0
+     ],
+     "color": "#14213D",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "EyeGlint",
+     "size": [
+      0.1875,
+      0.1875,
+      2.0625
+     ],
+     "position": [
+      -0.375,
+      3.4688,
+      0.0
+     ],
+     "color": "#FFFFFF",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Eye",
+     "size": [
+      0.1875,
+      0.375,
+      2.0625
+     ],
+     "position": [
+      0.375,
+      3.375,
+      0.0
+     ],
+     "color": "#14213D",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "EyeGlint",
+     "size": [
+      0.1875,
+      0.1875,
+      2.0625
+     ],
+     "position": [
+      0.5625,
+      3.4688,
+      0.0
+     ],
+     "color": "#FFFFFF",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "EyeLash",
+     "size": [
+      0.5625,
+      1.125,
+      2.0625
+     ],
+     "position": [
+      -0.5625,
+      4.125,
+      0.0
+     ],
+     "color": "#2A1E1E",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      0.1875,
+      1.125,
+      2.0625
+     ],
+     "position": [
+      -0.1875,
+      4.125,
+      0.0
+     ],
+     "color": "#8D949A",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      0.1875,
+      1.125,
+      2.0625
+     ],
+     "position": [
+      0.1875,
+      4.125,
+      0.0
+     ],
+     "color": "#8D949A",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "EyeLash",
+     "size": [
+      0.5625,
+      1.125,
+      2.0625
+     ],
+     "position": [
+      0.5625,
+      4.125,
+      0.0
+     ],
+     "color": "#2A1E1E",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      0.1875,
+      1.125,
+      2.0625
+     ],
+     "position": [
+      1.125,
+      4.125,
+      0.0
+     ],
+     "color": "#ADB5BD",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      2.0625,
+      0.5625,
+      2.4375
+     ],
+     "position": [
+      0.0,
+      4.0312,
+      0.0
+     ],
+     "color": "#ADB5BD",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      2.4375,
+      0.9375,
+      2.0625
+     ],
+     "position": [
+      0.0,
+      4.2188,
+      0.0
+     ],
+     "color": "#ADB5BD",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "AdmiralCap",
+     "size": [
+      1.6875,
+      0.1875,
+      2.625
+     ],
+     "position": [
+      0.0,
+      4.0312,
+      -0.2812
+     ],
+     "color": "#1B1B1E",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "AdmiralCap",
+     "size": [
+      2.0625,
+      0.375,
+      0.1875
+     ],
+     "position": [
+      0.0,
+      4.125,
+      -1.3125
+     ],
+     "color": "#1B1B1E",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "AdmiralCap",
+     "size": [
+      0.375,
+      0.375,
+      2.4375
+     ],
+     "position": [
+      -1.0312,
+      4.3125,
+      0.0
+     ],
+     "color": "#1B1B1E",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "AdmiralCap",
+     "size": [
+      0.375,
+      0.375,
+      2.4375
+     ],
+     "position": [
+      1.0312,
+      4.3125,
+      0.0
+     ],
+     "color": "#1B1B1E",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "AdmiralCap",
+     "size": [
+      2.8125,
+      0.375,
+      2.0625
+     ],
+     "position": [
+      0.0,
+      4.3125,
+      0.0
+     ],
+     "color": "#1B1B1E",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "AdmiralCap",
+     "size": [
+      3.1875,
+      0.1875,
+      1.6875
+     ],
+     "position": [
+      0.0,
+      4.2188,
+      0.0
+     ],
+     "color": "#1B1B1E",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "AdmiralCap",
+     "size": [
+      2.0625,
+      0.1875,
+      2.8125
+     ],
+     "position": [
+      0.0,
+      4.2188,
+      0.0
+     ],
+     "color": "#1B1B1E",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      0.1875,
+      0.5625,
+      0.1875
+     ],
+     "position": [
+      0.0,
+      4.5938,
+      -1.5
+     ],
+     "color": "#FCA311",
+     "material": "SmoothPlastic",
+     "reflectance": 0.15
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      1.6875,
+      0.75,
+      2.25
+     ],
+     "position": [
+      0.0,
+      4.3125,
+      -0.0938
+     ],
+     "color": "#FCA311",
+     "material": "SmoothPlastic",
+     "reflectance": 0.15
+    },
+    {
+     "name": "AdmiralCap",
+     "size": [
+      2.4375,
+      0.375,
+      2.25
+     ],
+     "position": [
+      0.0,
+      4.3125,
+      0.0938
+     ],
+     "color": "#1B1B1E",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      0.5625,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      0.0,
+      4.5938,
+      -1.5
+     ],
+     "color": "#FCA311",
+     "material": "SmoothPlastic",
+     "reflectance": 0.15
+    },
+    {
+     "name": "AdmiralCap",
+     "size": [
+      2.8125,
+      0.1875,
+      2.625
+     ],
+     "position": [
+      0.0,
+      4.5938,
+      -0.0938
+     ],
+     "color": "#F8F9FA",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "AdmiralCap",
+     "size": [
+      2.4375,
+      0.375,
+      2.25
+     ],
+     "position": [
+      0.0,
+      4.6875,
+      -0.0938
+     ],
+     "color": "#F8F9FA",
+     "material": "SmoothPlastic"
+    }
+   ]
+  }
+ ]
+}

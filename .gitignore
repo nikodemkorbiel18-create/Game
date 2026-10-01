@@ -4,3 +4,5 @@ roblox.yml
 *.rbxl.lock
 *.rbxlx.lock
 tools/scratch/
+__pycache__/
+*.blend1

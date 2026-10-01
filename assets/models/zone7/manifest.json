@@ -1,0 +1,604 @@
+{
+ "voxel": 0.1875,
+ "models": [
+  {
+   "name": "Char_Bolt",
+   "kind": "Character",
+   "description": "Mechanic: messy orange hair, goggles pushed up, yellow tee under slate overalls, work gloves, oil smudge on the cheek and a big wrench held at the side.",
+   "size": [
+    3.9375,
+    5.4375,
+    3.375
+   ],
+   "bounds": [
+    [
+     -1.9688,
+     0.0,
+     -1.5938
+    ],
+    [
+     1.9688,
+     5.4375,
+     1.7812
+    ]
+   ],
+   "previewTint": "#ADB5BD",
+   "parts": 131,
+   "voxels": 2745,
+   "attributes": {},
+   "groups": {
+    "LegR": [
+     0.46875,
+     0.9375,
+     0.0
+    ],
+    "LegL": [
+     -0.46875,
+     0.9375,
+     0.0
+    ],
+    "Torso": [
+     0.0,
+     0.9375,
+     0.0
+    ],
+    "ArmR": [
+     1.125,
+     2.15625,
+     0.0
+    ],
+    "ArmL": [
+     -1.125,
+     2.15625,
+     0.0
+    ],
+    "Head": [
+     0.0,
+     2.25,
+     0.0
+    ]
+   }
+  },
+  {
+   "name": "Char_Haruto",
+   "kind": "Character",
+   "description": "Rookie pilot: orange flight suit with white collar and zip, navy belt and boots, round squadron patch, pilot headset with a boom mic.",
+   "size": [
+    3.1875,
+    4.875,
+    2.625
+   ],
+   "bounds": [
+    [
+     -1.5938,
+     0.0,
+     -1.4062
+    ],
+    [
+     1.5938,
+     4.875,
+     1.2188
+    ]
+   ],
+   "previewTint": "#ADB5BD",
+   "parts": 99,
+   "voxels": 2620,
+   "attributes": {},
+   "groups": {
+    "LegR": [
+     0.46875,
+     0.9375,
+     0.0
+    ],
+    "LegL": [
+     -0.46875,
+     0.9375,
+     0.0
+    ],
+    "Torso": [
+     0.0,
+     0.9375,
+     0.0
+    ],
+    "ArmR": [
+     1.125,
+     2.15625,
+     0.0
+    ],
+    "ArmL": [
+     -1.125,
+     2.15625,
+     0.0
+    ],
+    "Head": [
+     0.0,
+     2.25,
+     0.0
+    ]
+   }
+  },
+  {
+   "name": "Char_Hive",
+   "kind": "Character",
+   "description": "Drone operator: mint bob, teal hoodie, drone remote held out in both hands and four tiny drones orbiting overhead (they spin in game).",
+   "size": [
+    3.1875,
+    6.0,
+    2.4375
+   ],
+   "bounds": [
+    [
+     -1.5938,
+     0.0,
+     -1.2188
+    ],
+    [
+     1.5938,
+     6.0,
+     1.2188
+    ]
+   ],
+   "previewTint": "#ADB5BD",
+   "parts": 95,
+   "voxels": 2788,
+   "attributes": {},
+   "groups": {
+    "LegR": [
+     0.46875,
+     0.9375,
+     0.0
+    ],
+    "LegL": [
+     -0.46875,
+     0.9375,
+     0.0
+    ],
+    "Torso": [
+     0.0,
+     0.9375,
+     0.0
+    ],
+    "ArmR": [
+     1.125,
+     2.15625,
+     0.0
+    ],
+    "ArmL": [
+     -1.125,
+     2.15625,
+     0.0
+    ],
+    "Head": [
+     0.0,
+     2.25,
+     0.0
+    ],
+    "Drones": [
+     0.0,
+     5.0625,
+     0.0
+    ]
+   }
+  },
+  {
+   "name": "Char_Hikari",
+   "kind": "Character",
+   "description": "Ace pilot: white flight suit with blue panels, silver high ponytail, tinted visor over the eyes and a gold wing badge.",
+   "size": [
+    2.8125,
+    5.25,
+    3.5625
+   ],
+   "bounds": [
+    [
+     -1.4062,
+     0.0,
+     -1.2188
+    ],
+    [
+     1.4062,
+     5.25,
+     2.3438
+    ]
+   ],
+   "previewTint": "#ADB5BD",
+   "parts": 89,
+   "voxels": 2698,
+   "attributes": {},
+   "groups": {
+    "LegR": [
+     0.46875,
+     0.9375,
+     0.0
+    ],
+    "LegL": [
+     -0.46875,
+     0.9375,
+     0.0
+    ],
+    "Torso": [
+     0.0,
+     0.9375,
+     0.0
+    ],
+    "ArmR": [
+     1.125,
+     2.15625,
+     0.0
+    ],
+    "ArmL": [
+     -1.125,
+     2.15625,
+     0.0
+    ],
+    "Head": [
+     0.0,
+     2.25,
+     0.0
+    ]
+   }
+  },
+  {
+   "name": "Char_AdmiralGotetsu",
+   "kind": "Character",
+   "description": "Iron admiral: navy greatcoat with gold epaulettes and buttons, white peaked cap, grey hair and moustache, stern brows, and a mechanical right arm with a glowing joint.",
+   "size": [
+    3.1875,
+    4.875,
+    3.0
+   ],
+   "bounds": [
+    [
+     -1.5938,
+     0.0,
+     -1.5938
+    ],
+    [
+     1.5938,
+     4.875,
+     1.4062
+    ]
+   ],
+   "previewTint": "#ADB5BD",
+   "parts": 115,
+   "voxels": 3152,
+   "attributes": {},
+   "groups": {
+    "Torso": [
+     0.0,
+     0.9375,
+     0.0
+    ],
+    "LegR": [
+     0.46875,
+     0.9375,
+     0.0
+    ],
+    "LegL": [
+     -0.46875,
+     0.9375,
+     0.0
+    ],
+    "ArmL": [
+     -1.125,
+     2.15625,
+     0.0
+    ],
+    "ArmR": [
+     1.125,
+     2.15625,
+     0.0
+    ],
+    "Head": [
+     0.0,
+     2.25,
+     0.0
+    ]
+   }
+  },
+  {
+   "name": "Char_Daichi",
+   "kind": "Character",
+   "description": "Colossus pilot in a tiny mech suit: spiky-haired chibi head poking out of a boxy red suit with white plates, a glass cockpit, big yellow fists and a back thruster.",
+   "size": [
+    4.3125,
+    6.5625,
+    3.1875
+   ],
+   "bounds": [
+    [
+     -2.1562,
+     0.0,
+     -1.2188
+    ],
+    [
+     2.1562,
+     6.5625,
+     1.9688
+    ]
+   ],
+   "previewTint": "#ADB5BD",
+   "parts": 138,
+   "voxels": 4017,
+   "attributes": {},
+   "groups": {
+    "LegR": [
+     0.65625,
+     0.9375,
+     0.0
+    ],
+    "LegL": [
+     -0.65625,
+     0.9375,
+     0.0
+    ],
+    "Torso": [
+     0.0,
+     0.9375,
+     0.0
+    ],
+    "ArmR": [
+     1.59375,
+     2.4375,
+     0.0
+    ],
+    "ArmL": [
+     -1.59375,
+     2.4375,
+     0.0
+    ],
+    "Head": [
+     0.0,
+     3.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "name": "Egg_Bolt",
+   "kind": "Egg",
+   "description": "Goggles strapped round the top, a wrench on the side, an oil smudge, amber core, crown.",
+   "size": [
+    2.25,
+    3.375,
+    2.25
+   ],
+   "bounds": [
+    [
+     -1.0312,
+     0.0,
+     -1.2188
+    ],
+    [
+     1.2188,
+     3.375,
+     1.0312
+    ]
+   ],
+   "previewTint": "#ADB5BD",
+   "parts": 101,
+   "voxels": 1214,
+   "attributes": {
+    "ShellHeight": 3.0,
+    "Ornament": "Crown"
+   },
+   "groups": {
+    "Egg": [
+     0.0,
+     1.5,
+     0.0
+    ],
+    "Ornament": [
+     0.0,
+     1.5,
+     0.0
+    ]
+   }
+  },
+  {
+   "name": "Egg_Haruto",
+   "kind": "Egg",
+   "description": "Pilot headset with ear cups and a boom mic, squadron patch, orange core, crown.",
+   "size": [
+    2.8125,
+    3.375,
+    2.4375
+   ],
+   "bounds": [
+    [
+     -1.4062,
+     0.0,
+     -1.2188
+    ],
+    [
+     1.4062,
+     3.375,
+     1.2188
+    ]
+   ],
+   "previewTint": "#F8F9FA",
+   "parts": 88,
+   "voxels": 1216,
+   "attributes": {
+    "ShellHeight": 3.0,
+    "Ornament": "Crown"
+   },
+   "groups": {
+    "Egg": [
+     0.0,
+     1.5,
+     0.0
+    ],
+    "Ornament": [
+     0.0,
+     1.5,
+     0.0
+    ]
+   }
+  },
+  {
+   "name": "Egg_Hive",
+   "kind": "Egg",
+   "description": "Two tiny drones circling it, a little remote badge, mint core, horns.",
+   "size": [
+    3.5625,
+    3.75,
+    2.25
+   ],
+   "bounds": [
+    [
+     -1.7812,
+     0.0,
+     -1.2188
+    ],
+    [
+     1.7812,
+     3.75,
+     1.0312
+    ]
+   ],
+   "previewTint": "#4361EE",
+   "parts": 77,
+   "voxels": 1169,
+   "attributes": {
+    "ShellHeight": 3.0,
+    "Ornament": "Horns"
+   },
+   "groups": {
+    "Egg": [
+     0.0,
+     1.5,
+     0.0
+    ],
+    "Ornament": [
+     0.0,
+     1.5,
+     0.0
+    ]
+   }
+  },
+  {
+   "name": "Egg_Hikari",
+   "kind": "Egg",
+   "description": "Tinted visor band, gold wing badge, silver ponytail plume, blue core, horns.",
+   "size": [
+    2.0625,
+    3.75,
+    2.625
+   ],
+   "bounds": [
+    [
+     -1.0312,
+     0.0,
+     -1.2188
+    ],
+    [
+     1.0312,
+     3.75,
+     1.4062
+    ]
+   ],
+   "previewTint": "#F8F9FA",
+   "parts": 82,
+   "voxels": 1179,
+   "attributes": {
+    "ShellHeight": 3.0,
+    "Ornament": "Horns"
+   },
+   "groups": {
+    "Egg": [
+     0.0,
+     1.5,
+     0.0
+    ],
+    "Ornament": [
+     0.0,
+     1.5,
+     0.0
+    ]
+   }
+  },
+  {
+   "name": "Egg_AdmiralGotetsu",
+   "kind": "Egg",
+   "description": "Admiral's peaked cap, gold epaulettes and buttons, cyan core, orbiting stars.",
+   "size": [
+    3.1875,
+    3.1875,
+    3.0
+   ],
+   "bounds": [
+    [
+     -1.4062,
+     0.0,
+     -1.7812
+    ],
+    [
+     1.7812,
+     3.1875,
+     1.2188
+    ]
+   ],
+   "previewTint": "#4361EE",
+   "parts": 85,
+   "voxels": 1332,
+   "attributes": {
+    "ShellHeight": 3.0,
+    "Ornament": "Stars"
+   },
+   "groups": {
+    "Egg": [
+     0.0,
+     1.5,
+     0.0
+    ],
+    "Ornament": [
+     0.0,
+     1.5,
+     0.0
+    ]
+   }
+  },
+  {
+   "name": "Egg_Daichi",
+   "kind": "Egg",
+   "description": "Glass cockpit, mini yellow fists, back thruster, spiky hair tuft, yellow core, orbiting stars.",
+   "size": [
+    3.375,
+    3.75,
+    3.0
+   ],
+   "bounds": [
+    [
+     -1.5938,
+     0.0,
+     -1.7812
+    ],
+    [
+     1.7812,
+     3.75,
+     1.2188
+    ]
+   ],
+   "previewTint": "#E5383B",
+   "parts": 88,
+   "voxels": 1263,
+   "attributes": {
+    "ShellHeight": 3.0,
+    "Ornament": "Stars"
+   },
+   "groups": {
+    "Egg": [
+     0.0,
+     1.5,
+     0.0
+    ],
+    "Ornament": [
+     0.0,
+     1.5,
+     0.0
+    ]
+   }
+  }
+ ]
+}

@@ -2,8 +2,16 @@
 -- Builds egg models. Readability rules from the brief:
 --   SHAPE / ORNAMENT = rarity, COLOR = cosmetic only (zone palette), theme overlay = zone,
 --   mutation visible on the shell, size = physical scale.
--- A mesh egg in ReplicatedStorage.Assets.Eggs named after the theme (e.g. "Egg_Zone3")
--- replaces the placeholder shell; rarity ornaments and mutation effects are still added.
+-- A model in ReplicatedStorage.Assets.Eggs named after the character's EggModel (e.g.
+-- "Egg_Zone3", or "Egg_Bolt" for a per-character egg) replaces the placeholder shell;
+-- rarity ornaments and mutation effects are still added. Optional asset conventions:
+--   model attribute ShellHeight  height of the shell alone (studs); the pivot sits at the
+--                                shell's centre, so ornaments can stick out above it
+--   model attribute Ornament     rarity ornament built into the model ("Crown", ...); the
+--                                procedural one is skipped when it matches the rarity
+--   part attribute Tint          shell part recoloured with the cosmetic colour x factor
+--   part attribute OrnamentPart  removed if the built-in ornament doesn't match the rarity
+--   part attribute Orbit         spins around the egg (like OrbitStar parts)
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local CollectionService = game:GetService("CollectionService")
@@ -201,6 +209,14 @@ local function ornament(ctx: Ctx, rarity: Rarities.Rarity)
 	end
 end
 
+-- factor < 1 darkens, factor > 1 lightens toward white (tools/blender/voxel.py `shade`)
+local function shade(color: Color3, factor: number): Color3
+	if factor >= 1 then
+		return color:Lerp(Color3.new(1, 1, 1), math.min(factor - 1, 1))
+	end
+	return Color3.new(color.R * factor, color.G * factor, color.B * factor)
+end
+
 local function findAsset(name: string): Model?
 	local assets = ReplicatedStorage:FindFirstChild("Assets")
 	local folder = assets and assets:FindFirstChild("Eggs")
@@ -245,20 +261,37 @@ function EggBuilder.Build(spec: EggSpec, scaleOverride: number?): Model
 	}
 
 	local asset = findAsset(eggModel)
+	local builtInOrnament = false
 	if asset then
 		local clone = asset:Clone()
-		local _, assetSize = clone:GetBoundingBox()
-		local fit = shellSize.Y / math.max(assetSize.Y, 0.1)
+		local shellHeight = clone:GetAttribute("ShellHeight")
+		if type(shellHeight) ~= "number" or shellHeight <= 0 then
+			local _, assetSize = clone:GetBoundingBox()
+			shellHeight = assetSize.Y
+		end
+		local fit = shellSize.Y / math.max(shellHeight :: number, 0.1)
 		clone:ScaleTo(clone:GetScale() * fit)
 		clone:PivotTo(CFrame.new(ctx.Center))
+		builtInOrnament = clone:GetAttribute("Ornament") == rarity.Ornament
+		local tintColor = if rarity.Ornament == "Glitch" then Color3.fromHex("#141414") else ctx.Base
 		for _, descendant in clone:GetDescendants() do
 			if descendant:IsA("BasePart") then
+				if descendant:GetAttribute("OrnamentPart") and not builtInOrnament then
+					continue -- wrong rarity (e.g. Awakened): destroyed with the clone
+				end
+				local tint = descendant:GetAttribute("Tint")
+				if type(tint) == "number" then
+					descendant.Color = shade(tintColor, tint)
+				end
 				descendant.Anchored = true
 				descendant.CanCollide = false
 				descendant.CanQuery = false
 				descendant.CanTouch = false
 				descendant.Massless = true
 				descendant.Parent = model
+				if descendant:GetAttribute("Orbit") == true then
+					CollectionService:AddTag(model, "OrbitFX")
+				end
 			end
 		end
 		clone:Destroy()
@@ -278,7 +311,9 @@ function EggBuilder.Build(spec: EggSpec, scaleOverride: number?): Model
 		end
 		overlay(ctx, overlayKind)
 	end
-	ornament(ctx, rarity)
+	if not builtInOrnament then
+		ornament(ctx, rarity)
+	end
 
 	local root = Instance.new("Part")
 	root.Name = "Root"

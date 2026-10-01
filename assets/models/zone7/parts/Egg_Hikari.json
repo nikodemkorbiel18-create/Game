@@ -1,0 +1,1413 @@
+{
+ "name": "Egg_Hikari",
+ "kind": "Egg",
+ "voxel": 0.1875,
+ "attributes": {
+  "ShellHeight": 3.0,
+  "Ornament": "Horns"
+ },
+ "partCount": 82,
+ "voxelCount": 1179,
+ "size": [
+  2.0625,
+  3.75,
+  2.625
+ ],
+ "bounds": [
+  [
+   -1.0312,
+   0.0,
+   -1.2188
+  ],
+  [
+   1.0312,
+   3.75,
+   1.4062
+  ]
+ ],
+ "previewTint": "#F8F9FA",
+ "groups": [
+  {
+   "name": "Egg",
+   "pivot": [
+    0.0,
+    1.5,
+    0.0
+   ],
+   "parts": [
+    {
+     "name": "Shell",
+     "size": [
+      0.1875,
+      2.625,
+      0.9375
+     ],
+     "position": [
+      0.0,
+      1.3125,
+      0.0
+     ],
+     "color": "#C6C7C8",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 0.8
+     }
+    },
+    {
+     "name": "Shell",
+     "size": [
+      0.5625,
+      2.8125,
+      0.5625
+     ],
+     "position": [
+      0.0,
+      1.4062,
+      0.0
+     ],
+     "color": "#C6C7C8",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 0.8
+     }
+    },
+    {
+     "name": "Shell",
+     "size": [
+      0.9375,
+      2.625,
+      0.1875
+     ],
+     "position": [
+      0.0,
+      1.3125,
+      0.0
+     ],
+     "color": "#C6C7C8",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 0.8
+     }
+    },
+    {
+     "name": "Shell",
+     "size": [
+      0.5625,
+      2.25,
+      1.3125
+     ],
+     "position": [
+      0.0,
+      1.3125,
+      0.0
+     ],
+     "color": "#C6C7C8",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 0.8
+     }
+    },
+    {
+     "name": "Shell",
+     "size": [
+      0.9375,
+      2.4375,
+      0.9375
+     ],
+     "position": [
+      0.0,
+      1.4062,
+      0.0
+     ],
+     "color": "#C6C7C8",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 0.8
+     }
+    },
+    {
+     "name": "Shell",
+     "size": [
+      1.3125,
+      2.25,
+      0.5625
+     ],
+     "position": [
+      0.0,
+      1.3125,
+      0.0
+     ],
+     "color": "#C6C7C8",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 0.8
+     }
+    },
+    {
+     "name": "WingBadge",
+     "size": [
+      0.5625,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      0.0,
+      0.4688,
+      -1.125
+     ],
+     "color": "#FFBA08",
+     "material": "SmoothPlastic",
+     "reflectance": 0.15
+    },
+    {
+     "name": "Shell",
+     "size": [
+      0.5625,
+      2.0625,
+      1.6875
+     ],
+     "position": [
+      0.0,
+      1.4062,
+      0.0
+     ],
+     "color": "#F8F9FA",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "Shell",
+     "size": [
+      1.125,
+      2.0625,
+      1.3125
+     ],
+     "position": [
+      -0.0938,
+      1.4062,
+      0.0
+     ],
+     "color": "#F8F9FA",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "Shell",
+     "size": [
+      1.3125,
+      1.875,
+      1.3125
+     ],
+     "position": [
+      0.0,
+      1.3125,
+      0.0
+     ],
+     "color": "#F8F9FA",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "Shell",
+     "size": [
+      1.6875,
+      2.0625,
+      0.5625
+     ],
+     "position": [
+      0.0,
+      1.4062,
+      0.0
+     ],
+     "color": "#F8F9FA",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "WingBadge",
+     "size": [
+      0.375,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      -0.2812,
+      0.6562,
+      -1.125
+     ],
+     "color": "#FFBA08",
+     "material": "SmoothPlastic",
+     "reflectance": 0.15
+    },
+    {
+     "name": "WingBadge",
+     "size": [
+      0.375,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      0.2812,
+      0.6562,
+      -1.125
+     ],
+     "color": "#FFBA08",
+     "material": "SmoothPlastic",
+     "reflectance": 0.15
+    },
+    {
+     "name": "ArmorPlate",
+     "size": [
+      0.5625,
+      0.1875,
+      2.0625
+     ],
+     "position": [
+      -0.375,
+      0.6562,
+      0.0
+     ],
+     "color": "#495057",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Rivet",
+     "size": [
+      0.1875,
+      0.375,
+      1.875
+     ],
+     "position": [
+      0.0,
+      0.75,
+      -0.0938
+     ],
+     "color": "#CED4DA",
+     "material": "SmoothPlastic",
+     "reflectance": 0.2
+    },
+    {
+     "name": "ArmorPlate",
+     "size": [
+      0.5625,
+      0.1875,
+      2.0625
+     ],
+     "position": [
+      0.375,
+      0.6562,
+      0.0
+     ],
+     "color": "#495057",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Rivet",
+     "size": [
+      0.1875,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      -0.75,
+      0.6562,
+      -0.75
+     ],
+     "color": "#CED4DA",
+     "material": "SmoothPlastic",
+     "reflectance": 0.2
+    },
+    {
+     "name": "Rivet",
+     "size": [
+      0.1875,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      0.75,
+      0.6562,
+      -0.75
+     ],
+     "color": "#CED4DA",
+     "material": "SmoothPlastic",
+     "reflectance": 0.2
+    },
+    {
+     "name": "ArmorPlate",
+     "size": [
+      2.0625,
+      0.1875,
+      1.3125
+     ],
+     "position": [
+      0.0,
+      0.6562,
+      0.0
+     ],
+     "color": "#495057",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "ArmorPlate",
+     "size": [
+      1.6875,
+      0.1875,
+      1.5
+     ],
+     "position": [
+      0.0,
+      0.6562,
+      0.0938
+     ],
+     "color": "#495057",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "ArmorPlate",
+     "size": [
+      1.3125,
+      0.1875,
+      1.875
+     ],
+     "position": [
+      0.0,
+      0.6562,
+      0.0938
+     ],
+     "color": "#495057",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "CoreFrame",
+     "size": [
+      0.5625,
+      0.1875,
+      2.0625
+     ],
+     "position": [
+      0.0,
+      0.8438,
+      -0.1875
+     ],
+     "color": "#343A40",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "CoreFrame",
+     "size": [
+      0.9375,
+      0.1875,
+      1.6875
+     ],
+     "position": [
+      0.0,
+      0.8438,
+      -0.1875
+     ],
+     "color": "#343A40",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Shell",
+     "size": [
+      1.3125,
+      1.125,
+      1.6875
+     ],
+     "position": [
+      0.0,
+      1.3125,
+      0.0
+     ],
+     "color": "#F8F9FA",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "Shell",
+     "size": [
+      1.6875,
+      1.125,
+      1.3125
+     ],
+     "position": [
+      0.0,
+      1.3125,
+      0.0
+     ],
+     "color": "#F8F9FA",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "Shell",
+     "size": [
+      2.0625,
+      1.125,
+      0.5625
+     ],
+     "position": [
+      0.0,
+      1.3125,
+      0.0
+     ],
+     "color": "#F8F9FA",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "Shell",
+     "size": [
+      0.5625,
+      1.125,
+      1.875
+     ],
+     "position": [
+      0.0,
+      1.3125,
+      0.0938
+     ],
+     "color": "#F8F9FA",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "CoreFrame",
+     "size": [
+      0.1875,
+      0.5625,
+      0.1875
+     ],
+     "position": [
+      -0.375,
+      1.2188,
+      -1.125
+     ],
+     "color": "#343A40",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "CoreFrame",
+     "size": [
+      0.1875,
+      0.5625,
+      0.1875
+     ],
+     "position": [
+      0.375,
+      1.2188,
+      -1.125
+     ],
+     "color": "#343A40",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Shell",
+     "size": [
+      0.1875,
+      0.5625,
+      2.0625
+     ],
+     "position": [
+      -0.375,
+      1.2188,
+      0.0
+     ],
+     "color": "#F8F9FA",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "Core",
+     "size": [
+      0.5625,
+      0.9375,
+      1.875
+     ],
+     "position": [
+      0.0,
+      1.2188,
+      -0.0938
+     ],
+     "color": "#4361EE",
+     "material": "Neon"
+    },
+    {
+     "name": "Shell",
+     "size": [
+      0.1875,
+      0.5625,
+      2.0625
+     ],
+     "position": [
+      0.375,
+      1.2188,
+      0.0
+     ],
+     "color": "#F8F9FA",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "Shell",
+     "size": [
+      2.0625,
+      0.5625,
+      0.9375
+     ],
+     "position": [
+      0.0,
+      1.2188,
+      0.0
+     ],
+     "color": "#F8F9FA",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "CoreFrame",
+     "size": [
+      0.5625,
+      0.1875,
+      2.0625
+     ],
+     "position": [
+      0.0,
+      1.5938,
+      -0.1875
+     ],
+     "color": "#343A40",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "CoreFrame",
+     "size": [
+      0.9375,
+      0.1875,
+      1.6875
+     ],
+     "position": [
+      0.0,
+      1.5938,
+      -0.1875
+     ],
+     "color": "#343A40",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Ponytail",
+     "size": [
+      0.1875,
+      0.5625,
+      0.1875
+     ],
+     "position": [
+      0.0,
+      1.7812,
+      1.125
+     ],
+     "color": "#C5CBD3",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Ponytail",
+     "size": [
+      0.1875,
+      0.9375,
+      0.1875
+     ],
+     "position": [
+      0.0,
+      1.9688,
+      1.3125
+     ],
+     "color": "#E9ECEF",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Shell",
+     "size": [
+      0.5625,
+      0.375,
+      2.0625
+     ],
+     "position": [
+      0.0,
+      1.6875,
+      0.0
+     ],
+     "color": "#F8F9FA",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "Rivet",
+     "size": [
+      0.1875,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      -0.5625,
+      1.9688,
+      -0.9375
+     ],
+     "color": "#CED4DA",
+     "material": "SmoothPlastic",
+     "reflectance": 0.2
+    },
+    {
+     "name": "ArmorPlate",
+     "size": [
+      0.375,
+      0.1875,
+      2.0625
+     ],
+     "position": [
+      -0.2812,
+      1.9688,
+      0.0
+     ],
+     "color": "#495057",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Rivet",
+     "size": [
+      0.1875,
+      0.1875,
+      1.875
+     ],
+     "position": [
+      0.0,
+      1.9688,
+      -0.0938
+     ],
+     "color": "#CED4DA",
+     "material": "SmoothPlastic",
+     "reflectance": 0.2
+    },
+    {
+     "name": "ArmorPlate",
+     "size": [
+      0.375,
+      0.1875,
+      2.0625
+     ],
+     "position": [
+      0.2812,
+      1.9688,
+      0.0
+     ],
+     "color": "#495057",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Rivet",
+     "size": [
+      0.1875,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      0.5625,
+      1.9688,
+      -0.9375
+     ],
+     "color": "#CED4DA",
+     "material": "SmoothPlastic",
+     "reflectance": 0.2
+    },
+    {
+     "name": "ArmorPlate",
+     "size": [
+      1.6875,
+      0.1875,
+      1.6875
+     ],
+     "position": [
+      0.0,
+      1.9688,
+      0.0
+     ],
+     "color": "#495057",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "ArmorPlate",
+     "size": [
+      2.0625,
+      0.1875,
+      1.3125
+     ],
+     "position": [
+      0.0,
+      1.9688,
+      0.0
+     ],
+     "color": "#495057",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "ArmorPlate",
+     "size": [
+      1.3125,
+      0.1875,
+      1.875
+     ],
+     "position": [
+      0.0,
+      1.9688,
+      0.0938
+     ],
+     "color": "#495057",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Visor",
+     "size": [
+      0.9375,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      0.0,
+      2.1562,
+      -0.9375
+     ],
+     "color": "#4CC9F0",
+     "material": "Glass",
+     "transparency": 0.45
+    },
+    {
+     "name": "Visor",
+     "size": [
+      0.1875,
+      0.375,
+      0.1875
+     ],
+     "position": [
+      -0.5625,
+      2.25,
+      -0.75
+     ],
+     "color": "#4CC9F0",
+     "material": "Glass",
+     "transparency": 0.45
+    },
+    {
+     "name": "Shell",
+     "size": [
+      0.9375,
+      1.5,
+      1.6875
+     ],
+     "position": [
+      0.0,
+      1.5,
+      0.0
+     ],
+     "color": "#F8F9FA",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "Visor",
+     "size": [
+      0.1875,
+      0.375,
+      0.1875
+     ],
+     "position": [
+      0.5625,
+      2.25,
+      -0.75
+     ],
+     "color": "#4CC9F0",
+     "material": "Glass",
+     "transparency": 0.45
+    },
+    {
+     "name": "Visor",
+     "size": [
+      0.1875,
+      0.375,
+      0.1875
+     ],
+     "position": [
+      -0.75,
+      2.0625,
+      -0.5625
+     ],
+     "color": "#1B263B",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Visor",
+     "size": [
+      0.1875,
+      0.375,
+      0.1875
+     ],
+     "position": [
+      0.75,
+      2.0625,
+      -0.5625
+     ],
+     "color": "#1B263B",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Shell",
+     "size": [
+      1.6875,
+      1.5,
+      0.9375
+     ],
+     "position": [
+      0.0,
+      1.5,
+      0.0
+     ],
+     "color": "#F8F9FA",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "Ponytail",
+     "size": [
+      0.1875,
+      0.75,
+      0.1875
+     ],
+     "position": [
+      0.0,
+      2.4375,
+      1.125
+     ],
+     "color": "#E9ECEF",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Visor",
+     "size": [
+      0.5625,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      0.0,
+      2.3438,
+      -0.9375
+     ],
+     "color": "#4CC9F0",
+     "material": "Glass",
+     "transparency": 0.45
+    },
+    {
+     "name": "Visor",
+     "size": [
+      0.1875,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      -0.375,
+      2.3438,
+      -0.75
+     ],
+     "color": "#4CC9F0",
+     "material": "Glass",
+     "transparency": 0.45
+    },
+    {
+     "name": "Visor",
+     "size": [
+      0.1875,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      0.375,
+      2.3438,
+      -0.75
+     ],
+     "color": "#4CC9F0",
+     "material": "Glass",
+     "transparency": 0.45
+    },
+    {
+     "name": "Shine",
+     "size": [
+      0.1875,
+      0.1875,
+      0.9375
+     ],
+     "position": [
+      0.5625,
+      2.3438,
+      -0.1875
+     ],
+     "color": "#FFFFFF",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Visor",
+     "size": [
+      1.6875,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      0.0,
+      2.3438,
+      -0.375
+     ],
+     "color": "#1B263B",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Shell",
+     "size": [
+      1.3125,
+      2.25,
+      0.75
+     ],
+     "position": [
+      0.0,
+      1.5,
+      0.0938
+     ],
+     "color": "#F8F9FA",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "Shell",
+     "size": [
+      1.3125,
+      2.0625,
+      1.125
+     ],
+     "position": [
+      0.0,
+      1.4062,
+      0.0938
+     ],
+     "color": "#F8F9FA",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "Shell",
+     "size": [
+      0.9375,
+      2.25,
+      1.3125
+     ],
+     "position": [
+      0.0,
+      1.5,
+      0.0
+     ],
+     "color": "#F8F9FA",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "Shell",
+     "size": [
+      1.125,
+      2.25,
+      0.9375
+     ],
+     "position": [
+      -0.0938,
+      1.5,
+      0.0
+     ],
+     "color": "#F8F9FA",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "Shine",
+     "size": [
+      1.125,
+      2.0625,
+      0.1875
+     ],
+     "position": [
+      0.0938,
+      1.5938,
+      -0.375
+     ],
+     "color": "#FFFFFF",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Ponytail",
+     "size": [
+      0.1875,
+      0.375,
+      0.1875
+     ],
+     "position": [
+      0.0,
+      2.625,
+      0.75
+     ],
+     "color": "#4361EE",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Ponytail",
+     "size": [
+      0.1875,
+      0.5625,
+      0.1875
+     ],
+     "position": [
+      0.0,
+      2.7188,
+      0.9375
+     ],
+     "color": "#E9ECEF",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Shell",
+     "size": [
+      0.75,
+      2.4375,
+      0.9375
+     ],
+     "position": [
+      -0.0938,
+      1.5938,
+      0.0
+     ],
+     "color": "#F8F9FA",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "Shine",
+     "size": [
+      0.1875,
+      2.4375,
+      0.1875
+     ],
+     "position": [
+      0.375,
+      1.5938,
+      -0.375
+     ],
+     "color": "#FFFFFF",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Shell",
+     "size": [
+      0.9375,
+      2.4375,
+      0.75
+     ],
+     "position": [
+      0.0,
+      1.5938,
+      0.0938
+     ],
+     "color": "#F8F9FA",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "Shell",
+     "size": [
+      0.5625,
+      2.8125,
+      0.5625
+     ],
+     "position": [
+      0.0,
+      1.5938,
+      0.0
+     ],
+     "color": "#F8F9FA",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "name": "Ornament",
+   "pivot": [
+    0.0,
+    1.5,
+    0.0
+   ],
+   "parts": [
+    {
+     "name": "Horn",
+     "size": [
+      0.1875,
+      0.1875,
+      0.5625
+     ],
+     "position": [
+      -0.375,
+      2.9062,
+      0.0
+     ],
+     "color": "#C9184A",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "OrnamentPart": true
+     }
+    },
+    {
+     "name": "Horn",
+     "size": [
+      0.1875,
+      0.1875,
+      0.5625
+     ],
+     "position": [
+      0.375,
+      2.9062,
+      0.0
+     ],
+     "color": "#C9184A",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "OrnamentPart": true
+     }
+    },
+    {
+     "name": "Horn",
+     "size": [
+      0.1875,
+      0.1875,
+      0.5625
+     ],
+     "position": [
+      -0.5625,
+      3.0938,
+      0.0
+     ],
+     "color": "#C9184A",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "OrnamentPart": true
+     }
+    },
+    {
+     "name": "Horn",
+     "size": [
+      0.1875,
+      0.1875,
+      0.5625
+     ],
+     "position": [
+      0.5625,
+      3.0938,
+      0.0
+     ],
+     "color": "#C9184A",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "OrnamentPart": true
+     }
+    },
+    {
+     "name": "Horn",
+     "size": [
+      0.1875,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      0.0,
+      3.0938,
+      0.0
+     ],
+     "color": "#C9184A",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "OrnamentPart": true
+     }
+    },
+    {
+     "name": "Horn",
+     "size": [
+      0.1875,
+      0.1875,
+      0.375
+     ],
+     "position": [
+      -0.5625,
+      3.2812,
+      -0.0938
+     ],
+     "color": "#FF4757",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "OrnamentPart": true
+     }
+    },
+    {
+     "name": "Horn",
+     "size": [
+      0.1875,
+      0.1875,
+      0.375
+     ],
+     "position": [
+      0.5625,
+      3.2812,
+      -0.0938
+     ],
+     "color": "#FF4757",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "OrnamentPart": true
+     }
+    },
+    {
+     "name": "Horn",
+     "size": [
+      0.1875,
+      0.375,
+      0.1875
+     ],
+     "position": [
+      0.0,
+      3.375,
+      0.0
+     ],
+     "color": "#FF4757",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "OrnamentPart": true
+     }
+    },
+    {
+     "name": "Horn",
+     "size": [
+      0.1875,
+      0.375,
+      0.1875
+     ],
+     "position": [
+      -0.75,
+      3.5625,
+      -0.1875
+     ],
+     "color": "#FF4757",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "OrnamentPart": true
+     }
+    },
+    {
+     "name": "Horn",
+     "size": [
+      0.1875,
+      0.375,
+      0.1875
+     ],
+     "position": [
+      0.75,
+      3.5625,
+      -0.1875
+     ],
+     "color": "#FF4757",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "OrnamentPart": true
+     }
+    },
+    {
+     "name": "Horn",
+     "size": [
+      0.1875,
+      0.1875,
+      0.375
+     ],
+     "position": [
+      -0.75,
+      3.4688,
+      -0.0938
+     ],
+     "color": "#FF4757",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "OrnamentPart": true
+     }
+    },
+    {
+     "name": "Horn",
+     "size": [
+      0.1875,
+      0.1875,
+      0.375
+     ],
+     "position": [
+      0.75,
+      3.4688,
+      -0.0938
+     ],
+     "color": "#FF4757",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "OrnamentPart": true
+     }
+    }
+   ]
+  }
+ ]
+}

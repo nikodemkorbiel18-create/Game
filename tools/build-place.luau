@@ -2,7 +2,8 @@
 -- Builds StealAChibi.rbxl from the base map (assets/base-map.rbxl) plus all code in src/.
 --   1. rojo builds the code into build/code.rbxl
 --   2. the base map is loaded; code folders are transplanted into it
---   3. existing art is organized, gameplay fixtures and placeholder zones are generated
+--   3. existing art is organized, voxel art from assets/models is added, and gameplay
+--      fixtures and placeholder zones are generated
 --   4. the finished place is written to StealAChibi.rbxl
 -- Usage: lune run tools/build-place [lastZone]   (lastZone defaults to 11)
 
@@ -16,6 +17,7 @@ local Plots = require("./map/Plots")
 local Plaza = require("./map/Plaza")
 local ZonesMap = require("./map/Zones")
 local Gauntlet = require("./map/Gauntlet")
+local Art = require("./map/Art")
 
 local lastZone = tonumber(process.args[1]) or 11
 local output = process.args[2] or "StealAChibi.rbxl"
@@ -30,24 +32,8 @@ local place = roblox.deserializePlace(fs.readFile("assets/base-map.rbxl"))
 local ws = place:GetService("Workspace")
 local replicated = place:GetService("ReplicatedStorage")
 local serverStorage = place:GetService("ServerStorage")
-local serverScripts = place:GetService("ServerScriptService")
-local starterPlayer = place:GetService("StarterPlayer")
 
-local function transplant(fromParent, name, toParent)
-	local child = fromParent:FindFirstChild(name)
-	assert(child, "missing " .. name .. " in built code")
-	local old = toParent:FindFirstChild(name)
-	if old then
-		old:Destroy()
-	end
-	child.Parent = toParent
-end
-
-transplant(code:GetService("ReplicatedStorage"), "Shared", replicated)
-transplant(code:GetService("ServerScriptService"), "Server", serverScripts)
-local codeStarterScripts = code:GetService("StarterPlayer"):FindFirstChild("StarterPlayerScripts")
-local starterScripts = starterPlayer:FindFirstChild("StarterPlayerScripts")
-transplant(codeStarterScripts, "Client", starterScripts)
+C.transplantCode(code, place)
 
 -- Asset folders (artists drop real models here to replace placeholders)
 local assetsReplicated = C.folder("Assets", replicated)
@@ -100,6 +86,9 @@ if eggWrapper then
 		eggWrapper:Destroy()
 	end
 end
+
+-- voxel characters and eggs made with tools/blender (assets/models/*/parts)
+print("  voxel models: " .. Art.Insert(place))
 
 -- zone art
 local function zoneArtFolder(zoneId)

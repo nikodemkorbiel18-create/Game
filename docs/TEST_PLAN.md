@@ -10,6 +10,7 @@
 | An at-speed player with a Normal egg outruns the zone's Guardian; with a Huge egg they don't | unit test on all 11 zones | pass |
 | Pacing | `lune run tools/simulate` | within about 20% of every zone target (see BALANCING.md) |
 | Built place contains every tagged part | `lune run tools/verify-place` | 5 plots x 40 slots, 11 nests x 8 pedestals, 18 Guardian spawns, gauntlet, incubator |
+| Zone 7 voxel art works with the game code: every egg at every size sits on the ground with a 3-stud shell, all 5 cosmetic colours tint the shell, built-in ornaments aren't doubled, Awakened eggs swap to the right ornament, Cosmic stars and Hive's drones orbit, chibis have limb groups, scale, keep eye colours under Golden and go black as Index silhouettes; the Studio FBX import helper rebuilds every model exactly from a mangled import | `lune run tools/art-check` | 3627/3627 pass |
 
 ## Headless playtest (no Studio needed)
 
@@ -43,6 +44,12 @@ network latency, streaming. Those still need Studio.
 ## In Roblox Studio
 
 Use **Test > Clients and Servers** with 2-3 players, and the ADMIN panel to skip grinding.
+
+### Zone 7 voxel art
+1. Admin: spawn eggs in zone 7 (Mecha Hangar). Each character has its own Armor-Core egg (goggles for Bolt, headset for Haruto, drones for Hive, visor for Hikari, admiral cap for Gōtetsu, cockpit and fists for Daichi) in one of the five zone colours, with a crown, horns or orbiting stars for its rarity.
+2. Carry a Cosmic egg (Gōtetsu or Daichi): the stars stop spinning while it's carried and the carrier isn't pulled around; they spin again once it's in a pen.
+3. Hatch one of each and check the pen: feet on the pedestal, facing out of the pen, Hive's drones circling overhead.
+4. Open the Index before discovering them: silhouettes are solid black.
 
 ## Acceptance checklist (brief section 27)
 

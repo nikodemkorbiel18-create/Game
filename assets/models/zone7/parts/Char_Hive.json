@@ -1,0 +1,1559 @@
+{
+ "name": "Char_Hive",
+ "kind": "Character",
+ "voxel": 0.1875,
+ "attributes": {},
+ "partCount": 95,
+ "voxelCount": 2788,
+ "size": [
+  3.1875,
+  6.0,
+  2.4375
+ ],
+ "bounds": [
+  [
+   -1.5938,
+   0.0,
+   -1.2188
+  ],
+  [
+   1.5938,
+   6.0,
+   1.2188
+  ]
+ ],
+ "previewTint": "#ADB5BD",
+ "groups": [
+  {
+   "name": "LegR",
+   "pivot": [
+    0.46875,
+    0.9375,
+    0.0
+   ],
+   "parts": [
+    {
+     "name": "Sneakers",
+     "size": [
+      0.75,
+      0.1875,
+      0.75
+     ],
+     "position": [
+      0.4688,
+      0.0938,
+      -0.0938
+     ],
+     "color": "#57CC99",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Sneakers",
+     "size": [
+      0.75,
+      0.1875,
+      0.75
+     ],
+     "position": [
+      0.4688,
+      0.2812,
+      -0.0938
+     ],
+     "color": "#F1F3F5",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Pants",
+     "size": [
+      0.75,
+      0.5625,
+      0.5625
+     ],
+     "position": [
+      0.4688,
+      0.6562,
+      0.0
+     ],
+     "color": "#2F3E46",
+     "material": "SmoothPlastic"
+    }
+   ]
+  },
+  {
+   "name": "LegL",
+   "pivot": [
+    -0.46875,
+    0.9375,
+    0.0
+   ],
+   "parts": [
+    {
+     "name": "Sneakers",
+     "size": [
+      0.75,
+      0.1875,
+      0.75
+     ],
+     "position": [
+      -0.4688,
+      0.0938,
+      -0.0938
+     ],
+     "color": "#57CC99",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Sneakers",
+     "size": [
+      0.75,
+      0.1875,
+      0.75
+     ],
+     "position": [
+      -0.4688,
+      0.2812,
+      -0.0938
+     ],
+     "color": "#F1F3F5",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Pants",
+     "size": [
+      0.75,
+      0.5625,
+      0.5625
+     ],
+     "position": [
+      -0.4688,
+      0.6562,
+      0.0
+     ],
+     "color": "#2F3E46",
+     "material": "SmoothPlastic"
+    }
+   ]
+  },
+  {
+   "name": "Torso",
+   "pivot": [
+    0.0,
+    0.9375,
+    0.0
+   ],
+   "parts": [
+    {
+     "name": "Hoodie",
+     "size": [
+      1.3125,
+      0.1875,
+      0.9375
+     ],
+     "position": [
+      0.0,
+      1.0312,
+      0.0
+     ],
+     "color": "#38A3A5",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hoodie",
+     "size": [
+      1.6875,
+      0.1875,
+      0.5625
+     ],
+     "position": [
+      0.0,
+      1.0312,
+      0.0
+     ],
+     "color": "#38A3A5",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hoodie",
+     "size": [
+      0.5625,
+      0.9375,
+      0.9375
+     ],
+     "position": [
+      -0.375,
+      1.5938,
+      0.0
+     ],
+     "color": "#22577A",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hoodie",
+     "size": [
+      0.1875,
+      1.3125,
+      0.1875
+     ],
+     "position": [
+      0.0,
+      1.5938,
+      -0.375
+     ],
+     "color": "#38A3A5",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hoodie",
+     "size": [
+      0.5625,
+      0.9375,
+      0.9375
+     ],
+     "position": [
+      0.375,
+      1.5938,
+      0.0
+     ],
+     "color": "#22577A",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hoodie",
+     "size": [
+      1.6875,
+      1.125,
+      0.5625
+     ],
+     "position": [
+      0.0,
+      1.6875,
+      0.0
+     ],
+     "color": "#22577A",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hoodie",
+     "size": [
+      1.3125,
+      1.125,
+      0.75
+     ],
+     "position": [
+      0.0,
+      1.6875,
+      0.0938
+     ],
+     "color": "#22577A",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hoodie",
+     "size": [
+      1.3125,
+      0.375,
+      0.9375
+     ],
+     "position": [
+      0.0,
+      1.875,
+      0.1875
+     ],
+     "color": "#22577A",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hoodie",
+     "size": [
+      1.3125,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      0.0,
+      2.1562,
+      -0.375
+     ],
+     "color": "#38A3A5",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hoodie",
+     "size": [
+      0.1875,
+      0.5625,
+      0.9375
+     ],
+     "position": [
+      -0.5625,
+      1.9688,
+      0.1875
+     ],
+     "color": "#22577A",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hoodie",
+     "size": [
+      0.9375,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      0.0,
+      2.1562,
+      0.5625
+     ],
+     "color": "#38A3A5",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hoodie",
+     "size": [
+      0.1875,
+      0.5625,
+      0.9375
+     ],
+     "position": [
+      0.5625,
+      1.9688,
+      0.1875
+     ],
+     "color": "#22577A",
+     "material": "SmoothPlastic"
+    }
+   ]
+  },
+  {
+   "name": "ArmR",
+   "pivot": [
+    1.125,
+    2.15625,
+    0.0
+   ],
+   "parts": [
+    {
+     "name": "Remote",
+     "size": [
+      1.6875,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      0.0,
+      1.4062,
+      -1.125
+     ],
+     "color": "#ADB5BD",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Remote",
+     "size": [
+      1.6875,
+      0.375,
+      0.375
+     ],
+     "position": [
+      0.0,
+      1.5,
+      -0.8438
+     ],
+     "color": "#343A40",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Skin",
+     "size": [
+      0.5625,
+      0.375,
+      0.1875
+     ],
+     "position": [
+      1.125,
+      1.5,
+      -0.9375
+     ],
+     "color": "#C68642",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hoodie",
+     "size": [
+      0.5625,
+      0.375,
+      0.1875
+     ],
+     "position": [
+      1.125,
+      1.5,
+      -0.75
+     ],
+     "color": "#38A3A5",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hoodie",
+     "size": [
+      0.5625,
+      0.375,
+      0.9375
+     ],
+     "position": [
+      1.125,
+      1.5,
+      -0.1875
+     ],
+     "color": "#22577A",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Remote",
+     "size": [
+      1.6875,
+      0.1875,
+      0.5625
+     ],
+     "position": [
+      0.0,
+      1.5938,
+      -0.9375
+     ],
+     "color": "#343A40",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Remote",
+     "size": [
+      0.1875,
+      0.375,
+      0.1875
+     ],
+     "position": [
+      -0.5625,
+      1.6875,
+      -0.9375
+     ],
+     "color": "#57CC99",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "RemoteScreen",
+     "size": [
+      0.5625,
+      0.375,
+      0.1875
+     ],
+     "position": [
+      0.0,
+      1.6875,
+      -0.9375
+     ],
+     "color": "#57CC99",
+     "material": "Neon"
+    },
+    {
+     "name": "Remote",
+     "size": [
+      0.1875,
+      0.375,
+      0.1875
+     ],
+     "position": [
+      0.5625,
+      1.6875,
+      -0.9375
+     ],
+     "color": "#57CC99",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Remote",
+     "size": [
+      0.1875,
+      0.5625,
+      0.1875
+     ],
+     "position": [
+      0.75,
+      1.9688,
+      -0.75
+     ],
+     "color": "#ADB5BD",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hoodie",
+     "size": [
+      0.5625,
+      0.9375,
+      0.5625
+     ],
+     "position": [
+      1.125,
+      1.7812,
+      0.0
+     ],
+     "color": "#22577A",
+     "material": "SmoothPlastic"
+    }
+   ]
+  },
+  {
+   "name": "ArmL",
+   "pivot": [
+    -1.125,
+    2.15625,
+    0.0
+   ],
+   "parts": [
+    {
+     "name": "Skin",
+     "size": [
+      0.5625,
+      0.375,
+      0.1875
+     ],
+     "position": [
+      -1.125,
+      1.5,
+      -0.9375
+     ],
+     "color": "#C68642",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hoodie",
+     "size": [
+      0.5625,
+      0.375,
+      0.1875
+     ],
+     "position": [
+      -1.125,
+      1.5,
+      -0.75
+     ],
+     "color": "#38A3A5",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hoodie",
+     "size": [
+      0.5625,
+      0.375,
+      0.9375
+     ],
+     "position": [
+      -1.125,
+      1.5,
+      -0.1875
+     ],
+     "color": "#22577A",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Remote",
+     "size": [
+      0.1875,
+      0.5625,
+      0.1875
+     ],
+     "position": [
+      -0.75,
+      1.9688,
+      -0.75
+     ],
+     "color": "#ADB5BD",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hoodie",
+     "size": [
+      0.5625,
+      0.9375,
+      0.5625
+     ],
+     "position": [
+      -1.125,
+      1.7812,
+      0.0
+     ],
+     "color": "#22577A",
+     "material": "SmoothPlastic"
+    }
+   ]
+  },
+  {
+   "name": "Head",
+   "pivot": [
+    0.0,
+    2.25,
+    0.0
+   ],
+   "parts": [
+    {
+     "name": "Hair",
+     "size": [
+      0.5625,
+      0.1875,
+      1.6875
+     ],
+     "position": [
+      -1.3125,
+      2.5312,
+      0.0
+     ],
+     "color": "#5CC97A",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      2.8125,
+      0.1875,
+      1.5
+     ],
+     "position": [
+      0.0,
+      2.5312,
+      0.2812
+     ],
+     "color": "#5CC97A",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      0.375,
+      1.6875,
+      1.6875
+     ],
+     "position": [
+      -1.2188,
+      3.4688,
+      0.0
+     ],
+     "color": "#80ED99",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      0.375,
+      2.0625,
+      0.1875
+     ],
+     "position": [
+      -1.0312,
+      3.2812,
+      -0.375
+     ],
+     "color": "#5CC97A",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      0.375,
+      2.25,
+      0.5625
+     ],
+     "position": [
+      -1.0312,
+      3.375,
+      0.0
+     ],
+     "color": "#80ED99",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      0.375,
+      0.375,
+      0.75
+     ],
+     "position": [
+      -1.0312,
+      2.4375,
+      0.6562
+     ],
+     "color": "#5CC97A",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      2.4375,
+      1.875,
+      1.6875
+     ],
+     "position": [
+      0.0,
+      3.5625,
+      0.1875
+     ],
+     "color": "#80ED99",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      0.375,
+      0.9375,
+      2.0625
+     ],
+     "position": [
+      -1.0312,
+      4.0312,
+      0.0
+     ],
+     "color": "#80ED99",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Skin",
+     "size": [
+      0.9375,
+      0.375,
+      1.875
+     ],
+     "position": [
+      -0.5625,
+      2.625,
+      0.0938
+     ],
+     "color": "#C68642",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      2.0625,
+      0.1875,
+      1.6875
+     ],
+     "position": [
+      0.0,
+      2.5312,
+      0.375
+     ],
+     "color": "#5CC97A",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      2.0625,
+      1.6875,
+      1.875
+     ],
+     "position": [
+      0.0,
+      3.4688,
+      0.2812
+     ],
+     "color": "#80ED99",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Blush",
+     "size": [
+      2.0625,
+      0.1875,
+      1.875
+     ],
+     "position": [
+      0.0,
+      2.9062,
+      0.0938
+     ],
+     "color": "#FF9AB5",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Skin",
+     "size": [
+      2.0625,
+      1.3125,
+      1.875
+     ],
+     "position": [
+      0.0,
+      3.6562,
+      0.0938
+     ],
+     "color": "#C68642",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      2.0625,
+      0.5625,
+      2.4375
+     ],
+     "position": [
+      0.0,
+      4.0312,
+      0.0
+     ],
+     "color": "#80ED99",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      2.0625,
+      1.125,
+      1.6875
+     ],
+     "position": [
+      0.0,
+      4.125,
+      0.0
+     ],
+     "color": "#80ED99",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Skin",
+     "size": [
+      1.6875,
+      2.25,
+      1.3125
+     ],
+     "position": [
+      0.0,
+      3.375,
+      0.0
+     ],
+     "color": "#C68642",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      2.4375,
+      0.375,
+      0.375
+     ],
+     "position": [
+      0.0,
+      2.4375,
+      0.8438
+     ],
+     "color": "#5CC97A",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Skin",
+     "size": [
+      0.5625,
+      0.1875,
+      2.0625
+     ],
+     "position": [
+      -0.5625,
+      2.7188,
+      0.0
+     ],
+     "color": "#C68642",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Blush",
+     "size": [
+      0.1875,
+      0.1875,
+      2.0625
+     ],
+     "position": [
+      -0.75,
+      2.9062,
+      0.0
+     ],
+     "color": "#FF9AB5",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Skin",
+     "size": [
+      0.1875,
+      0.5625,
+      2.0625
+     ],
+     "position": [
+      -0.75,
+      3.2812,
+      0.0
+     ],
+     "color": "#C68642",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "EyeLash",
+     "size": [
+      0.75,
+      0.75,
+      2.0625
+     ],
+     "position": [
+      -0.4688,
+      3.9375,
+      0.0
+     ],
+     "color": "#2A1E1E",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      2.4375,
+      0.75,
+      2.0625
+     ],
+     "position": [
+      0.0,
+      4.125,
+      0.0
+     ],
+     "color": "#80ED99",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Skin",
+     "size": [
+      1.3125,
+      0.1875,
+      2.0625
+     ],
+     "position": [
+      0.0,
+      2.9062,
+      0.0
+     ],
+     "color": "#C68642",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "EyeShine",
+     "size": [
+      0.375,
+      0.1875,
+      2.0625
+     ],
+     "position": [
+      -0.4688,
+      3.0938,
+      0.0
+     ],
+     "color": "#7F9EB2",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Eye",
+     "size": [
+      0.375,
+      0.1875,
+      2.0625
+     ],
+     "position": [
+      -0.4688,
+      3.2812,
+      0.0
+     ],
+     "color": "#22577A",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Eye",
+     "size": [
+      0.1875,
+      0.375,
+      2.0625
+     ],
+     "position": [
+      -0.5625,
+      3.375,
+      0.0
+     ],
+     "color": "#22577A",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "EyeGlint",
+     "size": [
+      0.1875,
+      0.1875,
+      2.0625
+     ],
+     "position": [
+      -0.375,
+      3.4688,
+      0.0
+     ],
+     "color": "#FFFFFF",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Mouth",
+     "size": [
+      0.1875,
+      0.1875,
+      2.0625
+     ],
+     "position": [
+      -0.1875,
+      2.7188,
+      0.0
+     ],
+     "color": "#5A2A27",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Skin",
+     "size": [
+      0.5625,
+      1.5,
+      2.0625
+     ],
+     "position": [
+      0.0,
+      3.5625,
+      0.0
+     ],
+     "color": "#C68642",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      0.1875,
+      0.75,
+      2.4375
+     ],
+     "position": [
+      -0.1875,
+      3.9375,
+      0.0
+     ],
+     "color": "#80ED99",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Mouth",
+     "size": [
+      0.1875,
+      2.0625,
+      1.6875
+     ],
+     "position": [
+      0.0,
+      3.4688,
+      0.0
+     ],
+     "color": "#5A2A27",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Skin",
+     "size": [
+      0.1875,
+      1.6875,
+      2.0625
+     ],
+     "position": [
+      0.0,
+      3.4688,
+      0.0
+     ],
+     "color": "#C68642",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Skin",
+     "size": [
+      0.9375,
+      0.375,
+      1.875
+     ],
+     "position": [
+      0.5625,
+      2.625,
+      0.0938
+     ],
+     "color": "#C68642",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Mouth",
+     "size": [
+      0.1875,
+      0.1875,
+      2.0625
+     ],
+     "position": [
+      0.1875,
+      2.7188,
+      0.0
+     ],
+     "color": "#5A2A27",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      0.1875,
+      0.75,
+      2.4375
+     ],
+     "position": [
+      0.1875,
+      3.9375,
+      0.0
+     ],
+     "color": "#80ED99",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Skin",
+     "size": [
+      0.5625,
+      0.1875,
+      2.0625
+     ],
+     "position": [
+      0.5625,
+      2.7188,
+      0.0
+     ],
+     "color": "#C68642",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "EyeShine",
+     "size": [
+      0.375,
+      0.1875,
+      2.0625
+     ],
+     "position": [
+      0.4688,
+      3.0938,
+      0.0
+     ],
+     "color": "#7F9EB2",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Eye",
+     "size": [
+      0.375,
+      0.1875,
+      2.0625
+     ],
+     "position": [
+      0.4688,
+      3.2812,
+      0.0
+     ],
+     "color": "#22577A",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Eye",
+     "size": [
+      0.1875,
+      0.375,
+      2.0625
+     ],
+     "position": [
+      0.375,
+      3.375,
+      0.0
+     ],
+     "color": "#22577A",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "EyeLash",
+     "size": [
+      0.75,
+      0.75,
+      2.0625
+     ],
+     "position": [
+      0.4688,
+      3.9375,
+      0.0
+     ],
+     "color": "#2A1E1E",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "EyeGlint",
+     "size": [
+      0.1875,
+      0.1875,
+      2.0625
+     ],
+     "position": [
+      0.5625,
+      3.4688,
+      0.0
+     ],
+     "color": "#FFFFFF",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Blush",
+     "size": [
+      0.1875,
+      0.1875,
+      2.0625
+     ],
+     "position": [
+      0.75,
+      2.9062,
+      0.0
+     ],
+     "color": "#FF9AB5",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Skin",
+     "size": [
+      0.1875,
+      0.5625,
+      2.0625
+     ],
+     "position": [
+      0.75,
+      3.2812,
+      0.0
+     ],
+     "color": "#C68642",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      0.375,
+      2.0625,
+      0.1875
+     ],
+     "position": [
+      1.0312,
+      3.2812,
+      -0.375
+     ],
+     "color": "#5CC97A",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      0.375,
+      2.25,
+      0.5625
+     ],
+     "position": [
+      1.0312,
+      3.375,
+      0.0
+     ],
+     "color": "#80ED99",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      0.375,
+      0.375,
+      0.75
+     ],
+     "position": [
+      1.0312,
+      2.4375,
+      0.6562
+     ],
+     "color": "#5CC97A",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      0.375,
+      0.9375,
+      2.0625
+     ],
+     "position": [
+      1.0312,
+      4.0312,
+      0.0
+     ],
+     "color": "#80ED99",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      0.5625,
+      0.1875,
+      1.6875
+     ],
+     "position": [
+      1.3125,
+      2.5312,
+      0.0
+     ],
+     "color": "#5CC97A",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Hair",
+     "size": [
+      0.375,
+      1.6875,
+      1.6875
+     ],
+     "position": [
+      1.2188,
+      3.4688,
+      0.0
+     ],
+     "color": "#80ED99",
+     "material": "SmoothPlastic"
+    }
+   ]
+  },
+  {
+   "name": "Drones",
+   "pivot": [
+    0.0,
+    5.0625,
+    0.0
+   ],
+   "parts": [
+    {
+     "name": "DroneLight",
+     "size": [
+      0.1875,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      1.125,
+      5.1562,
+      -1.125
+     ],
+     "color": "#57CC99",
+     "material": "Neon",
+     "attributes": {
+      "Orbit": true
+     }
+    },
+    {
+     "name": "Drone",
+     "size": [
+      0.1875,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      1.125,
+      5.1562,
+      -0.9375
+     ],
+     "color": "#343A40",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Orbit": true
+     }
+    },
+    {
+     "name": "Drone",
+     "size": [
+      0.5625,
+      0.1875,
+      0.5625
+     ],
+     "position": [
+      1.125,
+      5.3438,
+      -0.9375
+     ],
+     "color": "#CED4DA",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Orbit": true
+     }
+    },
+    {
+     "name": "DroneLight",
+     "size": [
+      0.1875,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      -1.125,
+      5.3438,
+      0.75
+     ],
+     "color": "#57CC99",
+     "material": "Neon",
+     "attributes": {
+      "Orbit": true
+     }
+    },
+    {
+     "name": "Drone",
+     "size": [
+      0.1875,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      -1.125,
+      5.3438,
+      0.9375
+     ],
+     "color": "#343A40",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Orbit": true
+     }
+    },
+    {
+     "name": "DroneLight",
+     "size": [
+      0.1875,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      -1.125,
+      5.5312,
+      -1.125
+     ],
+     "color": "#57CC99",
+     "material": "Neon",
+     "attributes": {
+      "Orbit": true
+     }
+    },
+    {
+     "name": "Drone",
+     "size": [
+      0.1875,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      -1.125,
+      5.5312,
+      -0.9375
+     ],
+     "color": "#343A40",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Orbit": true
+     }
+    },
+    {
+     "name": "Drone",
+     "size": [
+      0.5625,
+      0.1875,
+      0.5625
+     ],
+     "position": [
+      -1.125,
+      5.5312,
+      0.9375
+     ],
+     "color": "#CED4DA",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Orbit": true
+     }
+    },
+    {
+     "name": "Drone",
+     "size": [
+      0.5625,
+      0.1875,
+      0.5625
+     ],
+     "position": [
+      -1.125,
+      5.7188,
+      -0.9375
+     ],
+     "color": "#CED4DA",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Orbit": true
+     }
+    },
+    {
+     "name": "DroneLight",
+     "size": [
+      0.1875,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      1.125,
+      5.7188,
+      0.75
+     ],
+     "color": "#57CC99",
+     "material": "Neon",
+     "attributes": {
+      "Orbit": true
+     }
+    },
+    {
+     "name": "Drone",
+     "size": [
+      0.1875,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      1.125,
+      5.7188,
+      0.9375
+     ],
+     "color": "#343A40",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Orbit": true
+     }
+    },
+    {
+     "name": "Drone",
+     "size": [
+      0.5625,
+      0.1875,
+      0.5625
+     ],
+     "position": [
+      1.125,
+      5.9062,
+      0.9375
+     ],
+     "color": "#CED4DA",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Orbit": true
+     }
+    }
+   ]
+  }
+ ]
+}

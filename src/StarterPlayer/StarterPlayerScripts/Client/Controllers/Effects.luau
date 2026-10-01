@@ -159,12 +159,18 @@ local function animate(now: number)
 	end
 end
 
+local function isOrbitPart(part: BasePart): boolean
+	return part:GetAttribute("Orbit") == true or string.find(part.Name, "OrbitStar") ~= nil or string.find(part.Name, "Petal") ~= nil
+end
+
 local function spinOrbits(now: number)
 	for _, model in CollectionService:GetTagged("OrbitFX") do
-		if model:IsA("Model") and model.PrimaryPart then
+		-- Only anchored displays spin. A carried item is welded to its carrier, and setting
+		-- the CFrame of a welded part drags the whole assembly, player included.
+		if model:IsA("Model") and model.PrimaryPart and model.PrimaryPart.Anchored then
 			local pivot = model:GetPivot()
 			for _, part in model:GetChildren() do
-				if part:IsA("BasePart") and (string.find(part.Name, "OrbitStar") or string.find(part.Name, "Petal")) then
+				if part:IsA("BasePart") and isOrbitPart(part) then
 					local original = part:GetAttribute("OrbitOffset")
 					if typeof(original) ~= "CFrame" then
 						original = pivot:ToObjectSpace(part.CFrame)

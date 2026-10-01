@@ -2,6 +2,7 @@
 -- Generates docs/ART_SPEC.md from the character, zone, rarity and mutation configs so the
 -- art spec never drifts from the game data. Usage: lune run tools/gen-art-spec
 local fs = require("@lune/fs")
+local serde = require("@lune/serde")
 local rbx = require("./lib/rbx")
 local env = rbx.load()
 
@@ -260,6 +261,8 @@ add("| Fusion | Duet / Rival / Eclipse Eggs | glitter stars / half-and-half with
 add()
 add("`Egg_Zone3` already uses your mesh egg (rope, paper charms, seal, shine). Drop more meshes named `Egg_ZoneN` into `ReplicatedStorage.Assets.Eggs` to replace the others.")
 add()
+add("Zone 7 eggs are per character: each zone 7 chibi hatches from its own voxel Armor-Core egg (`Egg_<Id>`, set by `EggModel` in the character config) with its rarity ornament built in and the shell tinted with the zone palette. See [Voxel art: zone 7](#voxel-art-zone-7).")
+add()
 add("### Mutation overlays")
 add()
 add("| Mutation | Income | Visual |")
@@ -304,6 +307,35 @@ for _, zone in Zones.List do
 	add(string.format("| %d | %s | `ServerStorage.Assets.Guardians.%s` | %s |", zone.Id, zone.Guardian.DisplayName, zone.Guardian.Template, GUARDIAN_NOTES[zone.Guardian.Id] or ""))
 end
 add()
+-- voxel art built by tools/blender (assets/models/<set>/manifest.json)
+local renders = {}
+local manifestPath = "assets/models/zone7/manifest.json"
+if fs.isFile(manifestPath) then
+	local manifest = serde.decode("json", fs.readFile(manifestPath))
+	add("## Voxel art: zone 7")
+	add()
+	add("Modelled in Blender from `tools/blender/zone7.py` on the same 3/16-stud grid as the Zone 3 egg; see [tools/blender/README.md](../tools/blender/README.md) for the style rules and the pipeline. The models ship as parts in `StealAChibi.rbxl` and as `.blend`, FBX and `.rbxm` in `assets/models/zone7`. Characters are split into `Head`, `Torso`, `ArmR`, `ArmL`, `LegR` and `LegL`, each pivoting at its joint.")
+	add()
+	add("![Zone 7 lineup](art/zone7/lineup.png)")
+	add()
+	add("Every egg shares the zone's Armor-Core shell (riveted armor bands and a framed glowing core) and adds its character's details. The shell takes a random zone 7 cosmetic colour; rows below are Bolt, Haruto, Hive, Hikari, Admiral Gōtetsu and Daichi.")
+	add()
+	add("![Zone 7 egg colours](art/zone7/egg-colours.png)")
+	add()
+	add("| Model | Parts | Size (studs) | Built-in ornament | Details |")
+	add("|---|---|---|---|---|")
+	for _, model in manifest.models do
+		local render = "art/zone7/models/" .. model.name .. ".png"
+		if fs.isFile("docs/" .. render) then
+			renders[model.name] = render
+		end
+		local size = string.format("%.2f x %.2f x %.2f", model.size[1], model.size[2], model.size[3])
+		local name = if renders[model.name] then string.format("[`%s`](%s)", model.name, render) else "`" .. model.name .. "`"
+		add(string.format("| %s | %d | %s | %s | %s |", name, model.parts, size, (model.attributes and model.attributes.Ornament) or "-", model.description or ""))
+	end
+	add()
+end
+
 add("## Characters")
 add()
 local sections = {}
@@ -325,6 +357,10 @@ for _, section in sections do
 		add(string.format("#### %s (%s, %s base)", character.DisplayName, character.Rarity, NumberFormat.PerSecond(character.BaseIncome)))
 		add()
 		add("- **Asset slot:** `" .. character.ModelName .. "`")
+		if renders[character.ModelName] then
+			local egg = if renders[character.EggModel] then string.format(", hatches from [`%s`](%s)", character.EggModel, renders[character.EggModel]) else ""
+			add(string.format("- **Model:** voxel, done ([render](%s))%s", renders[character.ModelName], egg))
+		end
 		add("- **Concept:** " .. character.Description)
 		add(string.format("- **Silhouette:** %s %s%s", BODIES[look.Body or "Chibi"], HAIR[look.HairStyle] or look.HairStyle, if #props > 0 then "; " .. table.concat(props, "; ") else ""))
 		add(string.format("- **Palette:** skin %s, hair %s, outfit %s / %s, accent %s, eyes %s", look.Skin, look.Hair, look.Outfit, look.Outfit2, look.Accent, look.Eyes))
@@ -340,6 +376,8 @@ add("- **Faceless Spirit -> Mistveil Spirit.** A faceless masked spirit in a spi
 add("- **Lumi** keeps a lavender bob instead of long teal twin tails, to stay clear of existing virtual idols.")
 add("- **Kenta** (rookie shinobi) avoids orange jumpsuits, whisker marks and blond spiky hair.")
 add("- **Puru** is green with a leaf sprout rather than blue, to stay clear of existing slime heroes.")
+add("- **Hikari** (ace pilot) has a silver high ponytail, a tinted visor and a gold wing badge, and her suit is a flight suit rather than a skin-tight pilot bodysuit, to stay clear of existing mecha pilots.")
+add("- **Admiral Gōtetsu** wears a navy greatcoat with a short moustache and a mechanical arm; no full white beard, eyepatch, scar or cape, so he doesn't read as an existing space-battleship captain.")
 
 fs.writeDir("docs")
 fs.writeFile("docs/ART_SPEC.md", table.concat(lines, "\n") .. "\n")

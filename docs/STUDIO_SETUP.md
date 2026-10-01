@@ -115,12 +115,37 @@ floating label). The client draws it.
 | Asset | Where it goes | Name |
 |---|---|---|
 | Character | `ReplicatedStorage.Assets.Characters` | the character's `ModelName`, e.g. `Char_KohanaNineTail` |
-| Egg shell | `ReplicatedStorage.Assets.Eggs` | `Egg_Zone1`..`Egg_Zone11`, `Egg_Festival`, `Egg_Gacha`, `Egg_Duet`, `Egg_Rival`, `Egg_Eclipse` |
+| Egg shell | `ReplicatedStorage.Assets.Eggs` | the character's `EggModel`: `Egg_Zone1`..`Egg_Zone11` by default, `Egg_<Id>` for a per-character egg (all of zone 7), plus `Egg_Festival`, `Egg_Gacha`, `Egg_Duet`, `Egg_Rival`, `Egg_Eclipse` |
 | Guardian | `ServerStorage.Assets.Guardians` | the zone's `Guardian.Template`, e.g. `Guardian_StoneKomainu` |
 
 Models can be plain, unrigged meshes. The game adds a root part, welds, a Humanoid (for
 Guardians), scaling, auras and mutation effects. Characters and eggs should have their feet
 at the bottom of the model and face -Z. See `docs/ART_SPEC.md` for every character.
+
+Optional extras an egg or character model can carry:
+
+| On | Attribute / name | Effect |
+|---|---|---|
+| Egg model | `ShellHeight` (number) | height of the shell alone; the shell is scaled to 3 studs x size and the model's pivot must be the shell's centre, so ornaments can stick out |
+| Egg model | `Ornament` (string) | the rarity ornament built into the model (`Crown`, `Horns`, `Stars`, ...); the game skips its own when it matches |
+| Egg part | `Tint` (number) | recoloured with the egg's cosmetic colour x this factor (below 1 darker, above 1 lighter) |
+| Egg part | `OrnamentPart` (bool) | removed when the built-in ornament doesn't match the egg's rarity (Awakened eggs) |
+| Any part | `Orbit` (bool), or a name containing `OrbitStar` | spins around the model while it's on display (direct children of character models) |
+| Character model | sub-models | fine to use, e.g. one per limb pivoting at its joint |
+
+### Zone 7 voxel art
+
+All six zone 7 chibis and their six eggs are already in the place as voxel models built
+from parts (`ReplicatedStorage.Assets.Characters.Char_*` and `Assets.Eggs.Egg_*`). The
+sources and other formats live in `assets/models/zone7`:
+
+- `Zone7.blend` to open in Blender, `fbx/` for Studio's 3D importer, `rbxm/` to drag
+  straight into Studio.
+- To switch to the lighter FBX meshes, import them, select them and run
+  `ImportFBX.lua` in the command bar. It orients, scales, colours and files them for you
+  (step by step in [tools/blender/README.md](../tools/blender/README.md)).
+- To change a model, edit `tools/blender/zone7.py`, then run `python3 tools/blender/build.py`
+  and `lune run tools/import-art`.
 
 ## 6. Adding content
 

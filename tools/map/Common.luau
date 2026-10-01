@@ -17,6 +17,24 @@ local Common = {
 	Enum = Enum,
 }
 
+-- Moves the Rojo-built code folders (Shared, Server, Client) into a place, replacing old copies.
+function Common.transplantCode(code, place)
+	local function transplant(fromParent, name, toParent)
+		local child = fromParent:FindFirstChild(name)
+		assert(child, "missing " .. name .. " in built code")
+		local old = toParent:FindFirstChild(name)
+		if old then
+			old:Destroy()
+		end
+		child.Parent = toParent
+	end
+	transplant(code:GetService("ReplicatedStorage"), "Shared", place:GetService("ReplicatedStorage"))
+	transplant(code:GetService("ServerScriptService"), "Server", place:GetService("ServerScriptService"))
+	local codeStarterScripts = code:GetService("StarterPlayer"):FindFirstChild("StarterPlayerScripts")
+	local starterScripts = place:GetService("StarterPlayer"):FindFirstChild("StarterPlayerScripts")
+	transplant(codeStarterScripts, "Client", starterScripts)
+end
+
 function Common.hex(hex)
 	hex = string.gsub(hex, "#", "")
 	local r = tonumber(string.sub(hex, 1, 2), 16)

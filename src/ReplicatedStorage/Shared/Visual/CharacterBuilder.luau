@@ -1,13 +1,15 @@
 --!strict
 -- Builds character models. If ReplicatedStorage.Assets.Characters contains a model named
 -- after the character's ModelName (e.g. "Char_KohanaNineTail"), that model is cloned and
--- scaled. Otherwise a clean placeholder chibi is assembled from primitives using the
--- character's Look config and Visual/PropLibrary.
+-- scaled (direct-child parts with an Orbit attribute, like Hive's drones, spin around it).
+-- Otherwise a clean placeholder chibi is assembled from primitives using the character's
+-- Look config and Visual/PropLibrary.
 --
 -- The returned Model is anchored, non-colliding, has PrimaryPart "Root" at the feet and
 -- faces -Z. Callers position it with Model:PivotTo().
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local CollectionService = game:GetService("CollectionService")
 
 local Shared = script.Parent.Parent
 local Characters = require(Shared.Config.Characters)
@@ -389,6 +391,12 @@ function CharacterBuilder.Build(characterId: string, options: Options?): Model
 		end
 		model:ScaleTo(scale * model:GetScale())
 		model:PivotTo(CFrame.new())
+		for _, child in model:GetChildren() do
+			if child:IsA("BasePart") and child:GetAttribute("Orbit") == true then
+				CollectionService:AddTag(model, "OrbitFX")
+				break
+			end
+		end
 	else
 		model = Instance.new("Model")
 		local look = table.clone(character.Look)

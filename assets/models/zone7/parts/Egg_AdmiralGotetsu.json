@@ -1,0 +1,1458 @@
+{
+ "name": "Egg_AdmiralGotetsu",
+ "kind": "Egg",
+ "voxel": 0.1875,
+ "attributes": {
+  "ShellHeight": 3.0,
+  "Ornament": "Stars"
+ },
+ "partCount": 85,
+ "voxelCount": 1332,
+ "size": [
+  3.1875,
+  3.1875,
+  3.0
+ ],
+ "bounds": [
+  [
+   -1.4062,
+   0.0,
+   -1.7812
+  ],
+  [
+   1.7812,
+   3.1875,
+   1.2188
+  ]
+ ],
+ "previewTint": "#4361EE",
+ "groups": [
+  {
+   "name": "Egg",
+   "pivot": [
+    0.0,
+    1.5,
+    0.0
+   ],
+   "parts": [
+    {
+     "name": "Shell",
+     "size": [
+      0.1875,
+      3.0,
+      0.9375
+     ],
+     "position": [
+      0.0,
+      1.5,
+      0.0
+     ],
+     "color": "#364EBE",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 0.8
+     }
+    },
+    {
+     "name": "Shell",
+     "size": [
+      0.5625,
+      3.0,
+      0.5625
+     ],
+     "position": [
+      0.0,
+      1.5,
+      0.0
+     ],
+     "color": "#364EBE",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 0.8
+     }
+    },
+    {
+     "name": "Shell",
+     "size": [
+      0.9375,
+      3.0,
+      0.1875
+     ],
+     "position": [
+      0.0,
+      1.5,
+      0.0
+     ],
+     "color": "#364EBE",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 0.8
+     }
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      0.1875,
+      2.25,
+      0.1875
+     ],
+     "position": [
+      -0.1875,
+      1.3125,
+      -0.5625
+     ],
+     "color": "#FCA311",
+     "material": "SmoothPlastic",
+     "reflectance": 0.15
+    },
+    {
+     "name": "Shell",
+     "size": [
+      0.1875,
+      2.25,
+      1.3125
+     ],
+     "position": [
+      0.0,
+      1.3125,
+      0.0
+     ],
+     "color": "#364EBE",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 0.8
+     }
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      0.1875,
+      2.25,
+      0.1875
+     ],
+     "position": [
+      0.1875,
+      1.3125,
+      -0.5625
+     ],
+     "color": "#FCA311",
+     "material": "SmoothPlastic",
+     "reflectance": 0.15
+    },
+    {
+     "name": "Shell",
+     "size": [
+      0.9375,
+      2.8125,
+      0.9375
+     ],
+     "position": [
+      0.0,
+      1.5938,
+      0.0
+     ],
+     "color": "#364EBE",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 0.8
+     }
+    },
+    {
+     "name": "Shell",
+     "size": [
+      1.3125,
+      2.25,
+      0.5625
+     ],
+     "position": [
+      0.0,
+      1.3125,
+      0.0
+     ],
+     "color": "#364EBE",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 0.8
+     }
+    },
+    {
+     "name": "Shell",
+     "size": [
+      0.5625,
+      2.25,
+      1.125
+     ],
+     "position": [
+      0.0,
+      1.3125,
+      0.0938
+     ],
+     "color": "#364EBE",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 0.8
+     }
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      0.1875,
+      1.6875,
+      1.5
+     ],
+     "position": [
+      -0.1875,
+      1.2188,
+      -0.0938
+     ],
+     "color": "#FCA311",
+     "material": "SmoothPlastic",
+     "reflectance": 0.15
+    },
+    {
+     "name": "Shell",
+     "size": [
+      0.1875,
+      2.0625,
+      1.6875
+     ],
+     "position": [
+      0.0,
+      1.4062,
+      0.0
+     ],
+     "color": "#4361EE",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      0.1875,
+      1.6875,
+      1.5
+     ],
+     "position": [
+      0.1875,
+      1.2188,
+      -0.0938
+     ],
+     "color": "#FCA311",
+     "material": "SmoothPlastic",
+     "reflectance": 0.15
+    },
+    {
+     "name": "Shell",
+     "size": [
+      1.125,
+      2.0625,
+      1.3125
+     ],
+     "position": [
+      -0.0938,
+      1.4062,
+      0.0
+     ],
+     "color": "#4361EE",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "Shell",
+     "size": [
+      1.3125,
+      1.875,
+      1.3125
+     ],
+     "position": [
+      0.0,
+      1.3125,
+      0.0
+     ],
+     "color": "#4361EE",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "Shell",
+     "size": [
+      1.6875,
+      2.0625,
+      0.5625
+     ],
+     "position": [
+      0.0,
+      1.4062,
+      0.0
+     ],
+     "color": "#4361EE",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "Shell",
+     "size": [
+      0.5625,
+      2.0625,
+      1.5
+     ],
+     "position": [
+      0.0,
+      1.4062,
+      0.0938
+     ],
+     "color": "#4361EE",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "ArmorPlate",
+     "size": [
+      0.5625,
+      0.1875,
+      2.0625
+     ],
+     "position": [
+      -0.375,
+      0.6562,
+      0.0
+     ],
+     "color": "#495057",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Rivet",
+     "size": [
+      0.1875,
+      0.375,
+      1.875
+     ],
+     "position": [
+      0.0,
+      0.75,
+      -0.0938
+     ],
+     "color": "#CED4DA",
+     "material": "SmoothPlastic",
+     "reflectance": 0.2
+    },
+    {
+     "name": "ArmorPlate",
+     "size": [
+      0.5625,
+      0.1875,
+      2.0625
+     ],
+     "position": [
+      0.375,
+      0.6562,
+      0.0
+     ],
+     "color": "#495057",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Rivet",
+     "size": [
+      0.1875,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      -0.75,
+      0.6562,
+      -0.75
+     ],
+     "color": "#CED4DA",
+     "material": "SmoothPlastic",
+     "reflectance": 0.2
+    },
+    {
+     "name": "Rivet",
+     "size": [
+      0.1875,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      0.75,
+      0.6562,
+      -0.75
+     ],
+     "color": "#CED4DA",
+     "material": "SmoothPlastic",
+     "reflectance": 0.2
+    },
+    {
+     "name": "ArmorPlate",
+     "size": [
+      2.0625,
+      0.1875,
+      1.3125
+     ],
+     "position": [
+      0.0,
+      0.6562,
+      0.0
+     ],
+     "color": "#495057",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "ArmorPlate",
+     "size": [
+      1.6875,
+      0.1875,
+      1.5
+     ],
+     "position": [
+      0.0,
+      0.6562,
+      0.0938
+     ],
+     "color": "#495057",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "ArmorPlate",
+     "size": [
+      1.3125,
+      0.1875,
+      1.875
+     ],
+     "position": [
+      0.0,
+      0.6562,
+      0.0938
+     ],
+     "color": "#495057",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "CoreFrame",
+     "size": [
+      0.5625,
+      0.1875,
+      2.0625
+     ],
+     "position": [
+      0.0,
+      0.8438,
+      -0.1875
+     ],
+     "color": "#343A40",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "CoreFrame",
+     "size": [
+      0.9375,
+      0.1875,
+      1.6875
+     ],
+     "position": [
+      0.0,
+      0.8438,
+      -0.1875
+     ],
+     "color": "#343A40",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Shell",
+     "size": [
+      1.3125,
+      1.125,
+      1.6875
+     ],
+     "position": [
+      0.0,
+      1.3125,
+      0.0
+     ],
+     "color": "#4361EE",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "Shell",
+     "size": [
+      1.6875,
+      1.125,
+      1.3125
+     ],
+     "position": [
+      0.0,
+      1.3125,
+      0.0
+     ],
+     "color": "#4361EE",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "Shell",
+     "size": [
+      2.0625,
+      1.125,
+      0.5625
+     ],
+     "position": [
+      0.0,
+      1.3125,
+      0.0
+     ],
+     "color": "#4361EE",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "Shell",
+     "size": [
+      0.5625,
+      1.125,
+      1.875
+     ],
+     "position": [
+      0.0,
+      1.3125,
+      0.0938
+     ],
+     "color": "#4361EE",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "CoreFrame",
+     "size": [
+      0.1875,
+      0.5625,
+      0.1875
+     ],
+     "position": [
+      -0.375,
+      1.2188,
+      -1.125
+     ],
+     "color": "#343A40",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "CoreFrame",
+     "size": [
+      0.1875,
+      0.5625,
+      0.1875
+     ],
+     "position": [
+      0.375,
+      1.2188,
+      -1.125
+     ],
+     "color": "#343A40",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Shell",
+     "size": [
+      0.1875,
+      0.5625,
+      2.0625
+     ],
+     "position": [
+      -0.375,
+      1.2188,
+      0.0
+     ],
+     "color": "#4361EE",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "Core",
+     "size": [
+      0.5625,
+      0.9375,
+      1.875
+     ],
+     "position": [
+      0.0,
+      1.2188,
+      -0.0938
+     ],
+     "color": "#4CC9F0",
+     "material": "Neon"
+    },
+    {
+     "name": "Shell",
+     "size": [
+      0.1875,
+      0.5625,
+      2.0625
+     ],
+     "position": [
+      0.375,
+      1.2188,
+      0.0
+     ],
+     "color": "#4361EE",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "Shell",
+     "size": [
+      2.0625,
+      0.5625,
+      0.9375
+     ],
+     "position": [
+      0.0,
+      1.2188,
+      0.0
+     ],
+     "color": "#4361EE",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "CoreFrame",
+     "size": [
+      0.5625,
+      0.1875,
+      2.0625
+     ],
+     "position": [
+      0.0,
+      1.5938,
+      -0.1875
+     ],
+     "color": "#343A40",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "CoreFrame",
+     "size": [
+      0.9375,
+      0.1875,
+      1.6875
+     ],
+     "position": [
+      0.0,
+      1.5938,
+      -0.1875
+     ],
+     "color": "#343A40",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      0.1875,
+      0.1875,
+      0.5625
+     ],
+     "position": [
+      -1.3125,
+      1.5938,
+      0.0
+     ],
+     "color": "#D4880F",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      0.1875,
+      0.1875,
+      0.5625
+     ],
+     "position": [
+      1.3125,
+      1.5938,
+      0.0
+     ],
+     "color": "#D4880F",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Shell",
+     "size": [
+      0.5625,
+      0.375,
+      2.0625
+     ],
+     "position": [
+      0.0,
+      1.6875,
+      0.0
+     ],
+     "color": "#4361EE",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      0.1875,
+      0.375,
+      0.1875
+     ],
+     "position": [
+      -1.3125,
+      1.6875,
+      -0.1875
+     ],
+     "color": "#D4880F",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      0.1875,
+      0.375,
+      0.1875
+     ],
+     "position": [
+      1.3125,
+      1.6875,
+      -0.1875
+     ],
+     "color": "#D4880F",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      0.1875,
+      0.375,
+      0.1875
+     ],
+     "position": [
+      -1.3125,
+      1.875,
+      0.0
+     ],
+     "color": "#FCA311",
+     "material": "SmoothPlastic",
+     "reflectance": 0.15
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      0.1875,
+      0.375,
+      0.1875
+     ],
+     "position": [
+      1.3125,
+      1.875,
+      0.0
+     ],
+     "color": "#FCA311",
+     "material": "SmoothPlastic",
+     "reflectance": 0.15
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      0.1875,
+      0.375,
+      0.1875
+     ],
+     "position": [
+      -1.3125,
+      1.6875,
+      0.1875
+     ],
+     "color": "#D4880F",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      0.1875,
+      0.375,
+      0.1875
+     ],
+     "position": [
+      1.3125,
+      1.6875,
+      0.1875
+     ],
+     "color": "#D4880F",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Rivet",
+     "size": [
+      0.1875,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      -0.5625,
+      1.9688,
+      -0.9375
+     ],
+     "color": "#CED4DA",
+     "material": "SmoothPlastic",
+     "reflectance": 0.2
+    },
+    {
+     "name": "ArmorPlate",
+     "size": [
+      0.375,
+      0.1875,
+      2.0625
+     ],
+     "position": [
+      -0.2812,
+      1.9688,
+      0.0
+     ],
+     "color": "#495057",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Rivet",
+     "size": [
+      0.1875,
+      0.1875,
+      1.875
+     ],
+     "position": [
+      0.0,
+      1.9688,
+      -0.0938
+     ],
+     "color": "#CED4DA",
+     "material": "SmoothPlastic",
+     "reflectance": 0.2
+    },
+    {
+     "name": "ArmorPlate",
+     "size": [
+      0.375,
+      0.1875,
+      2.0625
+     ],
+     "position": [
+      0.2812,
+      1.9688,
+      0.0
+     ],
+     "color": "#495057",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Rivet",
+     "size": [
+      0.1875,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      0.5625,
+      1.9688,
+      -0.9375
+     ],
+     "color": "#CED4DA",
+     "material": "SmoothPlastic",
+     "reflectance": 0.2
+    },
+    {
+     "name": "ArmorPlate",
+     "size": [
+      1.6875,
+      0.1875,
+      1.6875
+     ],
+     "position": [
+      0.0,
+      1.9688,
+      0.0
+     ],
+     "color": "#495057",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "ArmorPlate",
+     "size": [
+      2.0625,
+      0.1875,
+      0.375
+     ],
+     "position": [
+      0.0,
+      1.9688,
+      -0.4688
+     ],
+     "color": "#495057",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      2.8125,
+      0.1875,
+      0.5625
+     ],
+     "position": [
+      0.0,
+      1.9688,
+      0.0
+     ],
+     "color": "#FCA311",
+     "material": "SmoothPlastic",
+     "reflectance": 0.15
+    },
+    {
+     "name": "ArmorPlate",
+     "size": [
+      2.0625,
+      0.1875,
+      0.375
+     ],
+     "position": [
+      0.0,
+      1.9688,
+      0.4688
+     ],
+     "color": "#495057",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "ArmorPlate",
+     "size": [
+      1.3125,
+      0.1875,
+      1.875
+     ],
+     "position": [
+      0.0,
+      1.9688,
+      0.0938
+     ],
+     "color": "#495057",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Shell",
+     "size": [
+      0.9375,
+      1.5,
+      1.6875
+     ],
+     "position": [
+      0.0,
+      1.5,
+      0.0
+     ],
+     "color": "#4361EE",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "Shell",
+     "size": [
+      1.6875,
+      1.5,
+      0.9375
+     ],
+     "position": [
+      0.0,
+      1.5,
+      0.0
+     ],
+     "color": "#4361EE",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "Shell",
+     "size": [
+      0.5625,
+      1.875,
+      1.6875
+     ],
+     "position": [
+      0.0,
+      1.5,
+      0.0
+     ],
+     "color": "#4361EE",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "Shine",
+     "size": [
+      0.1875,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      0.5625,
+      2.3438,
+      -0.5625
+     ],
+     "color": "#FFFFFF",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Shell",
+     "size": [
+      1.3125,
+      2.0625,
+      1.125
+     ],
+     "position": [
+      0.0,
+      1.4062,
+      0.0938
+     ],
+     "color": "#4361EE",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "AdmiralCap",
+     "size": [
+      0.9375,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      0.0,
+      2.5312,
+      -0.9375
+     ],
+     "color": "#1B1B1E",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Shell",
+     "size": [
+      0.9375,
+      2.625,
+      1.3125
+     ],
+     "position": [
+      0.0,
+      1.6875,
+      0.0
+     ],
+     "color": "#4361EE",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "Shell",
+     "size": [
+      1.125,
+      2.625,
+      0.9375
+     ],
+     "position": [
+      -0.0938,
+      1.6875,
+      0.0
+     ],
+     "color": "#4361EE",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "Shine",
+     "size": [
+      1.125,
+      0.5625,
+      0.1875
+     ],
+     "position": [
+      0.0938,
+      2.7188,
+      -0.375
+     ],
+     "color": "#FFFFFF",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "Shell",
+     "size": [
+      1.3125,
+      2.625,
+      0.75
+     ],
+     "position": [
+      0.0,
+      1.6875,
+      0.0938
+     ],
+     "color": "#4361EE",
+     "material": "SmoothPlastic",
+     "attributes": {
+      "Tint": 1.0
+     }
+    },
+    {
+     "name": "AdmiralCap",
+     "size": [
+      0.1875,
+      0.1875,
+      1.6875
+     ],
+     "position": [
+      -0.5625,
+      2.7188,
+      0.0
+     ],
+     "color": "#1B1B1E",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      0.9375,
+      0.1875,
+      1.5
+     ],
+     "position": [
+      0.0,
+      2.7188,
+      -0.0938
+     ],
+     "color": "#FCA311",
+     "material": "SmoothPlastic",
+     "reflectance": 0.15
+    },
+    {
+     "name": "AdmiralCap",
+     "size": [
+      0.1875,
+      0.1875,
+      1.6875
+     ],
+     "position": [
+      0.5625,
+      2.7188,
+      0.0
+     ],
+     "color": "#1B1B1E",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "AdmiralCap",
+     "size": [
+      1.6875,
+      0.1875,
+      1.3125
+     ],
+     "position": [
+      0.0,
+      2.7188,
+      0.0
+     ],
+     "color": "#1B1B1E",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "AdmiralCap",
+     "size": [
+      1.3125,
+      0.1875,
+      1.5
+     ],
+     "position": [
+      0.0,
+      2.7188,
+      0.0938
+     ],
+     "color": "#1B1B1E",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "AdmiralCap",
+     "size": [
+      1.3125,
+      0.1875,
+      1.6875
+     ],
+     "position": [
+      0.0,
+      2.9062,
+      0.0
+     ],
+     "color": "#F8F9FA",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "AdmiralCap",
+     "size": [
+      1.6875,
+      0.1875,
+      1.3125
+     ],
+     "position": [
+      0.0,
+      2.9062,
+      0.0
+     ],
+     "color": "#F8F9FA",
+     "material": "SmoothPlastic"
+    },
+    {
+     "name": "GoldTrim",
+     "size": [
+      0.1875,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      0.0,
+      3.0938,
+      -0.9375
+     ],
+     "color": "#FCA311",
+     "material": "SmoothPlastic",
+     "reflectance": 0.15
+    },
+    {
+     "name": "AdmiralCap",
+     "size": [
+      1.3125,
+      0.375,
+      1.3125
+     ],
+     "position": [
+      0.0,
+      3.0,
+      0.0
+     ],
+     "color": "#F8F9FA",
+     "material": "SmoothPlastic"
+    }
+   ]
+  },
+  {
+   "name": "Ornament",
+   "pivot": [
+    0.0,
+    1.5,
+    0.0
+   ],
+   "parts": [
+    {
+     "name": "OrbitStar",
+     "size": [
+      0.1875,
+      0.5625,
+      0.1875
+     ],
+     "position": [
+      1.5,
+      0.8438,
+      0.5625
+     ],
+     "color": "#34E7E4",
+     "material": "Neon",
+     "attributes": {
+      "Orbit": true,
+      "OrnamentPart": true
+     }
+    },
+    {
+     "name": "OrbitStar",
+     "size": [
+      0.1875,
+      0.1875,
+      0.5625
+     ],
+     "position": [
+      1.5,
+      0.8438,
+      0.5625
+     ],
+     "color": "#34E7E4",
+     "material": "Neon",
+     "attributes": {
+      "Orbit": true,
+      "OrnamentPart": true
+     }
+    },
+    {
+     "name": "OrbitStar",
+     "size": [
+      0.5625,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      1.5,
+      0.8438,
+      0.5625
+     ],
+     "color": "#34E7E4",
+     "material": "Neon",
+     "attributes": {
+      "Orbit": true,
+      "OrnamentPart": true
+     }
+    },
+    {
+     "name": "OrbitStar",
+     "size": [
+      0.1875,
+      0.5625,
+      0.1875
+     ],
+     "position": [
+      -1.125,
+      1.7812,
+      0.9375
+     ],
+     "color": "#FF4FD8",
+     "material": "Neon",
+     "attributes": {
+      "Orbit": true,
+      "OrnamentPart": true
+     }
+    },
+    {
+     "name": "OrbitStar",
+     "size": [
+      0.1875,
+      0.1875,
+      0.5625
+     ],
+     "position": [
+      -1.125,
+      1.7812,
+      0.9375
+     ],
+     "color": "#FF4FD8",
+     "material": "Neon",
+     "attributes": {
+      "Orbit": true,
+      "OrnamentPart": true
+     }
+    },
+    {
+     "name": "OrbitStar",
+     "size": [
+      0.5625,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      -1.125,
+      1.7812,
+      0.9375
+     ],
+     "color": "#FF4FD8",
+     "material": "Neon",
+     "attributes": {
+      "Orbit": true,
+      "OrnamentPart": true
+     }
+    },
+    {
+     "name": "OrbitStar",
+     "size": [
+      0.1875,
+      0.5625,
+      0.1875
+     ],
+     "position": [
+      -0.1875,
+      2.5312,
+      -1.5
+     ],
+     "color": "#34E7E4",
+     "material": "Neon",
+     "attributes": {
+      "Orbit": true,
+      "OrnamentPart": true
+     }
+    },
+    {
+     "name": "OrbitStar",
+     "size": [
+      0.1875,
+      0.1875,
+      0.5625
+     ],
+     "position": [
+      -0.1875,
+      2.5312,
+      -1.5
+     ],
+     "color": "#34E7E4",
+     "material": "Neon",
+     "attributes": {
+      "Orbit": true,
+      "OrnamentPart": true
+     }
+    },
+    {
+     "name": "OrbitStar",
+     "size": [
+      0.5625,
+      0.1875,
+      0.1875
+     ],
+     "position": [
+      -0.1875,
+      2.5312,
+      -1.5
+     ],
+     "color": "#34E7E4",
+     "material": "Neon",
+     "attributes": {
+      "Orbit": true,
+      "OrnamentPart": true
+     }
+    }
+   ]
+  }
+ ]
+}

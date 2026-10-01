@@ -16,3 +16,14 @@ build added.
 | `Egg_Zone3_Blocky` / `Egg_Zone3` | Mesh egg with rope and paper charms | `ReplicatedStorage.Assets.Eggs.Egg_Zone3` - shell for zone 3 eggs |
 | `Models` folder (Fence, flowers, mushrooms, bench, rocks, grass, crate, lamp, trees) | Prop set | `ServerStorage.Assets.Props` |
 | Second `RightWall_Glass_Optional` far from the school | Stray duplicate | `ServerStorage.Unsorted` |
+
+## Voxel models added since
+
+Built in Blender from `tools/blender/zone7.py` and placed by `lune run tools/import-art`.
+
+| Models | What they are | Where they are |
+|---|---|---|
+| `Char_Bolt`, `Char_Haruto`, `Char_Hive`, `Char_Hikari`, `Char_AdmiralGotetsu`, `Char_Daichi` | Zone 7 chibis, limbs as pivoted sub-models | `ReplicatedStorage.Assets.Characters` |
+| `Egg_Bolt`, `Egg_Haruto`, `Egg_Hive`, `Egg_Hikari`, `Egg_AdmiralGotetsu`, `Egg_Daichi` | Each zone 7 chibi's own Armor-Core egg | `ReplicatedStorage.Assets.Eggs` |
+
+Sources and other formats (`.blend`, FBX, `.rbxm`) are in `assets/models/zone7`.

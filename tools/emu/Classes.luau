@@ -898,6 +898,13 @@ local function worldPivot(real, st)
 	if st.virtual and st.virtual.WorldPivot then
 		return st.virtual.WorldPivot
 	end
+	-- a pivot saved in a place or model file lives in WorldPivotData
+	local okData, data = pcall(function()
+		return real.WorldPivotData
+	end)
+	if okData and typeof(data) == "CFrame" then
+		return data
+	end
 	local cf = boundsIn(modelParts(real), CFrame.identity)
 	return cf
 end

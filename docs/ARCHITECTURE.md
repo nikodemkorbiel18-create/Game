@@ -10,10 +10,14 @@ type-checked, rate-limited and re-validated.
 default.project.json            Rojo project (code only; never touches the map)
 StealAChibi.rbxl                Ready-to-play place (map + all scripts)
 assets/base-map.rbxl            Your original map, the input to every build
+assets/models/zone7/            Voxel chibis and eggs: .blend, FBX, .rbxm, part layouts
 docs/                           Setup, architecture, art spec, balancing, test plan, description
 tools/
   build-place.luau              Builds StealAChibi.rbxl (Lune)
-  map/{Common,Plots,Plaza,Zones,Gauntlet}.luau   Map generators
+  import-art.luau               Puts the voxel art (and fresh code) into StealAChibi.rbxl
+  art-check.luau                Builds every voxel egg/chibi through the real game code
+  blender/                      Voxel art pipeline: models as Python, built with Blender
+  map/{Common,Plots,Plaza,Zones,Gauntlet,Art}.luau   Map generators
   test.luau                     Unit tests for configs and formulas
   simulate.luau, tune.luau      Balancing simulator and price auto-tuner
   gen-art-spec.luau             Regenerates docs/ART_SPEC.md from configs

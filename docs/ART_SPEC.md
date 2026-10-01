@@ -65,6 +65,8 @@ Readability rule: **shape/ornament = rarity, colour = cosmetic only, overlay = z
 
 `Egg_Zone3` already uses your mesh egg (rope, paper charms, seal, shine). Drop more meshes named `Egg_ZoneN` into `ReplicatedStorage.Assets.Eggs` to replace the others.
 
+Zone 7 eggs are per character: each zone 7 chibi hatches from its own voxel Armor-Core egg (`Egg_<Id>`, set by `EggModel` in the character config) with its rarity ornament built in and the shell tinted with the zone palette. See [Voxel art: zone 7](#voxel-art-zone-7).
+
 ### Mutation overlays
 
 | Mutation | Income | Visual |
@@ -101,6 +103,31 @@ Readability rule: **shape/ornament = rarity, colour = cosmetic only, overlay = z
 | 9 | Demon General | `ServerStorage.Assets.Guardians.Guardian_DemonGeneral` | Curved horns and a purple cape; cute-cool, not scary. |
 | 10 | Mistveil Spirit | `ServerStorage.Assets.Guardians.Guardian_MistveilSpirit` | Drifting spirit wrapped in layered star-mist veils with a glowing lantern core. No mask or face. |
 | 11 | Celestial Warden | `ServerStorage.Assets.Guardians.Guardian_CelestialWarden` | White-gold armor, halo and a golden spear. |
+
+## Voxel art: zone 7
+
+Modelled in Blender from `tools/blender/zone7.py` on the same 3/16-stud grid as the Zone 3 egg; see [tools/blender/README.md](../tools/blender/README.md) for the style rules and the pipeline. The models ship as parts in `StealAChibi.rbxl` and as `.blend`, FBX and `.rbxm` in `assets/models/zone7`. Characters are split into `Head`, `Torso`, `ArmR`, `ArmL`, `LegR` and `LegL`, each pivoting at its joint.
+
+![Zone 7 lineup](art/zone7/lineup.png)
+
+Every egg shares the zone's Armor-Core shell (riveted armor bands and a framed glowing core) and adds its character's details. The shell takes a random zone 7 cosmetic colour; rows below are Bolt, Haruto, Hive, Hikari, Admiral Gōtetsu and Daichi.
+
+![Zone 7 egg colours](art/zone7/egg-colours.png)
+
+| Model | Parts | Size (studs) | Built-in ornament | Details |
+|---|---|---|---|---|
+| [`Char_Bolt`](art/zone7/models/Char_Bolt.png) | 131 | 3.94 x 5.44 x 3.38 | - | Mechanic: messy orange hair, goggles pushed up, yellow tee under slate overalls, work gloves, oil smudge on the cheek and a big wrench held at the side. |
+| [`Char_Haruto`](art/zone7/models/Char_Haruto.png) | 99 | 3.19 x 4.88 x 2.62 | - | Rookie pilot: orange flight suit with white collar and zip, navy belt and boots, round squadron patch, pilot headset with a boom mic. |
+| [`Char_Hive`](art/zone7/models/Char_Hive.png) | 95 | 3.19 x 6.00 x 2.44 | - | Drone operator: mint bob, teal hoodie, drone remote held out in both hands and four tiny drones orbiting overhead (they spin in game). |
+| [`Char_Hikari`](art/zone7/models/Char_Hikari.png) | 89 | 2.81 x 5.25 x 3.56 | - | Ace pilot: white flight suit with blue panels, silver high ponytail, tinted visor over the eyes and a gold wing badge. |
+| `Char_AdmiralGotetsu` | 115 | 3.19 x 4.88 x 3.00 | - | Iron admiral: navy greatcoat with gold epaulettes and buttons, white peaked cap, grey hair and moustache, stern brows, and a mechanical right arm with a glowing joint. |
+| `Char_Daichi` | 138 | 4.31 x 6.56 x 3.19 | - | Colossus pilot in a tiny mech suit: spiky-haired chibi head poking out of a boxy red suit with white plates, a glass cockpit, big yellow fists and a back thruster. |
+| [`Egg_Bolt`](art/zone7/models/Egg_Bolt.png) | 101 | 2.25 x 3.38 x 2.25 | Crown | Goggles strapped round the top, a wrench on the side, an oil smudge, amber core, crown. |
+| [`Egg_Haruto`](art/zone7/models/Egg_Haruto.png) | 88 | 2.81 x 3.38 x 2.44 | Crown | Pilot headset with ear cups and a boom mic, squadron patch, orange core, crown. |
+| [`Egg_Hive`](art/zone7/models/Egg_Hive.png) | 77 | 3.56 x 3.75 x 2.25 | Horns | Two tiny drones circling it, a little remote badge, mint core, horns. |
+| `Egg_Hikari` | 82 | 2.06 x 3.75 x 2.62 | Horns | Tinted visor band, gold wing badge, silver ponytail plume, blue core, horns. |
+| `Egg_AdmiralGotetsu` | 85 | 3.19 x 3.19 x 3.00 | Stars | Admiral's peaked cap, gold epaulettes and buttons, cyan core, orbiting stars. |
+| `Egg_Daichi` | 88 | 3.38 x 3.75 x 3.00 | Stars | Glass cockpit, mini yellow fists, back thruster, spiky hair tuft, yellow core, orbiting stars. |
 
 ## Characters
 
@@ -445,6 +472,7 @@ Readability rule: **shape/ornament = rarity, colour = cosmetic only, overlay = z
 #### Bolt (Legendary, $25K/s base)
 
 - **Asset slot:** `Char_Bolt`
+- **Model:** voxel, done ([render](art/zone7/models/Char_Bolt.png)), hatches from [`Egg_Bolt`](art/zone7/models/Egg_Bolt.png)
 - **Concept:** Mechanic with goggles, a wrench and an oil smudge
 - **Silhouette:** Standard chibi (head ~2.3 studs, body ~2.7 studs; 2.5 heads tall). messy tufts; goggles pushed up on the forehead; large wrench; oil smudge on the cheek
 - **Palette:** skin #E0AC69, hair #FF9F1C, outfit #577590 / #F9C74F, accent #ADB5BD, eyes #2B2B2B
@@ -454,6 +482,7 @@ Readability rule: **shape/ornament = rarity, colour = cosmetic only, overlay = z
 #### Haruto (Legendary, $32K/s base)
 
 - **Asset slot:** `Char_Haruto`
+- **Model:** voxel, done ([render](art/zone7/models/Char_Haruto.png)), hatches from [`Egg_Haruto`](art/zone7/models/Egg_Haruto.png)
 - **Concept:** Rookie pilot in a flight suit
 - **Silhouette:** Standard chibi (head ~2.3 studs, body ~2.7 studs; 2.5 heads tall). short neat hair; round squadron patch on the chest; pilot headset with boom mic
 - **Palette:** skin #F9D9C3, hair #3E2723, outfit #F77F00 / #FFFFFF, accent #003049, eyes #003049
@@ -463,6 +492,7 @@ Readability rule: **shape/ornament = rarity, colour = cosmetic only, overlay = z
 #### Hive (Mythic, $75K/s base)
 
 - **Asset slot:** `Char_Hive`
+- **Model:** voxel, done ([render](art/zone7/models/Char_Hive.png)), hatches from [`Egg_Hive`](art/zone7/models/Egg_Hive.png)
 - **Concept:** Drone operator orbited by tiny drones
 - **Silhouette:** Standard chibi (head ~2.3 studs, body ~2.7 studs; 2.5 heads tall). bob cut; four tiny drones orbiting overhead; handheld controller
 - **Palette:** skin #C68642, hair #80ED99, outfit #22577A / #38A3A5, accent #57CC99, eyes #22577A
@@ -472,6 +502,7 @@ Readability rule: **shape/ornament = rarity, colour = cosmetic only, overlay = z
 #### Hikari (Mythic, $110K/s base)
 
 - **Asset slot:** `Char_Hikari`
+- **Model:** voxel, done ([render](art/zone7/models/Char_Hikari.png))
 - **Concept:** Ace pilot with a sleek visor and a wing badge
 - **Silhouette:** Standard chibi (head ~2.3 studs, body ~2.7 studs; 2.5 heads tall). high ponytail; tinted ace-pilot visor; gold wing badge
 - **Palette:** skin #FFE0CC, hair #E9ECEF, outfit #FFFFFF / #4361EE, accent #FFBA08, eyes #4361EE
@@ -814,3 +845,5 @@ Readability rule: **shape/ornament = rarity, colour = cosmetic only, overlay = z
 - **Lumi** keeps a lavender bob instead of long teal twin tails, to stay clear of existing virtual idols.
 - **Kenta** (rookie shinobi) avoids orange jumpsuits, whisker marks and blond spiky hair.
 - **Puru** is green with a leaf sprout rather than blue, to stay clear of existing slime heroes.
+- **Hikari** (ace pilot) has a silver high ponytail, a tinted visor and a gold wing badge, and her suit is a flight suit rather than a skin-tight pilot bodysuit, to stay clear of existing mecha pilots.
+- **Admiral Gōtetsu** wears a navy greatcoat with a short moustache and a mechanical arm; no full white beard, eyepatch, scar or cape, so he doesn't read as an existing space-battleship captain.

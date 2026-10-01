@@ -368,12 +368,14 @@ add({
 })
 
 -- ZONE 7 — MECHA HANGAR --------------------------------------------------------
+-- Each zone 7 chibi hatches from its own voxel Armor-Core egg (Assets.Eggs.Egg_<Id>).
 add({
 	Id = "Bolt", DisplayName = "Bolt", Zone = 7, Rarity = "Legendary", BaseIncome = 25000,
 	Description = "Mechanic with goggles, a wrench and an oil smudge",
 	Catchphrases = { "Hand me the 10mm. No, the OTHER 10mm.", "If it's broke, I'll fix it!" },
 	Idle = "Tap", Emote = "Nod", HatchPose = "Flex",
 	Look = look("#E0AC69", "#FF9F1C", "Messy", "#577590", "#F9C74F", "#ADB5BD", "#2B2B2B", { "Goggles", "Wrench", "OilSmudge" }),
+	EggModel = "Egg_Bolt",
 })
 add({
 	Id = "Haruto", DisplayName = "Haruto", Zone = 7, Rarity = "Legendary", BaseIncome = 32000,
@@ -381,6 +383,7 @@ add({
 	Catchphrases = { "Launch checklist complete!", "My first sortie... let's go!" },
 	Idle = "Sway", Emote = "Salute", HatchPose = "Salute",
 	Look = look("#F9D9C3", "#3E2723", "Short", "#F77F00", "#FFFFFF", "#003049", "#003049", { "FlightPatch", "PilotHeadset" }),
+	EggModel = "Egg_Haruto",
 })
 add({
 	Id = "Hive", DisplayName = "Hive", Zone = 7, Rarity = "Mythic", BaseIncome = 75000,
@@ -388,6 +391,7 @@ add({
 	Catchphrases = { "Swarm formation B!", "My drones say hi." },
 	Idle = "Hover", Emote = "Spin", HatchPose = "Point",
 	Look = look("#C68642", "#80ED99", "Bob", "#22577A", "#38A3A5", "#57CC99", "#22577A", { "OrbitDrones", "Controller" }),
+	EggModel = "Egg_Hive",
 })
 add({
 	Id = "Hikari", DisplayName = "Hikari", Zone = 7, Rarity = "Mythic", BaseIncome = 110000,
@@ -395,6 +399,7 @@ add({
 	Catchphrases = { "Top of the leaderboard. Again.", "Wingmen, keep up!" },
 	Idle = "Sway", Emote = "Salute", HatchPose = "Point",
 	Look = look("#FFE0CC", "#E9ECEF", "Ponytail", "#FFFFFF", "#4361EE", "#FFBA08", "#4361EE", { "AceVisor", "WingBadge" }),
+	EggModel = "Egg_Hikari",
 })
 add({
 	Id = "AdmiralGotetsu", DisplayName = "Admiral Gōtetsu", Zone = 7, Rarity = "Cosmic", BaseIncome = 550000,
@@ -402,6 +407,7 @@ add({
 	Catchphrases = { "Steel the nerves, steady the course.", "All hands, full throttle!" },
 	Idle = "Sway", Emote = "Salute", HatchPose = "Salute",
 	Look = look("#E0AC69", "#ADB5BD", "Short", "#14213D", "#FCA311", "#ADB5BD", "#14213D", { "Greatcoat", "MechArm", "AdmiralCap" }),
+	EggModel = "Egg_AdmiralGotetsu",
 })
 add({
 	Id = "Daichi", DisplayName = "Daichi", Zone = 7, Rarity = "Cosmic", BaseIncome = 700000,
@@ -409,6 +415,7 @@ add({
 	Catchphrases = { "Small suit, BIG heart!", "Colossus mode... mini edition!" },
 	Idle = "Bounce", Emote = "Flex", HatchPose = "Flex",
 	Look = look("#F1C27D", "#2B2B2B", "Spiky", "#E5383B", "#F8F9FA", "#FFBA08", "#2B2B2B", { "MiniMechSuit" }, "Mech"),
+	EggModel = "Egg_Daichi",
 })
 
 -- ZONE 8 — ISEKAI KINGDOM ------------------------------------------------------

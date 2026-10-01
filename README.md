@@ -49,8 +49,16 @@ music IDs.
 - **Polish**: an anime hatch reveal, tutorial with a guide beam, toasts and banners, settings,
   low-graphics mode, and layouts that scale from a 390px phone to a TV.
 
-Placeholder characters, eggs and Guardians are built from simple parts. Drop real models into
-the asset folders to replace them without code changes (see
+Zone 7 (Mecha Hangar) has finished voxel art: all six chibis, each hatching from its own
+Armor-Core egg with the rarity ornament built in, on the same 3/16-stud grid as your Zone 3
+egg. They were modelled in Blender and ship as parts in the place, with `.blend`, FBX and
+`.rbxm` copies in [`assets/models/zone7`](assets/models/zone7) (see
+[tools/blender/README.md](tools/blender/README.md)).
+
+![Zone 7 voxel chibis and their eggs](docs/art/zone7/lineup.png)
+
+The other characters, eggs and Guardians are still placeholders built from simple parts.
+Drop real models into the asset folders to replace them without code changes (see
 [docs/ART_SPEC.md](docs/ART_SPEC.md)).
 
 ## Working on the code
@@ -70,6 +78,9 @@ lune run tools/soak           # five bots playing at once for 15 simulated minut
 lune run tools/guardian-lab   # escape/catch table for every zone's Guardian
 lune run tools/gauntlet-bot   # can careful players clear the Gatekeeper, and do careless ones fail?
 lune run tools/gen-art-spec   # regenerate docs/ART_SPEC.md from the configs
+python3 tools/blender/build.py   # voxel art: Blender scene, FBX, renders (pip install bpy==5.0.1)
+lune run tools/import-art     # put the voxel art and fresh code into StealAChibi.rbxl
+lune run tools/art-check      # build every voxel egg and chibi through the real game code
 ```
 
 `tools/emu` is a small headless stand-in for the Roblox engine: it runs the actual server
@@ -89,7 +100,8 @@ Everything designers tune lives in `src/ReplicatedStorage/Shared/Config/`.
 | [BALANCING.md](docs/BALANCING.md) | Pacing simulator results, the Guardian escape table, gauntlet difficulty |
 | [TEST_PLAN.md](docs/TEST_PLAN.md) | What the headless playtest covers, and the acceptance checklist for Studio |
 | [GAME_DESCRIPTION.md](docs/GAME_DESCRIPTION.md) | Store description, 5 thumbnail concepts, icon concept |
-| [MODELS.md](MODELS.md) | Where each model from your original map ended up |
+| [MODELS.md](MODELS.md) | Where each model from your original map ended up, and the voxel models added since |
+| [tools/blender/README.md](tools/blender/README.md) | The voxel art pipeline: style rules, outputs, switching to FBX meshes |
 
 ## Assumptions
 
